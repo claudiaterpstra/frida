@@ -2,19 +2,43 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Raleway", "Helvetica", "sans-serif";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 
 // Local fonts (uncomment following lines)
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: "San Francisco";
+  src: font-url('sf/sanfranciscodisplay-ultralight-webfont.woff') format('woff');
+  font-weight: 100;
+}
+@font-face {
+  font-family: "San Francisco";
+  src: font-url('sf/sanfranciscodisplay-thin-webfont.woff') format('woff');
+  font-weight: 200;
+}
+@font-face {
+  font-family: "San Francisco";
+  src: font-url('sf/sanfranciscodisplay-regular-webfont.woff') format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: "San Francisco";
+  src: font-url('sf/sanfranciscodisplay-medium-webfont.woff') format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: "San Francisco";
+  src: font-url('sf/sanfranciscodisplay-semibold-webfont.woff') format('woff');
+  font-weight: 600;
+}
+@font-face {
+  font-family: "San Francisco";
+  src: font-url('sf/sanfranciscodisplay-bold-webfont.woff') format('woff');
+  font-weight: 700;
+}
+
+$base-font: "Open Sans", "Helvetica", "sans-serif";
+$header-font: "Helvetica", "San Francisco", "sans-serif";
+$navbar-font: "San Francisco", "Helvetica", "sans-serif";
 
 // Font-size and line-height
 $base-size: 16px;
