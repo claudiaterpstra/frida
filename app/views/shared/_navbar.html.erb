@@ -7,16 +7,17 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
+    <!-- About link -->
+    <%= link_to "About", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+    <!-- Courses link -->
+    <%= link_to "Courses", courses_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
+
+    <!-- Studio Link -->
+    <%= link_to "Studio", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Notification -->
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
@@ -57,8 +58,16 @@
 
     <% end %>
 
+    <!-- Search form -->
+<!--     <form action="" class="navbar-wagon-search">
+      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
+      <button type="submit" class="navbar-wagon-search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </form> -->
+
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+<!--     <%# link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %> -->
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
