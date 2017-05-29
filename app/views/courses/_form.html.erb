@@ -1,0 +1,8 @@
+<%= simple_form_for @course, class: 'form-inline' do |f| %>
+  <%= f.input :name, placeholder: 'What is your course title?' %>
+  <%= f.input :category, placeholder: 'e.g. portraits, landscapes, etc.' %>
+  <%= f.input :description, placeholder: 'How would you describe your course?' %>
+  <%= f.input :price, placeholder: 'What is the price of your course in £ ?' %>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
