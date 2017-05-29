@@ -1,0 +1,14 @@
+<h1>Courses Page</h1>
+
+<div class="row">
+<% @courses.each do |course| %>
+<div class="col-xs-12 col-sm-4">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
+    <div class="card-category"><%= course.category %></div>
+    <h2><%= course.name %></h2>
+    </div>
+  </div>
+<% end %>
+</div>
+
+
