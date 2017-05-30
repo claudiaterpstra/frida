@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :show]
-before_action :set_course, only: [:show, :destroy]
+before_action :set_course, only: [:show, :edit, :update, :destroy]
 def index
     @courses = Course.all
   end
@@ -14,10 +14,19 @@ def index
 
   def create
     @course = Course.new(course_params)
+    @course.user = current_user
     if @course.save
       redirect_to course_path(@course)
     else render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @course.update(course_params)
+    redirect_to course_path(@course)
   end
 
   def destroy
@@ -32,6 +41,6 @@ def index
   end
 
   def course_params
-    params.require(:course).permit(:name, :category, :description, :price, :rating)
+    params.require(:course).permit(:name, :category, :description, :price, :rating, :photo)
   end
 end
