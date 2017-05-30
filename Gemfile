@@ -18,9 +18,6 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'faker'
-gem 'cloudinary', '1.1.7'
-gem 'attachinary', github: 'assembler/attachinary'
-gem 'coffee-rails'
 gem "jquery-slick-rails"
 
 # Attachinary
