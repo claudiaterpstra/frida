@@ -1,1 +1,33 @@
-<h1><%= @course.name  %></h1>
+<div class="container">
+    <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('background.jpg');">
+    <div class="banner-content">
+    <h1><%= @course.name  %></h1>
+    <p><%= @course.description %></p>
+    <a class="btn btn-primary btn-lg">Start now</a>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center">
+<h2>Category name</h2>
+<h3>Course overview</h3>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');"></div>
+          <h3>Duration</h3>
+          <p>10 weeks</p>
+      </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');"></div>
+        <h3>Price</h3>
+        <p><%= @course.price %></p>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');"></div>
+      <h3>What's included</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?</p>
+    </div>
+  </div>
+</div>
+
+
