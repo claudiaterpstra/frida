@@ -2,7 +2,7 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-.banner {
+.banner-home {
   color: white;
   text-align: center;
   height: 100vh;
@@ -12,16 +12,18 @@
   align-items: center;
   justify-content: center;
   margin-top: -70px;
-}
-.banner h1 {
+
+  h1 {
   font-size: 50px;
   font-weight: bold;
   color: black;
   // text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-}
-.banner p {
+  }
+
+  p {
   font-size: 20px;
   font-weight: lighter;
   color: black;
   margin-bottom: 20px;
+  }
 }
