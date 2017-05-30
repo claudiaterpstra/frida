@@ -1,17 +1,55 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <h1><%= @user.first_name %> <%= @user.last_name %>'s Page</h1>
-      <% if @user.photo? %>
-        <%= unique_image_tag(current_user, width: 200, height: 300, crop: :fill) %>
-      <% end %>
-      <h3>Email: <%= @user.email %></h3>
-      <h3>Member Since: <%= @user.created_at %></h3>
-      <%= link_to "Edit Profile", edit_user_path(@user) %>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <h3>Courses Currently Enrolled In</h3>
-      <h3>Courses Completed</h3>
+<div class="banner-user">
+  <%= unique_image_tag(current_user, crop: :fill) %>
+  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<!--       <h3>Email: <%# @user.email %></h3>
+-->  <p>Member Since: <%= @user.created_at.strftime("%e %B %Y") %></p>
+</div>
+  <div class="container">
+    <div class="banner-bio">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae enim accusantium eligendi incidunt placeat aperiam sunt quia earum soluta.</p>
+      <i class="fa fa-facebook" aria-hidden="true"></i>
+      <i class="fa fa-twitter" aria-hidden="true"></i>
+      <i class="fa fa-instagram" aria-hidden="true"></i>
     </div>
   </div>
-</div>
+
+  <div class="banner-studio">
+    <div class="banner-studio-title">
+      <h2><%= @user.first_name %>'s studio</h2>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="user-studio-gallery">
+      <img src="https://placehold.it/100x100" alt="">
+      <img src="https://placehold.it/100x100" alt="">
+      <img src="https://placehold.it/100x100" alt="">
+      <img src="https://placehold.it/100x100" alt="">
+      <img src="https://placehold.it/100x100" alt="">
+      <img src="https://placehold.it/100x100" alt="">
+    </div>
+  </div>
+
+  <div class="banner-studio">
+    <div class="banner-studio-title">
+      <h2>Completed Courses</h2>
+    </div>
+  </div>
+
+    <div class="container">
+    <div class="user-studio-gallery">
+      <img src="https://placehold.it/100x100" alt="">
+      <img src="https://placehold.it/100x100" alt="">
+      <img src="https://placehold.it/100x100" alt="">
+      <img src="https://placehold.it/100x100" alt="">
+      <img src="https://placehold.it/100x100" alt="">
+      <img src="https://placehold.it/100x100" alt="">
+    </div>
+
+      <p><%= link_to "Create New Course", new_course_path %></p>
+
+  </div>
+
+
+
+  <%# link_to "Edit Profile", edit_user_path(@user) %>

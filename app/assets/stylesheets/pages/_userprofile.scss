@@ -1,0 +1,47 @@
+.banner-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F0EEEE;
+  padding: 20px 0;
+
+}
+
+.banner-bio {
+  padding: 25px 0;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  i {
+    font-size: 20px;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.banner-studio {
+  display: flex;
+  justify-content: center;
+  background-color: #F0EEEE;
+}
+
+.user-studio-gallery {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  img {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  a {
+    text-align: center;
+  }
+}
+
+.slick-prev:before, .slick-next:before {
+  color: #ccc;
+}
+
