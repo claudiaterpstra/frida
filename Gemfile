@@ -8,6 +8,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
+gem 'omniauth-facebook'
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -16,8 +17,12 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
-gem 'devise'
 gem 'faker'
+
+# Attachinary
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'coffee-rails'
 
 group :development, :test do
   gem 'binding_of_caller'

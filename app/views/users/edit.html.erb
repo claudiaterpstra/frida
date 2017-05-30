@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <% if @user.first_name != "" %>
+        <h1>Editing <%= @user.first_name %>'s Profile</h1>
+      <% else %>
+        <h1>Editing Your Profile</h1>
+      <% end %>
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

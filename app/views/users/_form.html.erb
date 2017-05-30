@@ -1,0 +1,8 @@
+<%= simple_form_for @user, class: 'form-inline' do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :photo, as: :attachinary %>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
