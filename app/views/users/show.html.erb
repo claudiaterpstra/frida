@@ -2,9 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <h1><%= @user.first_name %> <%= @user.last_name %>'s Page</h1>
-      <% if @user.photo? %>
-        <%= unique_image_tag(current_user, width: 200, height: 300, crop: :fill) %>
-      <% end %>
+      <%= unique_image_tag(current_user, width: 200, height: 300, crop: :fill) %>
       <h3>Email: <%= @user.email %></h3>
       <h3>Member Since: <%= @user.created_at %></h3>
       <%= link_to "Edit Profile", edit_user_path(@user) %>
@@ -15,3 +13,5 @@
     </div>
   </div>
 </div>
+
+

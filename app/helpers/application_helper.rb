@@ -1,7 +1,7 @@
 module ApplicationHelper
   def unique_image_tag(user, options = {})
-    if false #user.picture_url when merged with Facebook authentication
-      image_tag(user.picture_url, options)
+    if user.facebook_picture_url
+      image_tag(user.facebook_picture_url, options)
     elsif user.photo && user.photo.path
       cl_image_tag(user.photo.path, options)
     else
