@@ -5,7 +5,9 @@
   align-items: center;
   background-color: #F0EEEE;
   padding: 20px 0;
-
+  img {
+  border-radius: 50%;
+  }
 }
 
 .banner-bio {
@@ -26,6 +28,10 @@
   display: flex;
   justify-content: center;
   background-color: #F0EEEE;
+  padding-bottom: 10px;
+  h2 {
+    font-size: 20px;
+  }
 }
 
 .user-studio-gallery {
@@ -43,5 +49,10 @@
 
 .slick-prev:before, .slick-next:before {
   color: #ccc;
+}
+
+.slick-slide {
+width: 200px;
+height: 300px;
 }
 
