@@ -8,9 +8,9 @@
   </div>
 </div>
 
-<div class="container text-center">
-<h2>Category name</h2>
-<h3>Course overview</h3>
+<div class="container text-center section">
+<h3>Category name</h3>
+<p>Course overview</p>
   <div class="row">
     <div class="col-xs-12 col-sm-4">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');"></div>
@@ -25,9 +25,42 @@
     <div class="col-xs-12 col-sm-4">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');"></div>
       <h3>What's included</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?</p>
+      <p><%= @course.description %></p>
     </div>
   </div>
 </div>
 
+<div class="container text-center section">
+  <h3>Materials</h3>
+  <p>What you need</p>
+  <div class="row">
+    <div class="col-xs-6">
+      <a href="http://placehold.it"><img src="http://placehold.it/200x200"></a>
+    </div>
+    <div class="col-xs-6">
+      <p>What you need</p>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center">
+  <h3>Meet the artist</h3>
+  <p><%= @course.user.first_name %> <%= @course.user.last_name %></p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+      <div class="card instructor" style="background-color: grey");">
+        <%= unique_image_tag(@course.user) %>
+          <div class="flex-body">
+           <p>Name</p>
+           <p>Bio</p>
+           <p>Social media links</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
