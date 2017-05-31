@@ -28,4 +28,8 @@ class User < ApplicationRecord
 
     return user
   end
+
+  def participates_to?(given_course)
+    participations.pluck(:course_id).include?(given_course.id)
+  end
 end
