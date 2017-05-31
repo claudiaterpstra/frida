@@ -1,13 +1,10 @@
 .section {
   height: 80vh;
-  padding-top: 30px;
+  padding-top: 50px;
 }
 
-.instructor {
+.card-instructor {
   display: flex;
+  justify-content: space-around;
   align-items: center;
-}
-
-.flex-body {
-  flex: 1 0 auto;
 }
