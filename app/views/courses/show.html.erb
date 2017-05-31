@@ -5,12 +5,16 @@
     <p><%= @course.description %></p>
     <% if user_signed_in? %>
       <% if current_user.participates_to?(@course) %>
-        You already booked this course
-      <% end %>
+        You are booked on this course
       <% else %>
         <%= simple_form_for [@course, @participation], class: 'form-inline' do |f| %>
           <%= f.submit "Book This Course", class: "btn btn-primary btn-lg" %>
         <% end %>
+      <% end %>
+    <% else %>
+      <%= simple_form_for [@course, @participation], class: 'form-inline' do |f| %>
+        <%= f.submit "Book This Course", class: "btn btn-primary btn-lg" %>
+      <% end %>
     <% end %>
     </div>
   </div>
