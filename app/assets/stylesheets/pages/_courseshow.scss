@@ -1,8 +1,3 @@
-.section {
-  height: 80vh;
-  padding-top: 50px;
-}
-
 .card-instructor {
   display: flex;
   justify-content: space-around;
@@ -11,3 +6,27 @@
 
 .flex-body {
 }
+
+.banner-course-image {
+  height: 50vh;
+}
+
+.banner-course-content {
+  padding: 25px 0;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.course-overview {
+  // height: 80vh;
+  h1 {
+    font-family: "Helvetica";
+    font-weight: bold;
+    font-size: 30px;
+    background-color: #F9F9F9;
+    padding: 20px 0;
+  }
+}
+
+
