@@ -1,8 +1,12 @@
 class CoursesController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :show]
 before_action :set_course, only: [:show, :edit, :update, :destroy]
-def index
-    @courses = Course.all
+  def index
+    @courses = if params[:search]
+      Course.where("category LIKE ?", "%#{params[:search]}%")
+    else
+      Course.all
+    end
   end
 
   def show
@@ -42,6 +46,6 @@ def index
   end
 
   def course_params
-    params.require(:course).permit(:name, :category, :description, :price, :rating, :photo)
+    params.require(:course).permit(:name, :category, :description, :price, :rating, :photo, :search)
   end
 end
