@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user
   def show
-    @courses = current_user.courses_participated
+    @courses = @user.courses_participated
   end
 
   def edit
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name)
+    params.require(:user).permit(:first_name, :last_name, :photo)
   end
 
 end
