@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :courses, dependent: :destroy
   has_many :participations
+  has_many :courses_participated, -> { distinct }, through: :participations, source: :course
   has_attachment :photo
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
