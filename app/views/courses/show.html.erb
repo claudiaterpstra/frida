@@ -1,1 +1,66 @@
-<h1><%= @course.name  %></h1>
+<div class="container">
+    <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('background.jpg');">
+    <div class="banner-content">
+    <h1><%= @course.name  %></h1>
+    <p><%= @course.description %></p>
+    <a class="btn btn-primary btn-lg">Book this course</a>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center section">
+<h3>Category name</h3>
+<p>Course overview</p>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');"></div>
+          <h3>Duration</h3>
+          <p>10 weeks</p>
+      </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');"></div>
+        <h3>Price</h3>
+        <p><%= @course.price %></p>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');"></div>
+      <h3>What's included</h3>
+      <p><%= @course.description %></p>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center section">
+  <h3>Materials</h3>
+  <p>What you need</p>
+  <div class="row">
+    <div class="col-xs-6">
+      <a href="http://placehold.it"><img src="http://placehold.it/200x200"></a>
+    </div>
+    <div class="col-xs-6">
+      <p>What you need</p>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center">
+  <h3>Meet the artist</h3>
+  <p><%= @course.user.first_name %> <%= @course.user.last_name %></p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+      <div class="card instructor" style="background-color: grey");">
+        <%= unique_image_tag(@course.user) %>
+          <div class="flex-body">
+           <p>Name</p>
+           <p>Bio</p>
+           <p>Social media links</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
