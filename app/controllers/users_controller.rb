@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user
   def show
+    @courses = current_user.courses_participated
   end
 
   def edit
