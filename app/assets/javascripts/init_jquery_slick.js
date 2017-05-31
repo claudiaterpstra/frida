@@ -1,3 +1,7 @@
 $(document).on('ready', function() {
-  $('#my-slider').slick({});
+  $('.user-studio-gallery').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    variableWidth: true
+  });
 });
