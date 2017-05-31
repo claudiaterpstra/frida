@@ -1,7 +1,14 @@
 class ParticipationsController < ApplicationController
-
+  before_action :set_course
+  # before_action :set_user
   def create
-    Participation.create!(user_id: current_user.id , course_id: @course)
+    Participation.create!(user: current_user , course: @course)
     redirect_to course_path(@course)
+  end
+
+  private
+
+  def set_course
+    @course = Course.find(params[:course_id])
   end
 end

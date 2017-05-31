@@ -3,7 +3,13 @@
     <div class="banner-content">
     <h1><%= @course.name  %></h1>
     <p><%= @course.description %></p>
-    <a class="btn btn-primary btn-lg">Book this course</a>
+    <% if current_user.participates_to?(@course) %>
+      You already booked this course
+    <% else %>
+      <%= simple_form_for [@course, @participation], class: 'form-inline' do |f| %>
+        <%= f.submit "Book This Course", class: "btn btn-primary btn-lg" %>
+      <% end %>
+    <% end %>
     </div>
   </div>
 </div>
