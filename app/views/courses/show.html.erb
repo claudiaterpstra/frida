@@ -3,7 +3,10 @@
     <div class="banner-content">
     <h1><%= @course.name  %></h1>
     <p><%= @course.description %></p>
-    <a class="btn btn-primary btn-lg">Book this course</a>
+    <%= simple_form_for @course, class: 'form-inline' do |f| %>
+      <%= f.submit "Book This Course", class: "btn btn-primary btn-lg" %>
+    <% end %>
+
     </div>
   </div>
 </div>
