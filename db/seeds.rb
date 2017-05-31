@@ -11,7 +11,7 @@ Course.destroy_all
 
 courses_attributes = [
   {
-    name: "Portrait Paiting",
+    name: "Portrait Painting",
     description: "Portrait painting is a genre in painting, where the intent is to depict a human subject.",
     price: 30,
     rating: 3,
@@ -19,7 +19,7 @@ courses_attributes = [
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496154562/svy4u8zpotvoj3ziqeyb.jpg"
   },
    {
-    name: "Landscape Paiting",
+    name: "Landscape Painting",
     description: "Landscape painting, also known as landscape art, is the depiction in art of landscapes – natural scenery such as mountains, valleys, trees, rivers, and forests, especially where the main subject is a wide view – with its elements arranged into a coherent composition.",
     price: 50,
     rating: 4,
@@ -51,7 +51,7 @@ courses_attributes = [
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496157349/quyq3g1ne69dqhp2rhm7.jpg"
   },
    {
-    name: "Colour Field Paiting",
+    name: "Colour Field Painting",
     description: "Colour field paintings are characterized by large, solid colours on a flat plane. The colours are the subjects themselves, and they are normally painted on large canvas material. Compared to abstract expressionism, colour field painters aim to present their paintings as one cohesive image.",
     price: 50,
     rating: 4,
@@ -83,7 +83,7 @@ courses_attributes = [
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162093/The_Scream_rw5haf.jpg"
   },
    {
-    name: "Surrealism Paiting",
+    name: "Surrealism Painting",
     description: "Although not the purest form of abstract painting, you will find traces of abstract thinking in Surrealism. This is actually a movement that sprouted in the early 20th century. It included writing and many forms of visual artworks. Obviously, paintings became a big part of this movement. These Surrealistic paintings could strike you with elements of surprise. This remains one of its primary features too. Juxtaposition, placing two abstract concepts together, is another feature of Surrealistic paintings.",
     price: 50,
     rating: 4,
@@ -107,7 +107,7 @@ courses_attributes = [
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162091/abstract_hhnknv.jpg"
   },
   {
-    name: "Van Gogh Paiting",
+    name: "Van Gogh Painting",
     description: "However, in most of his famous creations, he hardly touched the canvas with a brush. Pouring paint onto the canvas was his style of painting. This way he could capture the natural movement of paint too. Another famous expressionist artist is Vincent Van Gogh.",
     price: 30,
     rating: 3,
@@ -115,7 +115,7 @@ courses_attributes = [
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162092/vangogh_z3uwwi.jpg"
   },
    {
-    name: "Cubism Paiting",
+    name: "Cubism Painting",
     description: "Today, Cubism is another style of abstract art painting. But, Cubism was a strong presence in the art world even before abstract painting became prevalent. People like Picasso, Braque, Gris etc followed Cubism and made it famous. The world of art painting would have never been the same without contributions from these Cubist artists.",
     price: 50,
     rating: 4,
@@ -139,7 +139,7 @@ courses_attributes = [
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162091/indian_covbqe.jpg"
   },
   {
-    name: "Acryllic Paiting",
+    name: "Acryllic Painting",
     description: "If you are looking for faster drying painting, then acrylic painting is the best. These are water soluble paints, yet once the painting is complete, it turns water resistant. Interesting fact isnt't it? Most hobbyists love to work with acrylic paints. For sculptures, moulding, facial features, many artists use acrylic painting. It is easier to clean the brushes after ise, since acrylic paints need only water to wash them off.",
     price: 30,
     rating: 3,
@@ -177,8 +177,8 @@ courses_attributes = [
   user = User.create!(
     email: Faker::Internet.free_email,
     password: '123456',
-    first_name: Faker::LordOfTheRings.character,
-    last_name: Faker::GameOfThrones.house
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
   )
 
   rand(2..6).times do

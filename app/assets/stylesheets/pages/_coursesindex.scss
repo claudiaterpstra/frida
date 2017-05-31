@@ -1,14 +1,43 @@
-.course-headeing {
-  padding: 10px;
-}
-
 .courses-display {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .courses-box {
   flex: 0 0 16%;
+  padding-bottom: 20px;
+}
+
+.card-course-card {
+  transition: 0.5s;
+
+  &:hover {
+    transition: 0.5s;
+    opacity:0.5;
+    background-color: Black;
+  }
+}
+
+.course-heading h1 {
+  font-family: "Helvetica";
+  font-weight: bold;
+}
+
+.card-course-name h2 {
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.card-course-name p {
+    font-size: 12px;
+}
+
+.course-rating p {
+  font-size: 12px;
+
+  i {
+    color: #00A699;
+  }
 }

@@ -38,8 +38,11 @@
   z-index:2;
   background: black;
   opacity: 0;
+  transition: 0.5s;
 }
 .card-link:hover{
-  opacity: 0.1;
+  transition: 0.5s;
+  opacity:0.5;
+  background-color: Black;
 }
 
