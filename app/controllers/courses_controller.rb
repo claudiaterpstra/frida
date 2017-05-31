@@ -6,6 +6,7 @@ def index
   end
 
   def show
+    @participation = Participation.new
   end
 
   def new
