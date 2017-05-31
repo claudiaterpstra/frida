@@ -29,4 +29,19 @@
   }
 }
 
+.banner-course-bio {
+  font-size: 13px;
+  padding-top: 30px;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  i {
+    font-size: 20px;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
 
