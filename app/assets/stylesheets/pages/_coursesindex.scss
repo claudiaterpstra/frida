@@ -1,0 +1,14 @@
+.course-headeing {
+  padding: 10px;
+}
+
+.courses-display {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.courses-box {
+  flex: 0 0 16%;
+}

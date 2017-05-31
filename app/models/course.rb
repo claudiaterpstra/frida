@@ -1,6 +1,7 @@
 class Course < ApplicationRecord
   belongs_to :user
   has_many :participations
+  has_attachment :photo
   validates :name, presence: :true
   validates :category, presence: :true
   validates :description, presence: :true
