@@ -173,7 +173,7 @@ courses_attributes = [
 ]
 
 
-10.times do
+10.times do |i|
   user = User.create!(
     email: Faker::Internet.free_email,
     password: '123456',
@@ -181,10 +181,18 @@ courses_attributes = [
     last_name: Faker::Name.last_name
   )
 
+  puts "User #{i} created"
+
   rand(2..6).times do
     attrs = courses_attributes.sample.merge(user: user)
     attrs_no_photo = attrs.slice(:name, :description, :price, :rating, :category, :user)
     c = Course.create!(attrs_no_photo)
     c.photo_url = attrs[:photo]
+    puts "Course #{c.name} created"
   end
 end
+
+Material.create(name: "Paper", icon: "fa-tree")
+Material.create(name: "Pencil", icon: "fa-pencil")
+Material.create(name: "Brush", icon: "fa-paint-brush")
+Material.create(name: "Imagination", icon: "fa-paper-plane-o")
