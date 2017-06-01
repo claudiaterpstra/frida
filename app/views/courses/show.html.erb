@@ -110,7 +110,7 @@
       </div>
     </div>
   </div> -->
-<div class="container">
+<div class="container reviews-show">
   <% @course.course_reviews.each do |r| %>
     <p>
       <%= r.user.first_name %> says:
@@ -125,13 +125,17 @@
   <% end %>
 </div>
 
-<div class="container course_review_form">
-  <hr>
-  <h3>Add A Review</h3>
-  <%= simple_form_for [@course, @course_review], class: 'form-inline' do |f| %>
-    <%= f.input :rating, collection: 1..5 %>
-    <%= f.input :content, label: 'Review', as: :text %>
+ <% current_user.participations.each do |participation| %>
+  <% if participation.course == @course %>
+    <div class="container course_review_form">
+      <hr>
+      <h3>Add A Review</h3>
+      <%= simple_form_for [@course, @course_review], class: 'form-inline' do |f| %>
+        <%= f.input :rating, collection: 1..5 %>
+        <%= f.input :content, label: 'Review', as: :text %>
 
-    <%= f.submit "Add A Review", class: "btn btn-primary" %>
+        <%= f.submit "Add A Review", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+    </div>
   <% end %>
-</div>
