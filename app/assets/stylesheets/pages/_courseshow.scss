@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.show-instructor-avatar {
+  align-self: flex-start;
+}
+
 .flex-body {
 }
 
@@ -44,12 +48,16 @@
   }
 }
 
+.average-rating-show {
+  padding: 20px;
+}
+
 .reviews-show {
   padding-bottom: 20px;
 }
 
 .review-content {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .review-by {
