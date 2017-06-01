@@ -1,1 +1,36 @@
-// Your footer style
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 50px;
+  color: #FAF7EE;
+  background-color: #232323;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+ul {
+  list-style-type: none;
+  text-align: left;
+  font-size: 12px;
+  margin: 1px;
+}
+
+i {
+  padding-right: 10px;
+
+  &:hover {
+  color: #AB2B2B;
+  cursor: pointer;
+  cursor: hand;
+  }
+}
+
