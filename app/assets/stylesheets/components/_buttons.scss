@@ -1,0 +1,12 @@
+.btn-frida {
+  padding: 15px 55px;
+  font-size: 15px;
+  border-radius: 0px;
+  color: $frida-white;
+  background-color: $frida-red;
+
+  &:hover {
+    background-color: $frida-grey;
+    color: $frida-white;
+  }
+}
