@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :courses, dependent: :destroy
   has_many :participations
+  # has_many :courses, thorough: :participations    ---- CONNECTED TO METHOD THAT CONNECTS USERS TO COURSE PARTICIPATION BELOW
   has_many :courses_participated, -> { distinct }, through: :participations, source: :course
   has_attachment :photo
   devise :database_authenticatable, :registerable,
@@ -29,6 +30,15 @@ class User < ApplicationRecord
 
     return user
   end
+
+  # METHOD TO CONNECT USERS TO COURSE PARTICIPATION
+  # def courses_participated_in
+  #   courses = []
+  #   participations.each do |participation|
+  #     courses << participation.course
+  #   end
+  #   return courses
+  # end
 
   def participates_to?(given_course)
     participations.pluck(:course_id).include?(given_course.id)
