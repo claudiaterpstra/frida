@@ -6,3 +6,100 @@
   <div></div>
   <div></div>
 </div>
+
+<div class="banner-user">
+  <%= unique_image_tag(current_user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+  <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+<!--       <h3>Email: <%# @user.email %></h3>
+-->  <p>Member Since: <%= current_user.created_at.strftime("%e %B %Y") %></p>
+      <p><%= link_to "Edit Profile", edit_user_path(current_user) %> | <%= link_to "Create New Course", new_course_path %></p>
+</div>
+  <div class="container">
+    <div class="banner-bio">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae enim accusantium eligendi incidunt placeat aperiam sunt quia earum soluta.</p>
+      <i class="fa fa-facebook" aria-hidden="true"></i>
+      <i class="fa fa-twitter" aria-hidden="true"></i>
+      <i class="fa fa-instagram" aria-hidden="true"></i>
+    </div>
+  </div>
+
+
+<div class="tabs">
+  <a class="tab active" data-target="#student">
+    <h3>Student</h3>
+  </a>
+  <a class="tab" data-target="#teacher">
+    <h3>Teacher</h3>
+  </a>
+</div>
+
+<div class="tab-content" id="student">
+  <div class="banner-studio">
+    <div class="banner-studio-title">
+      <h2>Enrolled Courses</h2>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="user-studio-gallery">
+    <% current_user.courses_participated.each do |course| %>
+      <div class="courses-box courses-box-slick">
+        <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_path course.photo? ? course.photo.path : 'logo.png', crop: :fill %>');">
+          <div class="card-category card-category-slick"><%= course.category %></div>
+          <%= link_to "", course_path(course), class: "card-link"  %>
+          <div class="card-course-name-slick"><h2><%= course.name %></h2></div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
+
+  <div class="banner-studio">
+    <div class="banner-studio-title">
+      <h2>Badges</h2>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="tab-content hidden" id="teacher">
+   <div class="banner-studio">
+    <div class="banner-studio-title">
+      <h2>Taught Courses</h2>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="user-studio-gallery">
+      <% if current_user.courses.any? %>
+        <% current_user.courses.each do |course| %>
+            <div class="courses-box courses-box-slick">
+              <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_path course.photo? ? course.photo.path : 'logo.png', crop: :fill %>');">
+                <div class="card-category card-category-slick"><%= course.category %></div>
+                <%= link_to "", course_path(course), class: "card-link"  %>
+                <div class="card-course-name-slick"><h2><%= course.name %></h2></div>
+              </div>
+            </div>
+            <% end %>
+      <% else %>
+        <%= link_to "Become a teacher", new_course_path %>
+      <% end %>
+    </div>
+  </div>
+
+    <div class="banner-studio">
+      <div class="banner-studio-title">
+        <h2>Badges</h2>
+      </div>
+    </div>
+    <div class="achievement"></div>
+  </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="javascript/tabs.js"></script>

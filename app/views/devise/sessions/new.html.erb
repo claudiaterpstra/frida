@@ -1,22 +1,32 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-offset-4 col-sm-4">
-     <h2>Log in</h2>
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email, required: false, autofocus: true %>
-      <%= f.input :password, required: false %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+     <div class="form-titles">
+         <h2>Log in</h2>
+         <br>
+          <%= render "devise/shared/facebook" %>
+            <div class="line-text">
+            <p><span>or</span></p>
+            </div>
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true %>
+          <%= f.input :password, required: false %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Log in", class: "login-btn" %>
+        </div>
+      <% end %>
+
+      <div class="additional-links">
+        <%= link_to "Sign up", new_registration_path(:user), class:"" %><br />
+        <%= render "devise/shared/links" %>
+      </div>
+      <br>
+      <br>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
-    </div>
-  <% end %>
-
-
-  <%= render "devise/shared/links" %>
-
     </div>
   </div>
 </div>

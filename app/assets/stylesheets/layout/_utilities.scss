@@ -24,3 +24,28 @@
   background: #3b5998;
 }
 
+// Additional Links in Forms
+
+.additional-links a {
+  text-align: left;
+}
+
+.line-text p {
+  width:100%;
+  text-align:center;
+  border-bottom: 1px solid #eee;
+  line-height:0.1em;
+  margin: 20px 0;
+
+  span {
+    background:#fff;
+    padding:0 10px;
+    color: #ccc;
+  }
+}
+
+.form-titles h2 {
+  font-family: "Helvetica";
+  font-weight: bold;
+  font-size: 20px;
+}

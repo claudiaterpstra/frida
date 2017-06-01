@@ -36,8 +36,24 @@
 
 .course-rating p {
   font-size: 12px;
+  text-transform: uppercase;
 
   i {
     color: #00A699;
   }
+}
+
+.search-form-div {
+  width: 321px;
+  display: flex;
+  margin: 0 auto;
+  padding-bottom: 25px;
+}
+
+.form-control:focus {
+  border-color: $frida-red;
+  outline: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
