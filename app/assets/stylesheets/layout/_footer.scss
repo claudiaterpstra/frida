@@ -1,8 +1,4 @@
 .footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
   padding: 50px;
   color: #FAF7EE;
   background-color: #232323;
@@ -17,20 +13,22 @@
   align-items: flex-start;
 }
 
-ul {
+.footer-details ul {
   list-style-type: none;
   text-align: left;
   font-size: 12px;
   margin: 1px;
 }
 
-i {
-  padding-right: 10px;
-
+.footer-icons i {
+  margin-right: 10px;
   &:hover {
-  color: #AB2B2B;
-  cursor: pointer;
-  cursor: hand;
+    color: #AB2B2B;
+    cursor: pointer;
+    cursor: hand;
   }
 }
 
+#global-wrapper {
+  min-height: calc(100vh - 70px - 152px);
+}
