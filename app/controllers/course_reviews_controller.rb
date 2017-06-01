@@ -1,7 +1,9 @@
 class CourseReviewsController < ApplicationController
   before_action :set_course
   def create
-    @course_review = CourseReview.new(review_params, user: current_user , course: @course)
+    @course_review = CourseReview.new(course_review_params)
+    @course_review.user = current_user
+    @course_review.course = @course
     if @course_review.save
       redirect_to course_path(@course)
     else
@@ -14,7 +16,7 @@ class CourseReviewsController < ApplicationController
     @course = Course.find(params[:course_id])
   end
 
-  def review_params
-    params.require(:review).permit(:content, :rating)
+  def course_review_params
+    params.require(:course_review).permit(:content, :rating)
   end
 end

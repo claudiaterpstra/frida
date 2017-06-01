@@ -110,11 +110,28 @@
       </div>
     </div>
   </div> -->
+<div class="container">
+  <% @course.course_reviews.each do |r| %>
+    <p>
+      <%= r.user.first_name %> says:
+      <% r.rating.times do %>
+        <i class="fa fa-heart" aria-hidden="true"></i>
+      <% end %>
+      <% (5 - r.rating).times do %>
+        <i class="fa fa-heart-o" aria-hidden="true"></i>
+      <% end %>
+    </p>
+    <p class="review-content"><%= r.content %></p>
+  <% end %>
+</div>
 
+<div class="container course_review_form">
+  <hr>
+  <h3>Add A Review</h3>
+  <%= simple_form_for [@course, @course_review], class: 'form-inline' do |f| %>
+    <%= f.input :rating, collection: 1..5 %>
+    <%= f.input :content, label: 'Review', as: :text %>
 
-<%= simple_form_for [@course, @course_reviews], class: 'form-inline' do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
-
-  <%= f.submit "Add A Review", class: "btn btn-primary" %>
-<% end %>
+    <%= f.submit "Add A Review", class: "btn btn-primary" %>
+  <% end %>
+</div>
