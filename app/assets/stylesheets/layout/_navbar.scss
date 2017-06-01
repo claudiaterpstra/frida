@@ -13,6 +13,12 @@
   text-transform: uppercase;
 }
 
+.nav-absolute {
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;

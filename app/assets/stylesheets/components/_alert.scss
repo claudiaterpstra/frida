@@ -4,7 +4,6 @@
 
 .alert {
   margin: 0;
-  position: fixed;
   width: 100%;
   text-align: center;
   color: white;
@@ -14,4 +13,9 @@
 }
 .alert-warning {
   background: $red;
+}
+
+.flash-absolute {
+  position: absolute;
+  top: 70px;
 }
