@@ -1,1 +1,34 @@
-// Your footer style
+.footer {
+  padding: 50px;
+  color: #FAF7EE;
+  background-color: #232323;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.footer-details ul {
+  list-style-type: none;
+  text-align: left;
+  font-size: 12px;
+  margin: 1px;
+}
+
+.footer-icons i {
+  margin-right: 10px;
+  &:hover {
+    color: #AB2B2B;
+    cursor: pointer;
+    cursor: hand;
+  }
+}
+
+#global-wrapper {
+  min-height: calc(100vh - 70px - 152px);
+}

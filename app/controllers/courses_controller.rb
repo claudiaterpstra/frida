@@ -11,6 +11,7 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def show
     @participation = Participation.new
+    @course_review = CourseReview.new
   end
 
   def new
