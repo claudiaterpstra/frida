@@ -2,9 +2,12 @@
 <div class="container">
   <div class="text-center course-heading">
     <h1>Browse Courses</h1>
+    <%= render 'searchform' %>
+
   </div>
   <%# link_to "Add A Course", new_course_path %>
   <br>
+
 
   <div class="courses-display">
 
@@ -20,8 +23,13 @@
           <p>Artist: <%= course.user.first_name %> <%= course.user.last_name %></p>
           £<%= course.price %>
           <div class="course-rating">
-          <p>Rating:<% course.rating.times do |rating| %>
-            <i class="fa fa-star" aria-hidden="true"></i>
+          <p>
+            Frida Says:
+            <% course.rating.times do |rating| %>
+              <i class="fa fa-heart" aria-hidden="true"></i>
+            <% end %>
+            <% (5 - course.rating).times do |rating| %>
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
             <% end %>
           </p>
           </div>
