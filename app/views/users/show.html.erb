@@ -3,7 +3,7 @@
   <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 <!--       <h3>Email: <%# @user.email %></h3>
 -->  <p>Member Since: <%= @user.created_at.strftime("%e %B %Y") %></p>
-      <p><%= link_to "Edit Profile", edit_user_path(@user) %> | <%= link_to "Create New Course", new_course_path %></p>
+       <%= link_to "Create New Course", new_course_path %></p>
 
 
 </div>
