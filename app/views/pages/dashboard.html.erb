@@ -1,3 +1,12 @@
+
+<div class="container">
+  <div class="achievement <%= current_user.one_participation? ? "" : "achievement-locked" %>">
+  <p>First badge</p>
+  </div>
+  <div></div>
+  <div></div>
+</div>
+
 <div class="banner-user">
   <%= unique_image_tag(current_user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
   <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>

@@ -1,0 +1,12 @@
+.achievement {
+  height: 60px;
+  width: 60px;
+  background-color: $frida-red;
+}
+
+.achievement-locked {
+  background-color: $frida-light-grey;
+  p {
+    color: grey;
+  }
+}
