@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :participations
   # has_many :courses, thorough: :participations    ---- CONNECTED TO METHOD THAT CONNECTS USERS TO COURSE PARTICIPATION BELOW
   has_many :courses_participated, -> { distinct }, through: :participations, source: :course
+  has_many :course_reviews
   has_attachment :photo
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
