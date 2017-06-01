@@ -3,8 +3,17 @@
 
 
 <div class="tabs">
-  <a class="tab active" href="#">
+  <a class="tab active" data-target="#student">
+    <h3>Student</h3>
+  </a>
+  <a class="tab active" data-target="#teacher">
+    <h3>Teacher</h3>
+  </a>
+</div>
+
+
   <div class="container">
+  <div class="tab-content" id="student">
     <div class="user-studio-gallery">
     <% current_user.courses_participated.each do |course| %>
       <div class="courses-box courses-box-slick">
@@ -17,14 +26,10 @@
     <% end %>
     </div>
   </div>
-  </a>
 </div>
 
-
-
-<div class="tabs">
-  <a class="tab active" href="#">
-  <div class="container">
+<div class="container">
+  <div class="tab-content hidden" id="teacher">
     <div class="user-studio-gallery">
       <% if current_user.courses.any? %>
         <% current_user.courses.each do |course| %>
@@ -41,6 +46,7 @@
       <% end %>
     </div>
   </div>
-  </a>
-  </div>
+</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="javascript/tabs.js"></script>
