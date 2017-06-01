@@ -1,4 +1,6 @@
 <%= form_tag(courses_path, method: :get) do %>
-    <%= text_field_tag :search, nil, placeholder: 'e.g. Portrait' %>
-    <%= submit_tag "Search" %>
-    <% end %>
+  <div class="search-form-div">
+    <%= text_field_tag :search, nil, placeholder: 'e.g. Portrait', class: "form-control" %>
+    <%= submit_tag "Search", class:"btn search-button" %>
+  </div>
+<% end %>

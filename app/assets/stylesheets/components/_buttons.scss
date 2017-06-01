@@ -10,3 +10,63 @@
     color: $frida-white;
   }
 }
+
+.btn-frida-form {
+  padding: 15px 153px;
+  font-size: 15px;
+  border-radius: 0px;
+  color: $frida-white;
+  background-color: $frida-red;
+
+  &:hover {
+    background-color: $frida-grey;
+    color: $frida-white;
+  }
+}
+
+.search-button {
+  background-color: $frida-red;
+  color: $frida-white;
+  padding: 2px 15px;
+  margin-left: 5px;
+
+  &:hover {
+    background-color: $frida-grey;
+    color: $frida-white;
+  }
+}
+
+.form-actions-btn {
+  padding-bottom: 20px;
+
+  .sign-up-btn {
+  padding: 15px 153px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  border-radius: 0px;
+  color: $frida-white;
+  background-color: $frida-red;
+
+    &:hover {
+      background-color: $frida-grey;
+      color: $frida-white;
+    }
+  }
+}
+
+.login-btn {
+  padding: 15px 153px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  border-radius: 0px;
+  color: $frida-white;
+  background-color: $frida-red;
+
+  &:hover {
+      background-color: $frida-grey;
+      color: $frida-white;
+  }
+}
+
