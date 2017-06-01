@@ -36,6 +36,10 @@ class User < ApplicationRecord
     participations.count >= 1
   end
 
+  def three_participations?
+    participations.count >= 3
+  end
+
   # METHOD TO CONNECT USERS TO COURSE PARTICIPATION
   # def courses_participated_in
   #   courses = []
