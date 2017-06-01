@@ -32,12 +32,12 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def update
     @course.update(course_params)
-    redirect_to course_path(@course)
+    redirect_to course_path
   end
 
   def destroy
     @course.destroy
-    redirect_to course_path
+    redirect_to dashboard_path
   end
 
   private
