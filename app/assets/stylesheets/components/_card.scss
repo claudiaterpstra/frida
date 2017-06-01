@@ -7,6 +7,12 @@
   color: white;
   position: relative;
 }
+
+.carousel-wrapper {
+  .card {
+    height: 200px;
+  }
+}
 .card-user {
   position: absolute;
   right: 10px;

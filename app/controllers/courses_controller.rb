@@ -21,6 +21,7 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
   def create
     @course = Course.new(course_params)
     @course.user = current_user
+    @course.rating = 0
     if @course.save
       redirect_to course_path(@course)
     else render :new
@@ -32,12 +33,12 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def update
     @course.update(course_params)
-    redirect_to course_path(@course)
+    redirect_to course_path
   end
 
   def destroy
     @course.destroy
-    redirect_to course_path
+    redirect_to dashboard_path
   end
 
   private
