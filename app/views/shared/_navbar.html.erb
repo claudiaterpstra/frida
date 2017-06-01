@@ -37,6 +37,11 @@
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
+             <li>
+              <%= link_to edit_user_path(current_user) do %>
+                <i class="fa fa-cog"></i> <%= t(".profile", default: "Edit settings") %>
+              <% end %>
+            </li>
 <!--             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
