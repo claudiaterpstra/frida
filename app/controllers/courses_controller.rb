@@ -20,6 +20,7 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
   def create
     @course = Course.new(course_params)
     @course.user = current_user
+    @course.rating = 0
     if @course.save
       redirect_to course_path(@course)
     else render :new
