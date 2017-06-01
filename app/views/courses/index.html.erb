@@ -23,8 +23,13 @@
           <p>Artist: <%= course.user.first_name %> <%= course.user.last_name %></p>
           £<%= course.price %>
           <div class="course-rating">
-          <p>Rating:<% course.rating.times do |rating| %>
-            <i class="fa fa-star" aria-hidden="true"></i>
+          <p>
+            Frida Says:
+            <% course.rating.times do |rating| %>
+              <i class="fa fa-heart" aria-hidden="true"></i>
+            <% end %>
+            <% (5 - course.rating).times do |rating| %>
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
             <% end %>
           </p>
           </div>

@@ -49,10 +49,13 @@
       <div class="show-card">
         <%= image_tag "frida-icon.png", {class: "show-card-image"}%>
       </div>
-        <h3 class="show-card-title">Frida Rating</h3>
+        <h3 class="show-card-title">Frida Says</h3>
         <% @course.rating.times do |rating| %>
-            <i class="fa fa-heart" aria-hidden="true"></i>
-            <% end %>
+          <i class="fa fa-heart" aria-hidden="true"></i>
+        <% end %>
+        <% (5 - @course.rating).times do |rating| %>
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+        <% end %>
         <p class="show-card-description"><%# @course.description %></p>
     </div>
   </div>
