@@ -1,7 +1,7 @@
 <div class="container">
     <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');">
     <div class="banner-course-content">
-    <h1><%= @course.name  %></h1><br><br>
+    <h2><%= @course.name  %></h2><br><br>
     <% if user_signed_in? %>
       <% if current_user.participates_to?(@course) %>
         You are booked on this course
@@ -27,8 +27,8 @@
 
 <div class="container">
   <div class="materials-banner-title">
-    <p>Course Category</p>
-    <h1>Course Overview</h1>
+    <p>Category: <%= @course.category %></p>
+    <h2>Course Overview</h2>
   </div>
 
   <div class="banner-course-bio">
@@ -62,7 +62,7 @@
 <div class="container">
   <div class="materials-banner-title">
     <p>things you'll need</p>
-    <h1>Your Course Materials</h1>
+    <h2>Your Course Materials</h2>
   </div>
 
   <div class="materials-banner-details">
@@ -93,7 +93,7 @@
 <div class="container">
   <div class="artist-banner-title">
     <p>meet the artist</p>
-    <h1>Your Course Instructor</h1>
+    <h2>Your Course Instructor</h2>
   </div>
 
   <div class="artist-banner-details">
@@ -101,32 +101,19 @@
       <%= unique_image_tag(@course.user) %>
     </div>
 
-<<<<<<< HEAD
     <div class="artist-banner-info">
       <div class="artist-full-name">
-        <h1>Artist Full Name</h1>
+        <h2><%= @course.user.first_name %> <%= @course.user.last_name %> </h2>
       </div>
       <div class="artist-banner-socials">
-=======
-<div class="container padded" style="background-color: rgb(211,211,211)">
-  <div class="row">
-  <h3 class="text-center">Meet the artist</h3>
-        <div class="show-instructor-avatar text-center">
-          <%= unique_image_tag(@course.user) %>
-        </div>
-    <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-      <div class="card-instructor" >
-        <div class="flex-body">
-         <h4><%= @course.user.first_name %> <%= @course.user.last_name %></h4>
-         <p>Born in 1967 in Mexico City, <%= @course.user.first_name %> is the leading Mexican artist of the generation that emerged in the wake of the influence of Gabriel Orozco and Francis Alÿs. <%= @course.user.first_name %> studied with Orozco in the informal studio class established in the older artist’s atelier in the late 1980s.</p>
->>>>>>> 3e22e031d7619f820102844efe695542938966b7
           <i class="fa fa-facebook" aria-hidden="true"></i>
           <i class="fa fa-twitter" aria-hidden="true"></i>
           <i class="fa fa-instagram" aria-hidden="true"></i>
           <i class="fa fa-dribbble" aria-hidden="true"></i>
           <i class="fa fa-github-alt" aria-hidden="true"></i>
       </div>
-      <p>Born in 1967 in Mexico City, Ortega is the leading Mexican artist of the generation that emerged in the wake of the influence of Gabriel Orozco and Francis Alÿs. Ortega studied with Orozco in the informal studio class established in the older artist’s atelier in the late 1980s.</p>
+      <p>Born in 1967 in Mexico City, <%= @course.user.first_name %> is the leading Mexican artist of the generation that emerged in the wake of the influence of Gabriel Orozco and Francis Alÿs. <%= @course.user.first_name %> studied with Orozco in the informal studio class established in the older artist’s atelier in the late 1980s.
+      </p>
         <div class="artist-banner-contact">
         <hr>
         <p>Got questions about the course?</p>
@@ -180,7 +167,7 @@
         <%= f.input :rating, collection: 1..5 %>
         <%= f.input :content, label: 'Review', as: :text %>
 
-        <%= f.submit "Add A Review", class: "btn btn-primary" %>
+        <%= f.submit "Add A Review", class: "btn btn-frida" %>
       <% end %>
     <% end %>
     </div>
