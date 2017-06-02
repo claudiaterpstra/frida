@@ -1,0 +1,197 @@
+.card-instructor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.show-instructor-avatar {
+  align-self: flex-start;
+}
+
+.flex-body {
+}
+
+.banner-course-image {
+  height: 50vh;
+}
+
+.banner-course-content {
+  padding: 25px 0;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.course-overview {
+  // height: 80vh;
+  h1 {
+    font-family: "Helvetica";
+    font-weight: 400;
+    font-size: 20px;
+    background-color: #F9F9F9;
+    padding: 20px 0;
+  }
+}
+
+.overview-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 25px;
+
+  p {
+    font-family: "San Francisco";
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: 0;
+    margin-top: 10px;
+  }
+}
+
+.overview-text {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.overview-rating {
+  i {
+    margin-bottom: 20px;
+  }
+}
+
+.materials-banner-info {
+  i {
+    font-size: 30px;
+    margin-top: 25px;
+  }
+
+  p {
+    font-family: "San Francisco";
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.banner-course-bio {
+  font-size: 13px;
+  padding-top: 30px;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  i {
+    font-size: 20px;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.average-rating-show {
+  padding: 20px;
+}
+
+.reviews-show {
+  padding-bottom: 20px;
+}
+
+.review-content {
+  font-size: 20px;
+}
+
+.review-by {
+  font-size: 15px;
+}
+
+.artist-banner-title {
+  background-color: $frida-light-grey;
+  text-align: center;
+  padding: 15px 0;
+
+
+  p {
+    margin-top: 10px;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: "San Francisco";
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 25px;
+    margin-top: 0px;
+    font-weight: 400;
+  }
+}
+
+.artist-banner-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.artist-banner-profile {
+  flex-basis: 30%;
+
+  img {
+    border-radius: 50%;
+    width: 200px;
+  }
+}
+
+.artist-banner-info {
+  flex-basis: 50%
+}
+
+.artist-banner-socials {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.materials-banner-title {
+  background-color: $frida-light-grey;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 10px;
+
+  p {
+    margin-top: 10px;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: "San Francisco";
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 25px;
+    margin-top: 0px;
+    font-weight: 400;
+  }
+}
+
+.materials-banner-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.materials-banner-info {
+  ul {
+    list-style: none;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+.materials-banner-img {
+  background-image: url('<%= image_path 'materials.jpg' %>');
+  background-size: cover;
+  background-position: center;
+  flex-basis: 100%;
+  height: 350px;
+}

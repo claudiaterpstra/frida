@@ -2,97 +2,112 @@
     <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');">
     <div class="banner-course-content">
     <h1><%= @course.name  %></h1><br><br>
-<!--     <p><%# @course.description %></p>
- -->    <% if user_signed_in? %>
+    <% if user_signed_in? %>
       <% if current_user.participates_to?(@course) %>
         You are booked on this course
       <% else %>
         <%= simple_form_for [@course, @participation], class: 'form-inline' do |f| %>
-          <%= f.submit "Book This Course", class: "btn btn-primary btn-lg" %>
+          <%= f.submit "Book This Course", class: "btn btn-frida" %>
         <% end %>
       <% end %>
     <% else %>
       <%= simple_form_for [@course, @participation], class: 'form-inline' do |f| %>
-        <%= f.submit "Book This Course", class: "btn btn-primary btn-lg" %>
+        <%= f.submit "Book This Course", class: "btn btn-frida" %>
       <% end %>
     <% end %>
     </div>
   </div>
 </div>
 
-  <div class="container">
+<!--   <div class="container">
     <div class="banner-course-bio">
-    <p><%= @course.description %></p>
+    <p><%# @course.description %></p>
     </div>
+  </div> -->
+
+<div class="container">
+  <div class="materials-banner-title">
+    <p>Course Category</p>
+    <h1>Course Overview</h1>
   </div>
 
-<div class="container text-center course-overview">
-  <h1>course overview</h1>
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="show-card">
-        <%= image_tag "alarm-clock.png", {class: "show-card-image"}%>
-      </div>
-        <h3 class="show-card-title">Duration</h3>
-        <p class="show-card-description">10 weeks</p>
+  <div class="banner-course-bio">
+    <p><%= @course.description %></p>
+  </div>
+
+  <div class="overview-details">
+    <div class="overview-duration overview-text">
+      <%= image_tag "alarm-clock.png", {class: "show-card-image"}%>
+      <p>5 hours of video lessons </p>
     </div>
 
-    <div class="col-xs-12 col-sm-4">
-      <div class="show-card">
-        <%= image_tag "money-bag.png", {class: "show-card-image"}%>
-      </div>
-        <h3 class="show-card-title">Price</h3>
-        <p class="show-card-description">£<%= @course.price %></p>
+    <div class="overview-price overview-text">
+      <%= image_tag "money-bag.png", {class: "show-card-image"}%>
+      <p>£<%= @course.price %></p>
     </div>
 
-    <div class="col-xs-12 col-sm-4">
-      <div class="show-card">
-        <%= image_tag "frida-icon.png", {class: "show-card-image"}%>
-      </div>
-        <h3 class="show-card-title">Frida Says</h3>
+    <div class="overview-rating overview-text">
+      <%= image_tag "frida-icon.png", {class: "show-card-image"}%>
+        <p>Frida Says</p>
         <% @course.rating.times do |rating| %>
           <i class="fa fa-heart" aria-hidden="true"></i>
         <% end %>
         <% (5 - @course.rating).times do |rating| %>
           <i class="fa fa-heart-o" aria-hidden="true"></i>
         <% end %>
-        <p class="show-card-description"><%# @course.description %></p>
     </div>
   </div>
 </div>
 
+<div class="container">
+  <div class="materials-banner-title">
+    <p>things you'll need</p>
+    <h1>Your Course Materials</h1>
+  </div>
 
-<div class="container text-center course-overview">
-  <h1>materials</h1>
-<!--   <p>what you'll need:</p>
- -->  <div class="row">
-      <div class="col-xs-12 col-sm-4">
-      <div class="materials-card">
-        <i class="fa fa-paint-brush" aria-hidden="true"></i><br>
-        <p>Brush</p>
-      </div>
-    </div>
+  <div class="materials-banner-details">
+    <div class="materials-banner-img"></div>
+    <div class="materials-banner-info text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-paint-brush" aria-hidden="true"></i><br>
+            <p>Brush</p>
+          </div>
 
-      <div class="col-xs-12 col-sm-4">
-      <div class="materials-card">
-        <i class="fa fa-pencil" aria-hidden="true"></i><br>
-        <p>Pencil</p>
-      </div>
-    </div>
+          <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-pencil" aria-hidden="true"></i><br>
+            <p>Pencil</p>
+          </div>
 
-      <div class="col-xs-12 col-sm-4">
-      <div class="materials-card">
-        <i class="fa fa-tree" aria-hidden="true"></i><br>
-        <p>Paper</p>
+          <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-tree" aria-hidden="true"></i><br>
+            <p>Paper</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<br><br><br>
 
-<!-- <div class="container text-center">
-</div> -->
+<div class="container">
+  <div class="artist-banner-title">
+    <p>meet the artist</p>
+    <h1>Your Course Instructor</h1>
+  </div>
 
+  <div class="artist-banner-details">
+    <div class="artist-banner-profile">
+      <%= unique_image_tag(@course.user) %>
+    </div>
+
+<<<<<<< HEAD
+    <div class="artist-banner-info">
+      <div class="artist-full-name">
+        <h1>Artist Full Name</h1>
+      </div>
+      <div class="artist-banner-socials">
+=======
 <div class="container padded" style="background-color: rgb(211,211,211)">
   <div class="row">
   <h3 class="text-center">Meet the artist</h3>
@@ -104,11 +119,19 @@
         <div class="flex-body">
          <h4><%= @course.user.first_name %> <%= @course.user.last_name %></h4>
          <p>Born in 1967 in Mexico City, <%= @course.user.first_name %> is the leading Mexican artist of the generation that emerged in the wake of the influence of Gabriel Orozco and Francis Alÿs. <%= @course.user.first_name %> studied with Orozco in the informal studio class established in the older artist’s atelier in the late 1980s.</p>
+>>>>>>> 3e22e031d7619f820102844efe695542938966b7
           <i class="fa fa-facebook" aria-hidden="true"></i>
           <i class="fa fa-twitter" aria-hidden="true"></i>
           <i class="fa fa-instagram" aria-hidden="true"></i>
-        </div>
+          <i class="fa fa-dribbble" aria-hidden="true"></i>
+          <i class="fa fa-github-alt" aria-hidden="true"></i>
       </div>
+      <p>Born in 1967 in Mexico City, Ortega is the leading Mexican artist of the generation that emerged in the wake of the influence of Gabriel Orozco and Francis Alÿs. Ortega studied with Orozco in the informal studio class established in the older artist’s atelier in the late 1980s.</p>
+        <div class="artist-banner-contact">
+        <hr>
+        <p>Got questions about the course?</p>
+        <%= link_to "Message Me", courses_path, class: "btn btn-frida" %>
+        </div>
     </div>
   </div>
 </div>
