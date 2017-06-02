@@ -4,15 +4,15 @@
        <%= unique_image_tag(current_user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
        <hr>
        <p>Welcome to your dashboard,</p>
-       <h1>User.name!</h1>
+       <h1><%= current_user.first_name %>!</h1>
        <br>
        <p>Donec nec lacus felis. In dignissim a felis auctor consequat. Donec sed massa vitae eros varius euismod id et turpis. Aenean pretium velit eget odio scelerisque placerat.</p>
 
      </div>
 
     <div class="dashboard-stats">
-      <h4>You are enrolled on 2 courses.</h4>
-      <h4>You have earned 5 badges!</h4>
+      <h4>You are enrolled on <%= current_user.participations.count %> courses.</h4>
+ <!--      <h4>You have earned 5 badges!</h4>  Haven't coded this yet, badge not a model!-->
     </div>
   </div>
 </div>
@@ -37,15 +37,24 @@
 
 <div class="dashboard-badges">
   <div class="container">
-        <p>Frida Points Earned and Badges</p>
+        <p>Frida Badges</p>
         <!-- <p>Collect points with each completed course and collect your badges!</p> -->
         <p>View all badges</p>
   </div>
 
 
    <div class="container">
-      <div class="achievement <%# current_user.one_participation? ? "" : "achievement-locked" %>">
+      <div class="achievement <% current_user.one_participation? ? '' : 'achievement-locked' %>">
       <p>First badge</p>
+    </div>
+    <div class="achievement <% current_user.three_participations? ? '' : 'achievement-locked' %>">
+      <p>Second badge</p>
+    </div>
+    <div class="achievement <% current_user.first_expressionism? ? '' : 'achievement-locked' %>">
+      <p>Third badge</p>
+    </div>
+    <div class="achievement <% current_user.first_review? ? '' : 'achievement-locked' %>">
+      <p>Fourth badge</p>
     </div>
 </div>
 

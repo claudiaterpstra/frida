@@ -1,7 +1,7 @@
 .achievement {
   width: 200px;
   height: 300px;
-  background-color: $frida-light-grey;
+  background-color: $frida-red;
 
   &:hover {
   background-color: $frida-grey;
@@ -9,7 +9,8 @@
 }
 
 .achievement-locked {
-  background-color: $frida-red;
+  background-color: $frida-light-grey;
+  opacity: 50%;
   p {
     color: grey;
   }

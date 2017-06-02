@@ -40,6 +40,16 @@ class User < ApplicationRecord
     participations.count >= 3
   end
 
+  def first_expressionism?
+    participations.each do |participation|
+      participation.course.category == "Expressionism"
+    end
+  end
+
+  def first_review?
+    course_reviews.count > 0
+  end
+
   # METHOD TO CONNECT USERS TO COURSE PARTICIPATION
   # def courses_participated_in
   #   courses = []
