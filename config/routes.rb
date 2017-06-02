@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   mount Attachinary::Engine => "/attachinary"
 
-  get 'dashboard', to: 'pages#dashboard'
+  get 'studentdashboard', to: 'pages#studentdashboard'
+  get 'artistdashboard', to: 'pages#artistdashboard'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :courses do
     resources :participations, only: [:create]

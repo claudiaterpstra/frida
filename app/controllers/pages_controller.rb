@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def home
   end
 
-  def dashboard
+  def studentdashboard
+  end
+
+  def artistdashboard
   end
 end

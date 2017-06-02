@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="banner-dashboard">
+    <div class="dashboard-bio">
+       <%= unique_image_tag(current_user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+       <hr>
+       <p>Welcome to your dashboard,</p>
+       <h1>User.name!</h1>
+       <br>
+       <p>Donec nec lacus felis. In dignissim a felis auctor consequat. Donec sed massa vitae eros varius euismod id et turpis. Aenean pretium velit eget odio scelerisque placerat.</p>
+
+     </div>
+
+    <div class="dashboard-stats">
+      <h4>You are enrolled on 2 courses.</h4>
+      <h4>You have earned 5 badges!</h4>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="dashboard-title frida-report">
+    <h1>Your Frida Report</h1>
+  </div>
+</div>
+
+<div class="dashboard-card">
+  <%= image_tag "addcoursecard.jpg", {class: "report-card"}%>
+  <%= image_tag "coursecardsample.png", {class: "report-card"}%>
+</div>
+
+<div class="container">
+  <div class="dashboard-title frida-report">
+    <h1>Your Badges</h1>
+  </div>
+</div>
+
+
+<div class="dashboard-badges">
+  <div class="container">
+        <p>Frida Points Earned and Badges</p>
+        <!-- <p>Collect points with each completed course and collect your badges!</p> -->
+        <p>View all badges</p>
+  </div>
+
+
+   <div class="container">
+      <div class="achievement <%# current_user.one_participation? ? "" : "achievement-locked" %>">
+      <p>First badge</p>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="javascript/tabs.js"></script> -->
