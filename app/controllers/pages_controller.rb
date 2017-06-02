@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def studentdashboard
+    @courses = current_user.courses_participated
   end
 
   def artistdashboard

@@ -41,15 +41,7 @@
 
   <div class="container">
     <div class="user-studio-gallery">
-    <% @courses.each do |course| %>
-      <div class="courses-box courses-box-slick">
-        <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_path course.photo? ? course.photo.path : 'logo.png', crop: :fill %>');">
-          <div class="card-category card-category-slick"><%= course.category %></div>
-          <%= link_to "", course_path(course), class: "card-link"  %>
-          <div class="card-course-name-slick"><h2><%= course.name %></h2></div>
-        </div>
-      </div>
-    <% end %>
+      <%= render 'shared/enrolledcoursecard' %>
 <!--       <img src="https://placehold.it/100x100" alt="">
       <img src="https://placehold.it/100x100" alt="">
       <img src="https://placehold.it/100x100" alt="">
