@@ -64,4 +64,16 @@ class User < ApplicationRecord
   def participates_to?(given_course)
     participations.pluck(:course_id).include?(given_course.id)
   end
+
+  def created_a_course?
+    courses.count >= 1
+  end
+
+  def count_students
+    students = 0
+    courses.each do |course|
+      students += course.participations.count
+    end
+    students >= 5
+  end
 end
