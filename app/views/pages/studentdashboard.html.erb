@@ -25,19 +25,7 @@
 
 <div class="container">
   <div class="user-studio-gallery">
-    <% current_user.participations.each do |participation| %>
-      <div class="courses-box courses-box-slick">
-        <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_path participation.course.photo? ? participation.course.photo.path : 'logo.png', crop: :fill %>');">
-          <div class="card-category card-category-slick">
-            <%= participation.course.category %>
-          </div>
-          <%= link_to "", course_path(participation.course), class: "card-link" %>
-          <div class="card-course-name-slick">
-            <h2><%= participation.course.name %></h2>
-          </div>
-        </div>
-      <% end %>
-    </div>
+    <%= render 'shared/enrolledcoursecard' %>
   </div>
 </div>
 </div>
