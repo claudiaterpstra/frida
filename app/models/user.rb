@@ -40,6 +40,22 @@ class User < ApplicationRecord
     participations.count >= 3
   end
 
+  def first_expressionism?
+    categories = []
+    participations.each do |participation|
+      categories << participation.course.category
+    end
+    categories.include?("Expressionism")
+  end
+
+  def first_review?
+    course_reviews.count > 0
+  end
+
+  def badge_count
+    [one_participation?, three_participations?, first_expressionism?, first_review?].count(true)
+  end
+
   # METHOD TO CONNECT USERS TO COURSE PARTICIPATION
   # def courses_participated_in
   #   courses = []
@@ -51,5 +67,21 @@ class User < ApplicationRecord
 
   def participates_to?(given_course)
     participations.pluck(:course_id).include?(given_course.id)
+  end
+
+  def created_a_course?
+    courses.count >= 1
+  end
+
+  def count_students
+    students = 0
+    courses.each do |course|
+      students += course.participations.count
+    end
+    students >= 5
+  end
+
+  def artist_badges
+    [created_a_course?, count_students].count(true)
   end
 end

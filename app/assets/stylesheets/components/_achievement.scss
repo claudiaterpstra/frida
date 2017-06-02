@@ -1,16 +1,69 @@
-.achievement {
-  width: 200px;
-  height: 300px;
-  background-color: $frida-light-grey;
+.achievement-badges{
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+}
 
-  &:hover {
-  background-color: $frida-grey;
-  }
+.achievement-participation {
+  // align-items: flex-start;
+  width: 220px;
+  height: 250px;
+  background-image: url('http://res.cloudinary.com/hw3i/image/upload/v1496400702/Badge1-Participation1_ogjxeo.png');
+  background-repeat: no-repeat;
+}
+
+.achievement-three-participations {
+  // align-items: flex-start;
+  width: 220px;
+  height: 250px;
+  background-image: url('http://res.cloudinary.com/hw3i/image/upload/v1496400703/Badge2-Participation3_b1nhos.png');
+  background-repeat: no-repeat;
+}
+
+.achievement-first-expressionism {
+  // align-items: flex-start;
+  width: 220px;
+  height: 250px;
+  background-image: url('http://res.cloudinary.com/hw3i/image/upload/v1496400702/Badge3-Category_fu8zwt.png');
+  background-repeat: no-repeat;
+}
+
+.achievement-first-review {
+  // align-items: flex-start;
+  width: 220px;
+  height: 250px;
+  background-image: url('http://res.cloudinary.com/hw3i/image/upload/v1496400702/Badge4-Review_emmype.png');
+  background-repeat: no-repeat;
+}
+
+.achievement-badges {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+}
+  
+.achievement-courses-created {
+  width: 220px;
+  height: 250px;
+  background-image: url('http://res.cloudinary.com/do6jihcuc/image/upload/v1496402782/Badge5_rsvl0e.png');
+  background-repeat: no-repeat;
+}
+
+.achievement-number-students {
+  width: 220px;
+  height: 250px;
+  background-image: url('http://res.cloudinary.com/do6jihcuc/image/upload/v1496402897/Badge_6_-_5_Students_zu6tru.png');
+  background-repeat: no-repeat;
 }
 
 .achievement-locked {
-  background-color: $frida-red;
+  opacity: 0.2;
+  width: 220px;
+  height: 250px;
+
   p {
     color: grey;
   }
 }
+  
+

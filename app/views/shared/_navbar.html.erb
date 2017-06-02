@@ -7,6 +7,10 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+  <!-- Artist Dashboard link -->
+  <% if user_signed_in? && current_user.courses.count >= 1 %>
+    <%= link_to "Artist Dashboard", artistdashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  <% end %>
     <!-- About link -->
     <%= link_to "About", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
@@ -33,13 +37,18 @@
           <%= unique_image_tag current_user, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
+              <%= link_to studentdashboard_path do %>
+                <i class="fa fa-paint-brush"></i><%= t(".profile", default: " My Dashboard") %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to user_path(current_user) do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: " Profile") %>
               <% end %>
             </li>
              <li>
               <%= link_to edit_user_path(current_user) do %>
-                <i class="fa fa-cog"></i> <%= t(".profile", default: "Edit settings") %>
+                <i class="fa fa-cog"></i> <%= t(".profile", default: " Edit settings") %>
               <% end %>
             </li>
 <!--             <li>
@@ -49,7 +58,7 @@
             </li> -->
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: " Log out") %>
               <% end %>
             </li>
           </ul>

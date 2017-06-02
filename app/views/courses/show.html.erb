@@ -101,11 +101,25 @@
       <%= unique_image_tag(@course.user) %>
     </div>
 
+<<<<<<< HEAD
     <div class="artist-banner-info">
       <div class="artist-full-name">
         <h1>Artist Full Name</h1>
       </div>
       <div class="artist-banner-socials">
+=======
+<div class="container padded" style="background-color: rgb(211,211,211)">
+  <div class="row">
+  <h3 class="text-center">Meet the artist</h3>
+        <div class="show-instructor-avatar text-center">
+          <%= unique_image_tag(@course.user) %>
+        </div>
+    <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+      <div class="card-instructor" >
+        <div class="flex-body">
+         <h4><%= @course.user.first_name %> <%= @course.user.last_name %></h4>
+         <p>Born in 1967 in Mexico City, <%= @course.user.first_name %> is the leading Mexican artist of the generation that emerged in the wake of the influence of Gabriel Orozco and Francis Alÿs. <%= @course.user.first_name %> studied with Orozco in the informal studio class established in the older artist’s atelier in the late 1980s.</p>
+>>>>>>> 3e22e031d7619f820102844efe695542938966b7
           <i class="fa fa-facebook" aria-hidden="true"></i>
           <i class="fa fa-twitter" aria-hidden="true"></i>
           <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -124,17 +138,20 @@
 
 <div class="container average-rating-show">
   <div class="average-rating">
-    <p>
-      Users Say:
-      <% @course.average_rating.times do |rating| %>
-        <i class="fa fa-heart" aria-hidden="true"></i>
-      <% end %>
-      <% (5 - @course.average_rating).times do %>
-        <i class="fa fa-heart-o" aria-hidden="true"></i>
-      <% end %>
-    </p>
+    <% if @course.average_rating > 0 %>
+      <p>
+        Users Say:
+        <% @course.average_rating.times do |rating| %>
+          <i class="fa fa-heart" aria-hidden="true"></i>
+        <% end %>
+        <% (5 - @course.average_rating).times do %>
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+        <% end %>
+      </p>
+    <% end %>
   </div>
 </div>
+
 <div class="container reviews-show">
   <% @course.course_reviews.each do |r| %>
     <p>
@@ -151,6 +168,7 @@
   <% end %>
 </div>
 
+<% if user_signed_in? %>
  <% current_user.participations.each do |participation| %>
   <% if participation.course == @course %>
     <div class="container course_review_form">
@@ -165,3 +183,4 @@
     <% end %>
     </div>
   <% end %>
+<% end %>
