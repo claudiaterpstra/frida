@@ -1,105 +1,58 @@
+<div class="container">
+  <div class="banner-dashboard">
+    <div class="dashboard-bio">
+       <%= unique_image_tag(current_user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+       <hr>
+       <p>Welcome to your dashboard,</p>
+       <h1>User.name!</h1>
+       <br>
+       <p>Donec nec lacus felis. In dignissim a felis auctor consequat. Donec sed massa vitae eros varius euismod id et turpis. Aenean pretium velit eget odio scelerisque placerat.</p>
+
+     </div>
+
+    <div class="dashboard-stats">
+      <h4>You are enrolled on 2 courses.</h4>
+      <h4>You have earned 5 badges!</h4>
+    </div>
+  </div>
+</div>
 
 <div class="container">
-  <div class="achievement <%= current_user.one_participation? ? "" : "achievement-locked" %>">
-  <p>First badge</p>
+  <div class="dashboard-title frida-report">
+    <h1>Your Frida Report</h1>
   </div>
-  <div></div>
-  <div></div>
 </div>
 
-<div class="banner-user">
-  <%= unique_image_tag(current_user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
-  <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-<!--       <h3>Email: <%# @user.email %></h3>
--->  <p>Member Since: <%= current_user.created_at.strftime("%e %B %Y") %></p>
-      <p><%= link_to "Edit Profile", edit_user_path(current_user) %> | <%= link_to "Create New Course", new_course_path %></p>
+<div class="dashboard-card">
+  <%= image_tag "addcoursecard.jpg", {class: "report-card"}%>
+  <%= image_tag "coursecardsample.png", {class: "report-card"}%>
 </div>
+
+<div class="container">
+  <div class="dashboard-title frida-report">
+    <h1>Your Badges</h1>
+  </div>
+</div>
+
+
+<div class="dashboard-badges">
   <div class="container">
-    <div class="banner-bio">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae enim accusantium eligendi incidunt placeat aperiam sunt quia earum soluta.</p>
-      <i class="fa fa-facebook" aria-hidden="true"></i>
-      <i class="fa fa-twitter" aria-hidden="true"></i>
-      <i class="fa fa-instagram" aria-hidden="true"></i>
-    </div>
+        <p>Frida Points Earned and Badges</p>
+        <!-- <p>Collect points with each completed course and collect your badges!</p> -->
+        <p>View all badges</p>
   </div>
 
 
-<div class="tabs">
-  <a class="tab active" data-target="#student">
-    <h3>Student</h3>
-  </a>
-  <a class="tab" data-target="#teacher">
-    <h3>Teacher</h3>
-  </a>
-</div>
-
-<div class="tab-content" id="student">
-  <div class="banner-studio">
-    <div class="banner-studio-title">
-      <h2>Enrolled Courses</h2>
+   <div class="container">
+      <div class="achievement <%# current_user.one_participation? ? "" : "achievement-locked" %>">
+      <p>First badge</p>
     </div>
-  </div>
-
-
-  <div class="container">
-    <div class="user-studio-gallery">
-    <% current_user.courses_participated.each do |course| %>
-      <div class="courses-box courses-box-slick">
-        <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_path course.photo? ? course.photo.path : 'logo.png', crop: :fill %>');">
-          <div class="card-category card-category-slick"><%= course.category %></div>
-          <%= link_to "", course_path(course), class: "card-link"  %>
-          <div class="card-course-name-slick"><h2><%= course.name %></h2></div>
-        </div>
-      </div>
-    <% end %>
-    </div>
-  </div>
-
-
-  <div class="banner-studio">
-    <div class="banner-studio-title">
-      <h2>Badges</h2>
-    </div>
-  </div>
 </div>
 
 
 
-  <div class="tab-content hidden" id="teacher">
-   <div class="banner-studio">
-    <div class="banner-studio-title">
-      <h2>Taught Courses</h2>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="user-studio-gallery">
-      <% if current_user.courses.any? %>
-        <% current_user.courses.each do |course| %>
-            <div class="courses-box courses-box-slick">
-              <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_path course.photo? ? course.photo.path : 'logo.png', crop: :fill %>');">
-                <div class="card-category card-category-slick"><%= course.category %></div>
-                <%= link_to "", course_path(course), class: "card-link"  %>
-                <div class="card-course-name-slick"><h2><%= course.name %></h2></div>
-              </div>
-            </div>
-            <% end %>
-      <% else %>
-        <%= link_to "Become a teacher", new_course_path %>
-      <% end %>
-    </div>
-  </div>
-
-    <div class="banner-studio">
-      <div class="banner-studio-title">
-        <h2>Badges</h2>
-      </div>
-    </div>
-    <div class="achievement"></div>
-  </div>
-</div>
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="javascript/tabs.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="javascript/tabs.js"></script> -->
