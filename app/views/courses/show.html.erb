@@ -142,6 +142,7 @@
   <% end %>
 </div>
 
+<% if user_signed_in? %>
  <% current_user.participations.each do |participation| %>
   <% if participation.course == @course %>
     <div class="container course_review_form">
@@ -156,3 +157,4 @@
     <% end %>
     </div>
   <% end %>
+<% end %>

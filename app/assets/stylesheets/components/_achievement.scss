@@ -1,16 +1,28 @@
-.achievement {
-  width: 200px;
-  height: 300px;
-  background-color: $frida-light-grey;
-
-  &:hover {
-  background-color: $frida-grey;
-  }
+.achievement-badges {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
 }
 
 .achievement-locked {
-  background-color: $frida-red;
+  opacity: 0.2;
+  width: 220px;
+  height: 250px;
   p {
     color: grey;
   }
+}
+
+.achievement-courses-created {
+  width: 220px;
+  height: 250px;
+  background-image: url('http://res.cloudinary.com/do6jihcuc/image/upload/v1496402782/Badge5_rsvl0e.png');
+  background-repeat: no-repeat;
+}
+
+.achievement-number-students {
+  width: 220px;
+  height: 250px;
+  background-image: url('http://res.cloudinary.com/do6jihcuc/image/upload/v1496402897/Badge_6_-_5_Students_zu6tru.png');
+  background-repeat: no-repeat;
 }
