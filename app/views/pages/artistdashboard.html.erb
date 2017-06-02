@@ -4,15 +4,14 @@
        <%= unique_image_tag(current_user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
        <hr>
        <p>Welcome to your dashboard,</p>
-       <h1>User.name!</h1>
+       <h1><%= current_user.first_name %></h1>
        <br>
        <p>Donec nec lacus felis. In dignissim a felis auctor consequat. Donec sed massa vitae eros varius euismod id et turpis. Aenean pretium velit eget odio scelerisque placerat.</p>
 
      </div>
 
     <div class="dashboard-stats">
-      <h4>You are enrolled on 2 courses.</h4>
-      <h4>You have earned 5 badges!</h4>
+      <h4>You are teaching <%= pluralize current_user.courses.count, "course" %>.</h4>
     </div>
   </div>
 </div>
@@ -23,10 +22,20 @@
   </div>
 </div>
 
-<div class="dashboard-card">
-  <%= image_tag "addcoursecard.jpg", {class: "report-card"}%>
-  <%= image_tag "coursecardsample.png", {class: "report-card"}%>
-</div>
+    <div class="container">
+      <div class="user-studio-gallery">
+          <% current_user.courses.each do |course| %>
+            <div class="courses-box courses-box-slick">
+              <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_path course.photo? ? course.photo.path : 'logo.png', crop: :fill %>');">
+                <div class="card-category card-category-slick"><%= course.category %></div>
+                <%= link_to "", course_path(course), class: "card-link"  %>
+                <div class="card-course-name-slick"><h2><%= course.name %></h2></div>
+                <div class="card-student card-category-slick">Students: <%= course.participations.count %></div>
+              </div>
+            </div>
+           <% end %>
+        </div>
+      </div>
 
 <div class="container">
   <div class="dashboard-title frida-report">
@@ -37,22 +46,17 @@
 
 <div class="dashboard-badges">
   <div class="container">
-        <p>Frida Points Earned and Badges</p>
-        <!-- <p>Collect points with each completed course and collect your badges!</p> -->
-        <p>View all badges</p>
   </div>
 
 
    <div class="container">
-      <div class="achievement <%# current_user.one_participation? ? "" : "achievement-locked" %>">
-      <p>First badge</p>
+   <div class="achievement-badges">
+      <div class="achievement-courses-created <%= current_user.created_a_course? ? '' : 'achievement-locked' %>">
+      </div>
+      <div class="achievement-number-students <%= current_user.count_students ? '' : 'achievement-locked' %>">
     </div>
+  </div>
 </div>
 
 
 
-
-
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="javascript/tabs.js"></script> -->
