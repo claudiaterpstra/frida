@@ -6,6 +6,7 @@
   <%= f.input :description, placeholder: 'How would you describe your course?' %>
   <%= f.input :price, placeholder: 'What is the price of your course in £ ?' %>
   <%= f.input :photo, as: :attachinary %>
+  <%= f.association :materials, as: :check_boxes, include_hidden: false %>
 
   <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
