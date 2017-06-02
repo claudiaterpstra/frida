@@ -41,9 +41,11 @@ class User < ApplicationRecord
   end
 
   def first_expressionism?
+    categories = []
     participations.each do |participation|
-      participation.course.category == "Expressionism"
+      categories << participation.course.category
     end
+    categories.include?("Expressionism")
   end
 
   def first_review?

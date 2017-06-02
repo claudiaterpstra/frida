@@ -6,12 +6,13 @@
        <p>Welcome to your dashboard,</p>
        <h1><%= current_user.first_name %>!</h1>
        <br>
-       <p>Donec nec lacus felis. In dignissim a felis auctor consequat. Donec sed massa vitae eros varius euismod id et turpis. Aenean pretium velit eget odio scelerisque placerat.</p>
+       <p>Young professional from Paris and have always wanted to be an artist but never had the confidence (or the time). Please be patient with me! Love to travel.</p>
 
      </div>
 
     <div class="dashboard-stats">
       <h4>You are enrolled on <%= current_user.participations.count %> courses.</h4>
+      <h4>You have written <%= current_user.course_reviews.count %> course reviews.</h4>
  <!--      <h4>You have earned 5 badges!</h4>  Haven't coded this yet, badge not a model!-->
     </div>
   </div>
@@ -23,10 +24,25 @@
   </div>
 </div>
 
-<div class="dashboard-card">
-  <%= image_tag "addcoursecard.jpg", {class: "report-card"}%>
-  <%= image_tag "coursecardsample.png", {class: "report-card"}%>
-</div>
+
+  <div class="container">
+    <div class="user-studio-gallery">
+        <% current_user.participations.each do |participation| %>
+        <div class="courses-box courses-box-slick">
+          <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_path participation.course.photo? ? participation.course.photo.path : 'logo.png', crop: :fill %>');">
+            <div class="card-category card-category-slick">
+              <%= participation.course.category %>
+            </div>
+            <%= link_to "", course_path(participation.course), class: "card-link"  %>
+            <div class="card-course-name-slick">
+              <h2><%= participation.course.name %></h2>
+            </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 
 <div class="container">
   <div class="dashboard-title frida-report">
@@ -35,29 +51,20 @@
 </div>
 
 
-<div class="dashboard-badges">
-  <div class="container">
-        <p>Frida Badges</p>
-        <!-- <p>Collect points with each completed course and collect your badges!</p> -->
-        <p>View all badges</p>
+<div class="dashboard-achievements">
+ <div class="container">
+  <div class="achievement-badges">
+  <div class="achievement-participation <%= current_user.one_participation? ? '' : 'achievement-locked' %>">
   </div>
-
-
-   <div class="container">
-      <div class="achievement <% current_user.one_participation? ? '' : 'achievement-locked' %>">
-      <p>First badge</p>
-    </div>
-    <div class="achievement <% current_user.three_participations? ? '' : 'achievement-locked' %>">
-      <p>Second badge</p>
-    </div>
-    <div class="achievement <% current_user.first_expressionism? ? '' : 'achievement-locked' %>">
-      <p>Third badge</p>
-    </div>
-    <div class="achievement <% current_user.first_review? ? '' : 'achievement-locked' %>">
-      <p>Fourth badge</p>
-    </div>
+  <div class="achievement-three-participations <%= current_user.three_participations? ? '' : 'achievement-locked' %>">
+  </div>
+  <div class="achievement-first-expressionism <%= current_user.first_expressionism? ? '' : 'achievement-locked' %>">
+  </div>
+  <div class="achievement-first-review <%= current_user.first_review? ? '' : 'achievement-locked' %>">
+  </div>
+ </div>
 </div>
-
+</div>
 
 
 

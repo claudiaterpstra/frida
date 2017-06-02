@@ -115,17 +115,20 @@
 
 <div class="container average-rating-show">
   <div class="average-rating">
-    <p>
-      Users Say:
-      <% @course.average_rating.times do |rating| %>
-        <i class="fa fa-heart" aria-hidden="true"></i>
-      <% end %>
-      <% (5 - @course.average_rating).times do %>
-        <i class="fa fa-heart-o" aria-hidden="true"></i>
-      <% end %>
-    </p>
+    <% if @course.average_rating > 0 %>
+      <p>
+        Users Say:
+        <% @course.average_rating.times do |rating| %>
+          <i class="fa fa-heart" aria-hidden="true"></i>
+        <% end %>
+        <% (5 - @course.average_rating).times do %>
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+        <% end %>
+      </p>
+    <% end %>
   </div>
 </div>
+
 <div class="container reviews-show">
   <% @course.course_reviews.each do |r| %>
     <p>
@@ -142,6 +145,7 @@
   <% end %>
 </div>
 
+<% if user_signed_in? %>
  <% current_user.participations.each do |participation| %>
   <% if participation.course == @course %>
     <div class="container course_review_form">
@@ -156,3 +160,4 @@
     <% end %>
     </div>
   <% end %>
+<% end %>
