@@ -36,25 +36,47 @@
 .overview-details {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 25px;
+
+  p {
+    font-family: "San Francisco";
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: 0;
+    margin-top: 10px;
+  }
 }
 
-.overview-duration {
-
-}
-
-.overview-price {
-
+.overview-text {
+  flex: 1 1 auto;
+  text-align: center;
 }
 
 .overview-rating {
+  i {
+    margin-bottom: 20px;
+  }
+}
+
+.materials-banner-info {
+  i {
+    font-size: 30px;
+    margin-top: 25px;
+  }
+
+  p {
+    font-family: "San Francisco";
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: 0;
+  }
 }
 
 .banner-course-bio {
   font-size: 13px;
   padding-top: 30px;
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   text-align: center;
   i {
@@ -132,6 +154,7 @@
   background-color: $frida-light-grey;
   text-align: center;
   padding: 15px 0;
+  margin-top: 10px;
 
   p {
     margin-top: 10px;
@@ -148,16 +171,24 @@
   }
 }
 
+.materials-container {
+  width: 50%;
+}
+
 .materials-banner-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 25px 0;
+  margin: 10px 0;
 }
 
 .materials-banner-info {
   ul {
     list-style: none;
+  }
+
+  p {
+    margin-bottom: 20px;
   }
 }
 

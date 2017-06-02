@@ -2,8 +2,7 @@
     <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');">
     <div class="banner-course-content">
     <h1><%= @course.name  %></h1><br><br>
-<!--     <p><%# @course.description %></p>
- -->    <% if user_signed_in? %>
+    <% if user_signed_in? %>
       <% if current_user.participates_to?(@course) %>
         You are booked on this course
       <% else %>
@@ -20,11 +19,11 @@
   </div>
 </div>
 
-  <div class="container">
+<!--   <div class="container">
     <div class="banner-course-bio">
-    <p><%= @course.description %></p>
+    <p><%# @course.description %></p>
     </div>
-  </div>
+  </div> -->
 
 <div class="container">
   <div class="materials-banner-title">
@@ -32,18 +31,24 @@
     <h1>Course Overview</h1>
   </div>
 
+  <div class="banner-course-bio">
+    <p><%= @course.description %></p>
+  </div>
+
   <div class="overview-details">
-    <div class="overview-duration">
+    <div class="overview-duration overview-text">
       <%= image_tag "alarm-clock.png", {class: "show-card-image"}%>
+      <p>5 hours of video lessons </p>
     </div>
 
-    <div class="overview-price">
+    <div class="overview-price overview-text">
       <%= image_tag "money-bag.png", {class: "show-card-image"}%>
+      <p>£<%= @course.price %></p>
     </div>
 
-    <div class="overview-rating">
+    <div class="overview-rating overview-text">
       <%= image_tag "frida-icon.png", {class: "show-card-image"}%>
-        <h3 class="show-card-title">Frida Says</h3>
+        <p>Frida Says</p>
         <% @course.rating.times do |rating| %>
           <i class="fa fa-heart" aria-hidden="true"></i>
         <% end %>
@@ -63,14 +68,27 @@
   <div class="materials-banner-details">
     <div class="materials-banner-img"></div>
     <div class="materials-banner-info text-center">
-      <ul>
-        <li>Paper</li>
-        <li>Paint</li>
-        <li>Sketching pencils</li>
-      </ul>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-paint-brush" aria-hidden="true"></i><br>
+            <p>Brush</p>
+          </div>
+
+          <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-pencil" aria-hidden="true"></i><br>
+            <p>Pencil</p>
+          </div>
+
+          <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-tree" aria-hidden="true"></i><br>
+            <p>Paper</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
+</div>
 
 <div class="container">
   <div class="artist-banner-title">
