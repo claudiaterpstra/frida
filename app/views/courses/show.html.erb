@@ -95,15 +95,15 @@
     <p>meet the artist</p>
     <h2>Your Course Instructor</h2>
   </div>
-
-  <div class="artist-banner-details">
-    <div class="artist-banner-profile">
-      <%= unique_image_tag(@course.user) %>
-    </div>
-
-    <div class="artist-banner-info">
+</div>
+<div class="container artist-show">
+  <div class="row">
+    <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+      <div class="artist-banner-profile">
+        <%= unique_image_tag(@course.user) %>
+      </div>
       <div class="artist-full-name">
-        <h2><%= @course.user.first_name %> <%= @course.user.last_name %> </h2>
+        <h2></h2>
       </div>
       <div class="artist-banner-socials">
           <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -112,64 +112,80 @@
           <i class="fa fa-dribbble" aria-hidden="true"></i>
           <i class="fa fa-github-alt" aria-hidden="true"></i>
       </div>
-      <p>Born in 1967 in Mexico City, <%= @course.user.first_name %> is the leading Mexican artist of the generation that emerged in the wake of the influence of Gabriel Orozco and Francis Alÿs. <%= @course.user.first_name %> studied with Orozco in the informal studio class established in the older artist’s atelier in the late 1980s.
-      </p>
-        <div class="artist-banner-contact">
-        <hr>
-        <p>Got questions about the course?</p>
-        <%= link_to "Message Me", courses_path, class: "btn btn-frida" %>
-        </div>
+    </div>
+    <div class="col-xs-12 col-sm-5">
+      <div class="artist-banner-info">
+        <h2><%= @course.user.first_name %> <%= @course.user.last_name %></h2>
+        <p>Born in 1967 in Mexico City, <%= @course.user.first_name %> is the leading Mexican artist of the generation that emerged in the wake of the influence of Gabriel Orozco and Francis Alÿs. <%= @course.user.first_name %> studied with Orozco in the informal studio class established in the older artist’s atelier in the late 1980s.
+        </p>
+          <div class="artist-banner-contact">
+          <hr>
+          <p>Got questions about the course?</p>
+          <%= link_to "Message Me", courses_path, class: "btn btn-frida" %>
+          </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="container average-rating-show">
-  <div class="average-rating">
-    <% if @course.average_rating > 0 %>
-      <p>
-        Users Say:
-        <% @course.average_rating.times do |rating| %>
-          <i class="fa fa-heart" aria-hidden="true"></i>
-        <% end %>
-        <% (5 - @course.average_rating).times do %>
-          <i class="fa fa-heart-o" aria-hidden="true"></i>
-        <% end %>
-      </p>
-      <% else %>
-        <p>No reviews yet.</p>
-    <% end %>
+<div class="container">
+  <div class="artist-banner-title">
+    <p>course reviews</p>
+    <h2>Frida Feedback</h2>
   </div>
 </div>
-
 <div class="container reviews-show">
-  <% @course.course_reviews.each do |r| %>
-    <p>
-      <%= r.user.first_name %> says:
-      <% r.rating.times do %>
-        <i class="fa fa-heart" aria-hidden="true"></i>
-      <% end %>
-      <% (5 - r.rating).times do %>
-        <i class="fa fa-heart-o" aria-hidden="true"></i>
-      <% end %>
-    </p>
-    <p class="review-content"><%= r.content %></p>
-    <br>
-  <% end %>
-</div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-5 col-sm-offset-1">
 
-<% if user_signed_in? %>
- <% current_user.participations.each do |participation| %>
-  <% if participation.course == @course %>
-    <div class="container course_review_form">
-      <hr>
-      <h3>Add A Review</h3>
-      <%= simple_form_for [@course, @course_review], class: 'form-inline' do |f| %>
-        <%= f.input :rating, collection: 1..5 %>
-        <%= f.input :content, label: 'Review', as: :text %>
+      <div class="average-rating-show">
+        <% if @course.average_rating > 0 %>
 
-        <%= f.submit "Add A Review", class: "btn btn-frida" %>
+          <h3>Average User Rating:</h3>
+          <p>
+            <% @course.average_rating.times do |rating| %>
+              <i class="fa fa-heart" aria-hidden="true"></i>
+            <% end %>
+            <% (5 - @course.average_rating).times do %>
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+            <% end %>
+          </p>
+          <% else %>
+            <p>No reviews yet!</p>
+        <% end %>
+      </div>
+
+      <% @course.course_reviews.each do |r| %>
+        <p>
+          <%= r.user.first_name %> says:
+          <% r.rating.times do %>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          <% end %>
+          <% (5 - r.rating).times do %>
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+          <% end %>
+        </p>
+        <p class="review-content"><%= r.content %></p>
+        <br>
       <% end %>
-    <% end %>
     </div>
-  <% end %>
-<% end %>
+
+    <div class="col-xs-12 col-sm-5">
+      <% if user_signed_in? %>
+       <% current_user.participations.each do |participation| %>
+        <% if participation.course == @course %>
+          <div class="course_review_form">
+              <h3>Add A Review</h3>
+            <%= simple_form_for [@course, @course_review], class: 'form-inline' do |f| %>
+              <%= f.input :rating, collection: 1..5 %>
+              <%= f.input :content, label: 'Review', as: :text %>
+
+              <%= f.submit "Add A Review", class: "btn btn-frida" %>
+            <% end %>
+          <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
