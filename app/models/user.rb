@@ -76,4 +76,8 @@ class User < ApplicationRecord
     end
     students >= 5
   end
+
+  def artist_badges
+    [created_a_course?, count_students].count(true)
+  end
 end

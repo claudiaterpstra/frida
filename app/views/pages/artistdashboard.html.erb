@@ -12,6 +12,7 @@
 
     <div class="dashboard-stats">
       <h4>You are teaching <%= pluralize current_user.courses.count, "course" %>.</h4>
+      <h4>You have earned <%= pluralize current_user.artist_badges, "badge" %>.</h4>
     </div>
   </div>
 </div>
