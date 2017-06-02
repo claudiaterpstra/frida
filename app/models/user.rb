@@ -52,6 +52,10 @@ class User < ApplicationRecord
     course_reviews.count > 0
   end
 
+  def badge_count
+    [one_participation?, three_participations?, first_expressionism?, first_review?].count(true)
+  end
+
   # METHOD TO CONNECT USERS TO COURSE PARTICIPATION
   # def courses_participated_in
   #   courses = []
