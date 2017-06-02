@@ -7,6 +7,10 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+  <!-- Artist Dashboard link -->
+  <% if user_signed_in? && current_user.courses.count >= 1 %>
+    <%= link_to "Artist Dashboard", artistdashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  <% end %>
     <!-- About link -->
     <%= link_to "About", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
