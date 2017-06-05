@@ -27,7 +27,6 @@ skip_after_action :verify_authorized
       # authorize @lecture
       @lecture.destroy
     end
-  end
 
   private
 
