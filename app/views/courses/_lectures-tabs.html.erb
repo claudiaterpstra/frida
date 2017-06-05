@@ -1,9 +1,11 @@
 <% if @course.lectures != [] %>
+  <% count = 1 %>
   <% @course.lectures.each do |lecture| %>
     <div class="tab tab-title">
       <h2 class="tab--title">
         <div class="tab-icon"></div>
-          Lecture <%=  %>
+          Lecture <%= count %>
+          <% count += 1 %>
       </h2>
 
 
@@ -13,6 +15,7 @@
         </div>
     </div>
   <% end %>
+  <%= link_to "Add your next lecture", new_course_lecture_path(@course) %>
   <% else %>
    <%= link_to "Add your first lecture", new_course_lecture_path(@course) %>
 <% end %>
