@@ -1,56 +1,22 @@
-<div class="tab tab-title">
-  <h2 class="tab--title">
-    <div class="tab-icon"></div>
-      Lecture 1
-  </h2>
+<% if @course.lectures != [] %>
+  <% count = 1 %>
+  <% @course.lectures.each do |lecture| %>
+    <div class="tab tab-title">
+      <h2 class="tab--title">
+        <div class="tab-icon"></div>
+          Lecture <%= count %>
+          <% count += 1 %>
+      </h2>
 
 
-    <div class="content-block block-skin-grey clearfix">
-      <h2 class="content-block-title">Lecture.title</h2>
-        <p>Lecture Description: Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.</p>
+        <div class="content-block block-skin-grey clearfix">
+          <h2 class="content-block-title"><%= lecture.title %></h2>
+            <p><%= lecture.description %></p>
+        </div>
     </div>
-</div>
+  <% end %>
+  <%= link_to "Add your next lecture", new_course_lecture_path(@course) %>
+  <% else %>
+   <%= link_to "Add your first lecture", new_course_lecture_path(@course) %>
+<% end %>
 
-<div class="tab tab-title">
-  <h2 class="tab--title">
-    <div class="tab-icon"></div>
-    Lecture 2
-    </h2>
-      <div class="content-block block-skin-grey clearfix">
-          <h2 class="content-block-title">Mixing Colours</h2>
-            <p>Lecture Description: Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-      </div>
-</div>
-
-<div class="tab tab-title">
-  <h2 class="tab--title">
-    <div class="tab-icon"></div>
-    Lecture 3
-    </h2>
-      <div class="content-block block-skin-grey clearfix">
-          <h2 class="content-block-title">Shading</h2>
-            <p>Lecture Description: Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-      </div>
-</div>
-
-<div class="tab tab-title">
-  <h2 class="tab--title">
-  <div class="tab-icon"></div>
-    Lecture 4
-    </h2>
-      <div class="content-block block-skin-grey clearfix">
-          <h2 class="content-block-title">Understanding Gradients</h2>
-            <p>Lecture Description: Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-      </div>
-</div>
-
-<div class="tab tab-title">
-  <h2 class="tab--title">
-    <div class="tab-icon"></div>
-    Lecture 5
-    </h2>
-      <div class="content-block block-skin-grey clearfix">
-          <h2 class="content-block-title">Mixing Colours</h2>
-            <p>Lecture Description: Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-      </div>
-</div>
