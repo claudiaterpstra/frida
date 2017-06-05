@@ -6,10 +6,12 @@ skip_after_action :verify_authorized
 
   def new
      @lecture = Lecture.new
+     # authorize @lecture
   end
 
   def create
     @lecture = Lecture.new(lecture_params)
+    # authorize @lecture
     @lecture.course = @course
     if @lecture.save
       redirect_to course_path(@course)
@@ -21,8 +23,10 @@ skip_after_action :verify_authorized
     @artwork = Artwork.new
   end
 
-  def destroy
-    @lecture.destroy
+    def destroy
+      # authorize @lecture
+      @lecture.destroy
+    end
   end
 
   private
