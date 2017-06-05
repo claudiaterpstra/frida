@@ -1,13 +1,16 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  skip_after_action :verify_authorized
+  before_action :set_user, only: [:show]
   def show
     @courses = @user.courses_participated
   end
 
   def edit
+    @user = current_user
   end
 
   def update
+    @user = current_user
     @user.update(user_params)
     redirect_to user_path(@user)
   end

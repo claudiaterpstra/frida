@@ -1,5 +1,6 @@
 class CourseReviewsController < ApplicationController
   before_action :set_course
+  skip_after_action :verify_authorized, only: [:create]
   def create
     @course_review = CourseReview.new(course_review_params)
     @course_review.user = current_user

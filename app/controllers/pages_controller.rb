@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
+  skip_after_action :verify_authorized, only: [ :home, :studentdashboard ]
 
   def home
   end
@@ -9,5 +10,6 @@ class PagesController < ApplicationController
   end
 
   def artistdashboard
+    authorize current_user
   end
 end

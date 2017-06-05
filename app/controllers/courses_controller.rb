@@ -2,6 +2,7 @@ class CoursesController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :show]
 before_action :set_course, only: [:show, :edit, :update, :destroy]
   def index
+    @courses = policy_scope(Course).order(created_at: :desc)
     @courses = if params[:search]
       Course.where("category LIKE ?", "%#{params[:search]}%")
     else
@@ -16,10 +17,12 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def new
     @course = Course.new
+    authorize @course
   end
 
   def create
     @course = Course.new(course_params)
+    authorize @course
     @course.user = current_user
     @course.rating = 0
     if @course.save
@@ -29,6 +32,7 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
+    authorize @course
   end
 
   def update
@@ -38,13 +42,14 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def destroy
     @course.destroy
-    redirect_to dashboard_path
+    redirect_to artistdashboard_path
   end
 
   private
 
   def set_course
     @course = Course.find(params[:id])
+    authorize @course
   end
 
   def course_params
