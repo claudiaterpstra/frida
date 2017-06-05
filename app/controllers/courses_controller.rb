@@ -22,6 +22,7 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def create
     @course = Course.new(course_params)
+    authorize @course
     @course.user = current_user
     @course.rating = 0
     if @course.save
@@ -41,7 +42,7 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def destroy
     @course.destroy
-    redirect_to dashboard_path
+    redirect_to artistdashboard_path
   end
 
   private
