@@ -1,7 +1,17 @@
-<%= simple_form_for [@course, @lecture], class: 'form-inline' do |f| %>
-  <%= f.input :title, placeholder: 'What is your lecture title?' %>
-  <%= f.input :description, placeholder: 'What is your lecture description?' %>
-   <%= f.input :url, placeholder: 'What is the URL of your lecture?' %>
+  <div class="lectures-banner-title">
+    <p>Your Curriculum</p>
+    <h2>Add A Lecture</h2>
+  </div>
 
-  <%= f.submit "Submit", class: "btn-frida" %>
-<% end %>
+<div class="container lecture-form">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= simple_form_for [@course, @lecture], class: 'form-inline' do |f| %>
+      <%= f.input :title, placeholder: 'What is your lecture title?' %>
+      <%= f.input :description, placeholder: 'What is your lecture description?' %>
+      <%= f.input :url, placeholder: 'What is the URL of your lecture?' %>
+      <%= f.submit "Submit", class: "btn-frida" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,32 @@
-<%= @lecture.title %>
 
-<iframe width="560" height="315" src=" <%= @lecture.url %>" frameborder="0" allowfullscreen></iframe>
+<div class="lecture-container">
+  <div class="lecture-banner">
+    <iframe width="560" height="315" src=" <%= @lecture.url %>" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="container lectures-info">
+  <div class="lecture-banner-title">
+    <p><%= @course.name %></p>
+    <h2><%= @lecture.title %></h2>
+  </div>
+
+  <div class="lecture-description">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur rem ipsa, suscipit animi.
+    Quisquam eos repellendus assumenda.</p>
+  </div>
+</div>
+
+<div class="container user-uploads-container">
+  <div class="user-uploads-title">
+    <p>Your Turn</p>
+    <h2>Submit Your Artwork!</h2>
+  </div>
+</div>
+
+<div class="user-upload-container">
+  <div class="user-upload-form">
+    <h2>USER UPLOAD FORM HERE</h2>
+    <%= link_to "Submit", courses_path, class: "btn btn-frida" %>
+  </div>
+</div>
