@@ -1,0 +1,60 @@
+.lecture-form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.lecture-container {
+  width: 100%;
+  background-color: $frida-grey;
+  display: flex;
+  justify-content: center;
+}
+
+.lecture-banner {
+  height: 315px;
+  // margin: 20px auto;
+}
+
+.lecture-banner-title, .user-uploads-container {
+  background-color: $frida-light-grey;
+  text-align: center;
+  padding: 15px 0;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+  p {
+    margin-top: 10px;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: "San Francisco";
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 400;
+  }
+}
+
+.lectures-info {
+  margin: auto;
+
+  p {
+    margin: 0;
+  }
+}
+
+.lecture-description {
+  margin: auto;
+  width: 600px;
+}
+
+.user-upload-container {
+  text-align: center;
+}
+
+.user-upload-form a.btn {
+  margin-bottom: 20px;
+}

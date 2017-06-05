@@ -1,6 +1,7 @@
 class LecturesController < ApplicationController
 before_action :set_course, only: [:new, :create, :show, :destroy]
 before_action :set_lecture, only: [:show]
+skip_after_action :verify_authorized
 
   def new
      @lecture = Lecture.new
