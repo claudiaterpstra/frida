@@ -25,8 +25,18 @@
 </div>
 
 <div class="user-upload-container">
-  <div class="user-upload-form">
-    <h2>USER UPLOAD FORM HERE</h2>
-    <%= link_to "Submit", courses_path, class: "btn btn-frida" %>
+  <div class="user-upload-form">   
+    <%= simple_form_for [@lecture, @artwork], class: 'form-inline' do |f| %>
+      <%= f.input :photo, as: :attachinary %>
+      <% f.input :message %>
+      <%= f.submit "Submit", class: "btn-frida" %>
+    <% end %>
   </div>
 </div>
+
+<% if @lecture.artworks %>
+  <% @lecture.artworks.each do |artwork| %>
+    <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
+  <% end %>
+<% end %>
+

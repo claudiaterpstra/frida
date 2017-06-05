@@ -1,6 +1,7 @@
 class LecturesController < ApplicationController
-before_action :set_course, only: [:new, :create, :show, :destroy]
+before_action :set_course, only: [:new, :create]
 before_action :set_lecture, only: [:show]
+skip_before_action :authenticate_user!, only: [:index, :show]
 skip_after_action :verify_authorized
 
   def new
@@ -16,10 +17,11 @@ skip_after_action :verify_authorized
       redirect_to course_path(@course)
     else render :new
     end
+  end
 
-    def show
-
-    end
+  def show
+    @artwork = Artwork.new
+  end
 
     def destroy
       # authorize @lecture
@@ -33,7 +35,7 @@ skip_after_action :verify_authorized
     @course = Course.find(params[:course_id])
   end
 
-    def set_lecture
+  def set_lecture
     @lecture = Lecture.find(params[:id])
   end
 
