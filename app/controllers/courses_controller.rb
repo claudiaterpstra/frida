@@ -2,6 +2,7 @@ class CoursesController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :show]
 before_action :set_course, only: [:show, :edit, :update, :destroy]
   def index
+    @courses = policy_scope(Course).order(created_at: :desc)
     @courses = if params[:search]
       Course.where("category LIKE ?", "%#{params[:search]}%")
     else
@@ -16,6 +17,7 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def new
     @course = Course.new
+    authorize @course
   end
 
   def create
@@ -29,6 +31,7 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
+    authorize @course
   end
 
   def update
@@ -45,6 +48,7 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def set_course
     @course = Course.find(params[:id])
+    authorize @course
   end
 
   def course_params

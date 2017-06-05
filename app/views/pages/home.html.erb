@@ -4,7 +4,11 @@
     <p>change your life, learn to paint</p>
       <div class="banner-cta">
         <%= link_to "LEARN", courses_path, class: "btn btn-frida" %>
-        <%= link_to "TEACH", new_course_path, class: "btn btn-frida" %>
+        <% if user_signed_in? %>
+          <% if current_user.courses.count > 0 %>
+            <%= link_to "TEACH", new_course_path, class: "btn btn-frida" %>
+          <% end %>
+        <% end %>
       </div>
   </div>
 </div>
