@@ -2,8 +2,9 @@ $(function(){
 
   $(".tab").on("click", function(e){
     // Change active tab
-    $(".tab").removeClass('active');
-    $(this).addClass('active');
+    $(this).toggleClass('active');
+    // $(".tab").removeClass('active');
+
     // Hide all tab-content (use class="hidden")
     $(".tab-content").addClass('hidden');
     var selector = $(this).data('target');
