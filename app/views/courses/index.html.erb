@@ -10,7 +10,7 @@
 
   <div class="courses-display">
 
-    <% @courses.each do |course| %>
+    <% @courses.order(:id).each do |course| %>
 
       <div class="courses-box">
         <div class="card course-card" style="background-image: url('<%= cl_image_path course.photo? ? course.photo.path : 'logo.png', crop: :fill %>');">
