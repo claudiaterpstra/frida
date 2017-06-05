@@ -1,3 +1,16 @@
 <%= @lecture.title %>
 
 <iframe width="560" height="315" src=" <%= @lecture.url %>" frameborder="0" allowfullscreen></iframe>
+
+<% if @lecture.artworks %>
+  <% @lecture.artworks.each do |artwork| %>
+    <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
+  <% end %>
+<% end %>
+
+<%= simple_form_for [@lecture, @artwork], class: 'form-inline' do |f| %>
+  <%= f.input :photo, as: :attachinary %>
+  <% f.input :message %>
+  <%= f.submit "Submit", class: "btn-frida" %>
+<% end %>
+

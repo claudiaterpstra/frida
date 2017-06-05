@@ -26,7 +26,7 @@
   <%= link_to "Add lectures", new_course_lecture_path(@course) %>
 
   <% @course.lectures.each do |lecture| %>
-    <%= link_to lecture.title, course_lecture_path(@course, lecture) %>
+    <%= link_to lecture.title, lecture_path(lecture) %>
     <% end %>
 
 

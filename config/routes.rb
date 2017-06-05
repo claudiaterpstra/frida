@@ -11,7 +11,16 @@ Rails.application.routes.draw do
   resources :courses do
     resources :participations, only: [:create]
     resources :course_reviews, only: [:create]
-    resources :lectures
+    resources :lectures, only: [:new, :create]
   end
+
+  resources :lectures, except: [:new, :create] do
+    resources :artworks, only: [:new, :create]
+  end
+
+  resources :artworks, only: [:index, :edit, :destroy] do
+    resources :feedback, only: [:create]
+  end
+
   resources :users, only: [:show, :edit, :update]
 end
