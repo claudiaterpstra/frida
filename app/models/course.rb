@@ -9,6 +9,7 @@ class Course < ApplicationRecord
   has_many :participations, dependent: :destroy
   has_many :participants, through: :participations, source: :user
   has_many :course_reviews, dependent: :destroy
+  has_many :lectures, dependent: :destroy
 
   has_attachment :photo
 

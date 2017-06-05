@@ -1,0 +1,7 @@
+<%= simple_form_for [@course, @lecture], class: 'form-inline' do |f| %>
+  <%= f.input :title, placeholder: 'What is your lecture title?' %>
+  <%= f.input :description, placeholder: 'What is your lecture description?' %>
+   <%= f.input :url, placeholder: 'What is the URL of your lecture?' %>
+
+  <%= f.submit "Submit", class: "btn-frida" %>
+<% end %>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :courses do
     resources :participations, only: [:create]
     resources :course_reviews, only: [:create]
+    resources :lectures
   end
   resources :users, only: [:show, :edit, :update]
 end
