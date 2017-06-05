@@ -1,6 +1,6 @@
 class LecturesController < ApplicationController
 before_action :set_course, only: [:new, :create, :show, :destroy]
-before_action :set_lecture
+before_action :set_lecture, only: [:show]
 
   def new
      @lecture = Lecture.new
