@@ -1,8 +1,0 @@
-<% if @lecture.errors.any? %>
-   $('#new_artwork').html("<%= j render 'lectures/form', lecture: @lecture, artwork: @artwork %>");
-<% else %>
-  var new_artwork = $("<%= j render 'artwork/show', artwork: @artwork %>").hide();
-  $('#artorks').append(new_artwork);
-  new_artwork.slideDown();
-  $('#new_artwork').html("<%= j render 'lectures/form', lecture: @lecture, artwork: Artwork.news %>");
-<% end %>

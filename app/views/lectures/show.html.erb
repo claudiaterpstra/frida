@@ -32,9 +32,14 @@
       <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
     <% else %>
       <div id="artworks">
+        <ul>
         <% @lecture.artworks.each do |artwork| %>
-          <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
+           <li data-artwork-id="<%= artwork.id %>">
+            <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
+           <%= link_to "Delete", artwork, method: :delete, remote: true %>
+           </li>
         <% end %>
+        </ul>
       </div>
       <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
     <% end %>
