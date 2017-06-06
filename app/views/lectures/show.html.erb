@@ -28,7 +28,7 @@
   <div class="user-upload-form">
 
     <% if @lecture.artworks.blank? %>
-      Upload your first artwork for <%= @lecture.name %>
+      Upload your first artwork for <%= @lecture.title %>
       <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
     <% else %>
       <div id="artworks">
