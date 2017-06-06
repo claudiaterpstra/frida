@@ -41,6 +41,14 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
     redirect_to course_path
   end
 
+  def publish
+    @course = Course.find(params[:course_id])
+    authorize @course
+    @course.published = true
+    @course.save
+    redirect_to :back
+  end
+
   def destroy
     @course.destroy
     redirect_to artistdashboard_path

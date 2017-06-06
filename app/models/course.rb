@@ -31,7 +31,4 @@ class Course < ApplicationRecord
     end
   end
 
-  def published_true
-    published = true
-  end
 end

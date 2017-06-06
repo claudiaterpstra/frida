@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :participations, only: [:create]
     resources :course_reviews, only: [:create]
     resources :lectures, only: [:new, :create]
+    patch '/publish', to: 'courses#publish'
   end
 
   resources :lectures, except: [:new, :create] do

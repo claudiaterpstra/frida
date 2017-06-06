@@ -14,13 +14,16 @@
           </div>
       </div>
     <% end %>
-    <%= link_to "Add your next lecture", new_course_lecture_path(@course) %>
-      <p>Publish this course</p>
-    <% else %>
-     <%= link_to "Add your first lecture", new_course_lecture_path(@course) %>
+    <% if @course.published == false %>
+      <%= link_to "Add your next lecture", new_course_lecture_path(@course) %>
+      <%= link_to "Publish this course", course_publish_path(@course), method: :patch %>
+      <% else %>
+      <p>This course is now published</p>
+    <% end %>
+  <% else %>
+    <%= link_to "Add your first lecture", new_course_lecture_path(@course) %>
   <% end %>
-
-<% elsif current_user.participates_to?(@course) && course.published %>
+<% elsif current_user.participates_to?(@course) && @course.published == true %>
   <% count = 1 %>
   <% @course.lectures.each do |lecture| %>
     <div class="tab tab-title">
@@ -35,7 +38,7 @@
       </div>
     </div>
   <% end %>
-<% else %>
+<% elsif @course.published == true %>
   <% count = 1 %>
   <% @course.lectures.each do |lecture| %>
     <div class="tab tab-title">
@@ -50,6 +53,8 @@
       </div>
     </div>
   <% end %>
+  <% else %>
+  <p>This course is not yet published</p>
 <% end %>
 
 
