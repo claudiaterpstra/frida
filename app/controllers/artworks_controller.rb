@@ -18,6 +18,7 @@ class ArtworksController < ApplicationController
   def create
     @artwork = Artwork.new(artwork_params)
     @artwork.lecture = @lecture
+    @artwork.user = current_user
     if @artwork.save
       respond_to do |format|
         format.html { redirect_to lecture_path(@lecture) }
