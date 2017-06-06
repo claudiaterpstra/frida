@@ -1,0 +1,73 @@
+<%= render 'shared/subnav' %>
+<div class="container user-show">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 hide-sm">
+      <div class="user-side-bar">
+<!--         <div class="user-side-img">
+          <%# unique_image_tag(@user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+        </div> -->
+
+      <div class="manage-side-bar">
+        <%= link_to "Create A New Course", new_course_path(@user), class:"btn btn-frida" %>
+      </div>
+
+      </div>
+    </div>
+
+    <div class="col-lg-9 col-md-8 col-sm-12">
+      <h2>Manage Courses</h2>
+      <h4>Hey <%= @user.first_name %>! Keep all your courses updated here, view your students' work and give them feedback.</h4>
+        <div class="hr-medium">
+          <hr>
+        </div>
+
+      <div class="courses-created">
+        <h3>Courses Created</h3>
+          <div class="course-card-manager">
+              <div class="course-card-img">
+              </div>
+              <div class="course-card-content">
+                <h3>Course Name</h3>
+                <h4>You have <b>5 lectures</b> and <b>8 students</b> on this course.</h4>
+                <h4><b>3 students</b> are awaiting feedback.</h4>
+                <hr>
+                <div class="course-card-links">
+                  <p>Add a lecture</p>
+                  <p>Edit a lecture</p>
+                  <p>Give feedback</p>
+                </div>
+              </div>
+          </div>
+
+          <div class="course-card-manager">
+              <div class="course-card-img">
+              </div>
+              <div class="course-card-content">
+                <h3>Course Name</h3>
+                <h4>You have <b>5 lectures</b> and <b>8 students</b> on this course.</h4>
+                <h4><b>3 students</b> are awaiting feedback.</h4>
+                <hr>
+                <div class="course-card-links">
+                  <p>Add a lecture</p>
+                  <p>Edit a lecture</p>
+                  <p>Give feedback</p>
+                </div>
+              </div>
+          </div>
+      </div>
+
+<!--       <div class="student-uploads">
+        <h3>Student Uploads</h3>
+          <div class="user-studio-gallery">
+            <img src="https://placehold.it/100x100" alt="">
+            <img src="https://placehold.it/100x100" alt="">
+            <img src="https://placehold.it/100x100" alt="">
+            <img src="https://placehold.it/100x100" alt="">
+            <img src="https://placehold.it/100x100" alt="">
+            <img src="https://placehold.it/100x100" alt="">
+          </div>
+      </div> -->
+
+    </div>
+  </div>
+</div>
