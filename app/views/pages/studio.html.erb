@@ -22,10 +22,10 @@
     <% if @artworks.count > 0 %>
       <% @artworks.order(:id).each do |artwork| %>
 
-      <div data-toggle="modal" data-target="#artwork"><%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %></div>
+      <div data-toggle="modal" data-target="#artwork-<%= artwork.id %>"><%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %></div>
        <p><%= artwork.message %></p>
 
-    <div id="artwork" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="artwork-<%= artwork.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
