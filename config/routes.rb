@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :artworks, only: [:new, :create]
   end
 
-  resources :artworks, only: [:index, :edit, :destroy] do
+  resources :artworks, only: [:index, :show, :edit, :destroy] do
     resources :feedback, only: [:create]
   end
 

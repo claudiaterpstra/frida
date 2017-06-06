@@ -11,7 +11,7 @@
   <div class="courses-display">
 
     <% @courses.order(:id).each do |course| %>
-      <% if course.published == true %>
+
       <div class="courses-box">
         <div class="card course-card" style="background-image: url('<%= cl_image_path course.photo? ? course.photo.path : 'logo.png', crop: :fill %>');">
           <div class="card-category"><%= course.category %></div>
@@ -37,7 +37,7 @@
         <span></span>
       </div>
 
-        <% end %>
+
       <% end %>
       </div>
 
