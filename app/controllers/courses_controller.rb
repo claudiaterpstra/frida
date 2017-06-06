@@ -25,6 +25,7 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
     authorize @course
     @course.user = current_user
     @course.rating = 0
+    @course.published = false
     if @course.save
       redirect_to course_path(@course)
     else render :new

@@ -30,4 +30,8 @@ class Course < ApplicationRecord
       average_rating = 0
     end
   end
+
+  def published_true
+    published = true
+  end
 end
