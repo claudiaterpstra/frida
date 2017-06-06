@@ -1,0 +1,17 @@
+
+<div class="container">
+  <div class="text-center course-heading">
+    <h1>Studio</h1>
+    <%= render 'courses/searchform' %>
+  </div>
+  <br>
+
+
+  <div class="container">
+    <% @artworks.order(:id).each do |artwork| %>
+      <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
+      <p><%= artwork.message %></p>
+    <% end %>
+  </div>
+
+</div>
