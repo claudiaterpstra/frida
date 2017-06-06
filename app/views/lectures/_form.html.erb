@@ -1,0 +1,5 @@
+<%= simple_form_for ([@lecture, @artwork], remote: true, class: 'form-inline' ) do |f| %>
+      <%= f.input :photo, as: :attachinary %>
+      <% f.input :message %>
+      <%= f.submit "Submit", class: "btn-frida" id: "uploady" %>
+    <% end %>
