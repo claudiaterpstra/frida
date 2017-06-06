@@ -23,28 +23,17 @@
     <h2>Submit Your Artwork!</h2>
   </div>
 
-  <div class="user-upload-container">
-    <div class="user-upload-form">
-      <% if @lecture.artworks.blank? %>
-        <p>Upload your first artwork for <%= @lecture.title %></p>
-        <br>
-        <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
-      <% else %>
-        <div id="artworks">
-          <ul>
-          <% @lecture.artworks.each do |artwork| %>
-             <li data-artwork-id="<%= artwork.id %>">
-              <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
-             <%= link_to "Delete", artwork, method: :delete, remote: true %>
-             </li>
-          <% end %>
-          </ul>
-        </div>
-        <br>
-        <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
-      <% end %>
-    </div>
-  </div>
+    <% if @lecture.artworks.blank? %>
+      Upload your first artwork for <%= @lecture.title %>
+      <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
+    <% else %>
+      <div id="artworks">
+        <% @lecture.artworks.each do |artwork| %>
+          <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
+        <% end %>
+      </div>
+      <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
+    <% end %>
 </div>
 
 
