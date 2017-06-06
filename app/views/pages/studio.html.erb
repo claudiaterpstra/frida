@@ -6,7 +6,17 @@
   </div>
   <br>
 
-<<<<<<< HEAD
+   <ul>
+    <li>
+      <%= link_to "All (#{Artwork.all.count})", studio_path %>
+    </li>
+    <% @lectures.uniq.each do | lecture | %>
+      <li>
+      <%= link_to "#{lecture.title} (#{lecture.artworks.count})", studio_path(lecture: lecture.title) %>
+      </li>
+    <% end %>
+  </ul>
+
 
   <div class="container">
     <% if @artworks.count > 0 %>
@@ -36,23 +46,9 @@
       <% end %>
     <% end %>
   </div>
-=======
-  <ul>
-    <li>
-      <%= link_to "All (#{Artwork.all.count})", studio_path %>
-    </li>
-    <% @lectures.uniq.each do | lecture | %>
-      <li>
-      <%= link_to "#{lecture.title} (#{lecture.artworks.count})", studio_path(lecture: lecture.title) %>
-      </li>
-    <% end %>
-  </ul>
-
-  <% @artworks.order(:id).each do |artwork| %>
-    <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
-    <p><%= artwork.message %></p>
-  <% end %>
 
 
->>>>>>> 3091bed17d1cbe35ee774ffda797a2a41811605a
+
+
+
 </div>
