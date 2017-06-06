@@ -10,6 +10,10 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
     end
   end
 
+  def user_index
+    @courses = current_user
+  end
+
   def show
     @participation = Participation.new
     @course_review = CourseReview.new
