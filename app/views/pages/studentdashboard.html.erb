@@ -30,22 +30,17 @@
 </div>
 </div>
 
-
-<div class="container">
-  <div class="dashboard-title frida-report">
-    <h1>Your Badges</h1>
-  </div>
-</div>
-
-
 <div class="dashboard-achievements">
- <div class="container">
-    <div class="achievement-badges">
-      <div class="achievement-participation <%= current_user.one_participation? ? '' : 'achievement-locked' %>"></div>
-      <div class="achievement-three-participations <%= current_user.three_participations? ? '' : 'achievement-locked' %>"></div>
-      <div class="achievement-first-expressionism <%= current_user.first_expressionism? ? '' : 'achievement-locked' %>"></div>
-      <div class="achievement-first-review <%= current_user.first_review? ? '' : 'achievement-locked' %>"></div>
+  <div class="container">
+    <div class="dashboard-title frida-report">
+      <h1>Your Badges</h1>
     </div>
+  </div>
+  <div class="achievement-badges">
+    <div class="achievement-participation <%= current_user.one_participation? ? '' : 'achievement-locked' %>"></div>
+    <div class="achievement-three-participations <%= current_user.three_participations? ? '' : 'achievement-locked' %>"></div>
+    <div class="achievement-first-expressionism <%= current_user.first_expressionism? ? '' : 'achievement-locked' %>"></div>
+    <div class="achievement-first-review <%= current_user.first_review? ? '' : 'achievement-locked' %>"></div>
   </div>
 </div>
 

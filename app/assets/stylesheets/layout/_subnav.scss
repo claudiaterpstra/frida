@@ -20,13 +20,12 @@
   list-style: none;
   margin-right: 20px;
 
-  &:hover {
-    color: #AB2B2B;
-    cursor: pointer;
-    cursor: hand;
+  a {
+    color: $frida-grey;
   }
 
   &.active {
     text-decoration: underline;
   }
 }
+
