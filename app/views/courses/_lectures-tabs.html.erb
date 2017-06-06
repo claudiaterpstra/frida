@@ -1,4 +1,4 @@
-<% if @course.lectures != [] %>
+<% if current_user.participates_to?(@course) %>
   <% count = 1 %>
   <% @course.lectures.each do |lecture| %>
     <div class="tab tab-title">
@@ -15,8 +15,30 @@
         </div>
     </div>
   <% end %>
-  <%= link_to "Add your next lecture", new_course_lecture_path(@course) %>
-  <% else %>
-   <%= link_to "Add your first lecture", new_course_lecture_path(@course) %>
-<% end %>
+
+
+
+
+  <% elsif @course.lectures != [] %>
+    <% count = 1 %>
+    <% @course.lectures.each do |lecture| %>
+      <div class="tab tab-title">
+        <h2 class="tab--title">
+          <div class="tab-icon"></div>
+            Lecture <%= count %>
+            <% count += 1 %>
+        </h2>
+
+
+          <div class="content-block block-skin-grey clearfix">
+            <h2 class="content-block-title"><%= lecture.title %></h2>
+              <p><%= lecture.description %></p>
+          </div>
+      </div>
+    <% end %>
+    <%= link_to "Add your next lecture", new_course_lecture_path(@course) %>
+    <% else %>
+     <%= link_to "Add your first lecture", new_course_lecture_path(@course) %>
+  <% end %>
+
 
