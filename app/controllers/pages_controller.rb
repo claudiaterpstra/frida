@@ -23,13 +23,13 @@ class PagesController < ApplicationController
       @lecture = Lecture.find_by_title(params[:lecture])
       @artworks = Artwork.all.where(user: @user, lecture_id: @lecture.id)
     else
-      @artworks = Artwork.all
+      @artworks = Artwork.all.where(user: @user)
     end
 
 
 
     @lectures = []
-    Artwork.all.each do |art|
+    @artworks.each do |art|
       @lectures << art.lecture
     end
 
