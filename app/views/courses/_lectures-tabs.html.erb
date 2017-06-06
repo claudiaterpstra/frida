@@ -23,7 +23,7 @@
   <% else %>
     <%= link_to "Add your first lecture", new_course_lecture_path(@course) %>
   <% end %>
-<% elsif current_user.participates_to?(@course) && @course.published == true %>
+<% elsif  @course.published == true %>
   <% count = 1 %>
   <% @course.lectures.each do |lecture| %>
     <div class="tab tab-title">
@@ -31,22 +31,11 @@
         <div class="tab-icon"></div>
           Lecture <%= count %>
           <% count += 1 %>
-          <%= link_to "Start this lecture", lecture_path(lecture)  %>
-      </h2>
-      <div class="content-block block-skin-grey clearfix">
-        <h2 class="content-block-title"><%= lecture.title %></h2>
-          <p><%= lecture.description %></p>
-      </div>
-    </div>
-  <% end %>
-<% elsif @course.published == true %>
-  <% count = 1 %>
-  <% @course.lectures.each do |lecture| %>
-    <div class="tab tab-title">
-      <h2 class="tab--title">
-        <div class="tab-icon"></div>
-          Lecture <%= count %>
-          <% count += 1 %>
+          <% if user_signed_in? %>
+            <% if current_user.participates_to?(@course) %>
+          <%= link_to "Start this lecture", lecture_path(lecture) %>
+          <% end %>
+        <% end %>
       </h2>
       <div class="content-block block-skin-grey clearfix">
         <h2 class="content-block-title"><%= lecture.title %></h2>
