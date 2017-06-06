@@ -1,24 +1,28 @@
 class PagesController < ApplicationController
+  before_action :set_current_user, only: [:dashboard, :account, :manage_courses]
   skip_before_action :authenticate_user!, only: [ :home ]
-  skip_after_action :verify_authorized, only: [ :home, :studentdashboard ]
+  skip_after_action :verify_authorized, only: [ :home, :studentdashboard, :dashboard ]
 
   def home
   end
 
   def dashboard
-    @user = current_user
+    @courses = current_user.courses_participated
   end
 
   def account
-    @user = current_user
   end
 
   def studio
     @artworks = current_user.artworks
   end
 
-  def my_courses
-    @courses = current_user.courses_participated
+  def manage_courses
+    if current_user.courses_participated.count > 0
+      @courses = current_user.courses_participated
+    else
+    end
+
   end
 
   def studentdashboard
@@ -27,5 +31,11 @@ class PagesController < ApplicationController
 
   def artistdashboard
     authorize current_user
+  end
+
+  private
+
+  def set_current_user
+    @user = current_user
   end
 end
