@@ -1,5 +1,5 @@
 <% if @artwork %>
-  <%= cl_image_tag @artwork.photo.path, width: 500, height: 300, crop: :fill %>
-  <% else %>
-    <p>No artwork currently.</p>
+  <%= render 'show', artwork: @artwork %>
+<% else %>
+  <p>No artwork currently.</p>
 <% end %>
