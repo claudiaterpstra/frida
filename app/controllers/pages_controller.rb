@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
-  before_action :set_current_user, only: [:dashboard, :account, :manage_courses]
+
+  before_action :set_current_user, only: [:dashboard, :account, :manage_courses, :studio]
+
   skip_before_action :authenticate_user!, only: [ :home ]
   skip_after_action :verify_authorized, only: [ :home, :studentdashboard, :dashboard ]
 
@@ -14,7 +16,11 @@ class PagesController < ApplicationController
   end
 
   def studio
-    @artworks = current_user.artworks
+    @artworks = if params[:search]
+      Artwork.where("category LIKE ?", "%#{params[:search]}%")
+    else
+      Artwork.all
+    end
   end
 
   def manage_courses

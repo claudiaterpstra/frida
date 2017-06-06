@@ -19,8 +19,15 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.new(artwork_params)
     @artwork.lecture = @lecture
     if @artwork.save
-      redirect_to lecture_path(@lecture)
-    else render :new
+      respond_to do |format|
+        format.html { redirect_to lecture_path(@lecture) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'lectures/show' }
+        format.js  # <-- idem
+      end
     end
   end
 
@@ -31,6 +38,7 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
+    @artwork.destroy
   end
 
   private

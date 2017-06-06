@@ -7,7 +7,7 @@
 
 <div class="container lectures-info">
   <div class="lecture-banner-title">
-    <p><%= @course.name %></p>
+    <p><%= @lecture.course.name %></p>
     <h2><%= @lecture.title %></h2>
   </div>
 
@@ -22,21 +22,18 @@
     <p>Your Turn</p>
     <h2>Submit Your Artwork!</h2>
   </div>
-</div>
 
-<div class="user-upload-container">
-  <div class="user-upload-form">   
-    <%= simple_form_for [@lecture, @artwork], class: 'form-inline' do |f| %>
-      <%= f.input :photo, as: :attachinary %>
-      <% f.input :message %>
-      <%= f.submit "Submit", class: "btn-frida" %>
+    <% if @lecture.artworks.blank? %>
+      Upload your first artwork for <%= @lecture.title %>
+      <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
+    <% else %>
+      <div id="artworks">
+        <% @lecture.artworks.each do |artwork| %>
+          <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
+        <% end %>
+      </div>
+      <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
     <% end %>
-  </div>
 </div>
 
-<% if @lecture.artworks %>
-  <% @lecture.artworks.each do |artwork| %>
-    <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
-  <% end %>
-<% end %>
 
