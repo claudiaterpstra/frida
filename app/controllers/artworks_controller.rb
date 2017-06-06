@@ -38,6 +38,7 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
+    @artwork.destroy
   end
 
   private

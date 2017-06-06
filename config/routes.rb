@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'studentdashboard', to: 'pages#studentdashboard'
   get 'artistdashboard', to: 'pages#artistdashboard'
+  get 'studio', to: 'pages#studio'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :courses do
     resources :participations, only: [:create]
