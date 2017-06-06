@@ -19,8 +19,10 @@
 
     <% if @artworks.count > 0 %>
       <% @artworks.order(:id).each do |artwork| %>
+
         <div data-toggle="modal" data-target="#artwork">
           <%= render 'artworks/show', artwork: artwork %>
+
         </div>
       <% end %>
     <% end %>
