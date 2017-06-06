@@ -24,6 +24,7 @@ gem "jquery-slick-rails"
 # Attachinary
 gem 'cloudinary'
 gem 'attachinary'
+gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
 group :development, :test do

@@ -1,0 +1,32 @@
+.subnav {
+  background-color: $frida-light-grey;
+  font-family: "San Francisco";
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 3;
+}
+
+.subnav-container {
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subnav-list li {
+  margin-bottom: 0;
+  color: $frida-grey;
+  display: inline-block;
+  list-style: none;
+  margin-right: 20px;
+
+  &:hover {
+    color: #AB2B2B;
+    cursor: pointer;
+    cursor: hand;
+  }
+
+  &.active {
+    text-decoration: underline;
+  }
+}

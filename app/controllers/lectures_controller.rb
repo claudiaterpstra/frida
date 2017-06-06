@@ -14,8 +14,9 @@ skip_after_action :verify_authorized
     # authorize @lecture
     @lecture.course = @course
     if @lecture.save
-      redirect_to course_path(@course)
-    else render :new
+      redirect_to lecture_path(@lecture)
+    else
+      render :new
     end
   end
 
