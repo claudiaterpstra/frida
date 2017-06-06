@@ -12,13 +12,9 @@
 .user-side-bar {
   text-align: center;
   padding-right: 65px;
-}
 
-.user-side-highlights {
-  p {
-    text-transform: uppercase;
-    font-size: 15px;
-    font-family: "San Francisco";
+  a {
+    color: #00abe9;
   }
 }
 
@@ -103,45 +99,6 @@
   100% { opacity: 0; }
 }
 
-
-
-
-.banner-user {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: $frida-light-grey;
-  padding: 20px 0;
-  img {
-  border-radius: 50%;
-  }
-}
-
-.banner-bio {
-  padding: 25px 0;
-  width: 70%;
-  margin: 0 auto;
-  text-align: center;
-  i {
-    font-size: 20px;
-
-    &:hover {
-      color: $frida-red;
-    }
-  }
-}
-
-.banner-studio {
-  display: flex;
-  justify-content: center;
-  background-color: $frida-light-grey;
-  padding-bottom: 10px;
-  h2 {
-    font-size: 20px;
-  }
-}
-
 .user-studio-gallery {
   display: flex;
   justify-content: center;
@@ -169,4 +126,43 @@
 width: 200px;
 height: 300px;
 }
+
+
+
+// .banner-user {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: $frida-light-grey;
+//   padding: 20px 0;
+//   img {
+//   border-radius: 50%;
+//   }
+// }
+
+// .banner-bio {
+//   padding: 25px 0;
+//   width: 70%;
+//   margin: 0 auto;
+//   text-align: center;
+//   i {
+//     font-size: 20px;
+
+//     &:hover {
+//       color: $frida-red;
+//     }
+//   }
+// }
+
+// .banner-studio {
+//   display: flex;
+//   justify-content: center;
+//   background-color: $frida-light-grey;
+//   padding-bottom: 10px;
+//   h2 {
+//     font-size: 20px;
+//   }
+// }
+
 

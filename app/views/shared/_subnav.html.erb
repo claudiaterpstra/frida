@@ -2,12 +2,12 @@
   <div class="subnav-container">
     <div class="subnav-list">
       <ul>
-        <li class=<%= 'active' if params[:action] == 'dashboard' %>><%= link_to "Dashboard", root_path %></li>
+        <li class=<%= 'active' if params[:action] == 'dashboard' %>><%= link_to "Dashboard", dashboard_path %></li>
         <li class=<%= 'active' if params[:action] == 'show' %>><%= link_to "Profile", user_path(current_user) %></li>
         <li class=<%= 'active' if params[:action] == 'studio' %>><%= link_to "Studio", root_path %></li>
-        <li class=<%= 'active' if params[:action] == 'my_courses' %>><%= link_to "My Courses", root_path %></li>
-        <li class=<%= 'active' if params[:action] == 'account' %>><%= link_to "Account", root_path %></li>
-      </ul>
+        <li class=<%= 'active' if params[:action] == 'my_courses' %>><%= link_to "Manage Courses", manage_courses_path %></li>
+<!--         <li class=<%# 'active' if params[:action] == 'account' %>><%# link_to "Account", root_path %></li>
+ -->      </ul>
     </div>
   </div>
 </div>

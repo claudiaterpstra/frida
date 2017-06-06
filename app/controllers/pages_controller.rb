@@ -1,12 +1,15 @@
 class PagesController < ApplicationController
-  before_action :set_current_user, only: [:dashboard, :account, :studio]
+
+  before_action :set_current_user, only: [:dashboard, :account, :manage_courses, :studio]
+
   skip_before_action :authenticate_user!, only: [ :home ]
-  skip_after_action :verify_authorized, only: [ :home, :studentdashboard ]
+  skip_after_action :verify_authorized, only: [ :home, :studentdashboard, :dashboard ]
 
   def home
   end
 
   def dashboard
+    @courses = current_user.courses_participated
   end
 
   def account
@@ -20,8 +23,12 @@ class PagesController < ApplicationController
     end
   end
 
-  def my_courses
-    @courses = current_user.courses_participated
+  def manage_courses
+    if current_user.courses_participated.count > 0
+      @courses = current_user.courses_participated
+    else
+    end
+
   end
 
   def studentdashboard

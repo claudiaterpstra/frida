@@ -14,7 +14,7 @@
         <i class="fa fa-dribbble" aria-hidden="true"></i>
         <i class="fa fa-github-alt" aria-hidden="true"></i>
         <p>Member Since: <%= @user.created_at.strftime("%e %B %Y") %></p>
-        <p><%= link_to "Edit Profile", edit_user_path %></p>
+        <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
       </div>
 
       </div>
@@ -22,14 +22,14 @@
 
     <div class="col-lg-9 col-md-8 col-sm-12">
       <div class="user-greeting">
-        <h2>What's up, <%= @user.first_name %>!</h2>
-          <h3 class="sentence">You
+        <h2>What's up, I'm <%= @user.first_name %>!</h2>
+          <h3 class="sentence">I have
             <div class="slidingVertical">
-              <span>are awesome.</span>
-              <span>are enrolled on <%= pluralize current_user.participations.count, "course" %>.</span>
-              <span>have unlocked <%= pluralize current_user.badge_count, "badge" %>.</span>
-              <span>have <%= pluralize current_user.course_reviews.count, "course" %>.</span>
-              <span>completed 3 Frida courses.</span>
+              <span>mad skills.</span>
+              <span>enrolled on <%= pluralize current_user.participations.count, "course" %>.</span>
+              <span>unlocked <%= pluralize current_user.badge_count, "badge" %>.</span>
+              <span>completed <%= pluralize current_user.course_reviews.count, "course" %>.</span>
+              <span>left 2 reviews.</span>
             </div>
         </h3>
       </div>
@@ -40,7 +40,7 @@
 
 
       <div class="user-show-studio">
-        <h3>Your Studio</h3>
+        <h3>My Featured Artwork</h3>
           <div class="user-studio-gallery">
             <img src="https://placehold.it/100x100" alt="">
             <img src="https://placehold.it/100x100" alt="">
@@ -52,7 +52,7 @@
       </div>
 
       <div class="user-show-studio">
-        <h3>Your Enrolled Courses</h3>
+        <h3>My Courses</h3>
           <div class="user-studio-gallery">
             <%= render 'shared/enrolledcoursecard' %>
             <img src="https://placehold.it/100x100" alt="">
@@ -62,6 +62,11 @@
             <img src="https://placehold.it/100x100" alt="">
             <img src="https://placehold.it/100x100" alt="">
           </div>
+      </div>
+
+      <div class="user-show-studio">
+        <h3>Badges I've Earned</h3>
+        <p>BADGES HERE</p>
       </div>
     </div>
 

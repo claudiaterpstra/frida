@@ -1,0 +1,61 @@
+.manage-side-bar {
+
+  text-align: left;
+  padding-top: 55px;
+
+  a {
+    color: $frida-white;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .btn-frida {
+    padding: 15px 35px;
+  }
+}
+
+h4 {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.course-card-manager {
+  display: flex;
+  background-color: $frida-light-grey;
+  width: 750px;
+  margin-bottom: 15px;
+  height: 300px;
+}
+
+.course-card-img {
+  background-color: $frida-medium-grey;
+  flex: 1 0 30%;
+  height: 100%;
+}
+
+.course-card-content {
+  flex: 1 0 70%;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+
+  h3 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.course-card-links {
+  margin-top: 80px;
+}
