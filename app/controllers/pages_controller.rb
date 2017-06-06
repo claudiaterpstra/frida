@@ -5,6 +5,22 @@ class PagesController < ApplicationController
   def home
   end
 
+  def dashboard
+    @user = current_user
+  end
+
+  def account
+    @user = current_user
+  end
+
+  def studio
+    @artworks = current_user.artworks
+  end
+
+  def my_courses
+    @courses = current_user.courses_participated
+  end
+
   def studentdashboard
     @courses = current_user.courses_participated
   end
