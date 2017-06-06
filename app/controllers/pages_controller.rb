@@ -21,7 +21,7 @@ class PagesController < ApplicationController
       @artworks = Artwork.where("category LIKE ?", "%#{params[:search]}%")
     elsif params[:lecture]
       @lecture = Lecture.find_by_title(params[:lecture])
-      @artworks = Artwork.where(lecture_id: @lecture.id)
+      @artworks = Artwork.all.where(user: @user, lecture_id: @lecture.id)
     else
       @artworks = Artwork.all
     end
