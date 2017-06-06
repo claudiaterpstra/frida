@@ -16,11 +16,23 @@ class PagesController < ApplicationController
   end
 
   def studio
-    @artworks = if params[:search]
-      Artwork.where("category LIKE ?", "%#{params[:search]}%")
+
+    if params[:search]
+      @artworks = Artwork.where("category LIKE ?", "%#{params[:search]}%")
+    elsif params[:lecture]
+      @lecture = Lecture.find_by_title(params[:lecture])
+      @artworks = Artwork.where(lecture_id: @lecture.id)
     else
-      Artwork.all
+      @artworks = Artwork.all
     end
+
+
+
+    @lectures = []
+    Artwork.all.each do |art|
+      @lectures << art.lecture
+    end
+
   end
 
   def manage_courses
