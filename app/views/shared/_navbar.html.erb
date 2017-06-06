@@ -37,8 +37,8 @@
           <%= unique_image_tag current_user, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to studentdashboard_path do %>
-                <i class="fa fa-paint-brush"></i><%= t(".profile", default: " My Dashboard") %>
+              <%= link_to dashboard_path do %>
+                <i class="fa fa-paint-brush"></i><%= t(".profile", default: " Dashboard") %>
               <% end %>
             </li>
             <li>
