@@ -29,6 +29,7 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
     authorize @course
     @course.user = current_user
     @course.rating = 0
+    @course.published = false
     if @course.save
       redirect_to course_path(@course)
     else render :new
@@ -42,6 +43,14 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
   def update
     @course.update(course_params)
     redirect_to course_path
+  end
+
+  def publish
+    @course = Course.find(params[:course_id])
+    authorize @course
+    @course.published = true
+    @course.save
+    redirect_to :back
   end
 
   def destroy

@@ -13,6 +13,10 @@ class CoursePolicy < ApplicationPolicy
     record.user == user
   end
 
+  def publish?
+    record.user == user
+  end
+
   def destroy?
     record.user == user
   end
