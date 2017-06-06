@@ -31,6 +31,7 @@
         <div class="tab-icon"></div>
           Lecture <%= count %>
           <% count += 1 %>
+          <%= link_to "Start this lecture", lecture_path(lecture)  %>
       </h2>
       <div class="content-block block-skin-grey clearfix">
         <h2 class="content-block-title"><%= lecture.title %></h2>

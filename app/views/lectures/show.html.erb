@@ -7,7 +7,7 @@
 
 <div class="container lectures-info">
   <div class="lecture-banner-title">
-    <p><%= @course.name %></p>
+    <p><%= @lecture.course.name %></p>
     <h2><%= @lecture.title %></h2>
   </div>
 
@@ -25,7 +25,7 @@
 </div>
 
 <div class="user-upload-container">
-  <div class="user-upload-form">   
+  <div class="user-upload-form">
     <%= simple_form_for [@lecture, @artwork], class: 'form-inline' do |f| %>
       <%= f.input :photo, as: :attachinary %>
       <% f.input :message %>
