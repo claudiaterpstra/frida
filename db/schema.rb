@@ -85,6 +85,13 @@ ActiveRecord::Schema.define(version: 20170607124805) do
     t.index ["course_id"], name: "index_lectures_on_course_id", using: :btree
   end
 
+  create_table "materials", force: :cascade do |t|
+    t.string   "name"
+    t.string   "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "participations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "course_id"
