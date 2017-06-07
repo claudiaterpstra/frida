@@ -18,7 +18,8 @@ courses_attributes = [
     category: "Portrait",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496154562/svy4u8zpotvoj3ziqeyb.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 3
+    duration: 3,
+    published: false
   },
    {
     name: "Landscape Painting",
@@ -28,7 +29,8 @@ courses_attributes = [
     category: "Landscape",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496154582/swekgxpo9qpv5no81ksh.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 3
+    duration: 3,
+    published: false
   },
    {
     name: "Conceptual Art Painting",
@@ -38,7 +40,8 @@ courses_attributes = [
     category: "Conceptual",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496154602/fs0izpenmw55ntn4vdlg.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 3
+    duration: 3,
+    published: false
   },
    {
     name: "Pop Art Painting",
@@ -48,7 +51,8 @@ courses_attributes = [
     category: "Modern",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496154778/q1je6yn12rhqbcgireb9.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 3
+    duration: 3,
+    published: false
   },
   {
     name: "Chinese Painting",
@@ -58,7 +62,8 @@ courses_attributes = [
     category: "Traditional",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496157349/quyq3g1ne69dqhp2rhm7.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 3
+    duration: 3,
+    published: false
   },
    {
     name: "Colour Field Painting",
@@ -68,7 +73,8 @@ courses_attributes = [
     category: "Landscape",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162091/colour-field_jkizvh.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 3
+    duration: 3,
+    published: false
   },
    {
     name: "Modern Art Painting",
@@ -78,7 +84,8 @@ courses_attributes = [
     category: "Modern",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162094/modern_art_sdklks.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 3
+    duration: 3,
+    published: false
   },
    {
     name: "Paint Like Pablo",
@@ -88,7 +95,8 @@ courses_attributes = [
     category: "Cubism",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162094/picasso_dvux2q.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 5
+    duration: 5,
+    published: false
   },
   {
     name: "Paint 'The Scream'",
@@ -98,7 +106,8 @@ courses_attributes = [
     category: "Expressionism",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162093/The_Scream_rw5haf.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 5
+    duration: 5,
+    published: false
   },
    {
     name: "Surrealism Painting",
@@ -108,7 +117,8 @@ courses_attributes = [
     category: "Surrealism",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162199/surrealism_l1ej5h.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 5
+    duration: 5,
+    published: false
   },
    {
     name: "Japanese Painting",
@@ -118,17 +128,19 @@ courses_attributes = [
     category: "Traditional",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162092/japanese_a40y5x.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 5
+    duration: 5,
+    published: false
   },
    {
     name: "Abstract Painting",
-    description: "Any art that illustrates anything, but not in the truest of forms, can be classified as abstract art. This is a real product of radical thought.",
+    description: "Any art that illustrates anything, but not in the falsest of forms, can be classified as abstract art. This is a real product of radical thought.",
     price: 70,
     rating: 4,
     category: "Abstract",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162091/abstract_hhnknv.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 5
+    duration: 5,
+    published: false
   },
   {
     name: "Van Gogh Painting",
@@ -138,7 +150,8 @@ courses_attributes = [
     category: "Expressionism",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162092/vangogh_z3uwwi.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 5
+    duration: 5,
+    published: false
   },
    {
     name: "Cubism Painting",
@@ -148,7 +161,8 @@ courses_attributes = [
     category: "Cubism",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162094/cubism_hho67a.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 5
+    duration: 5,
+    published: false
   },
    {
     name: "Pastel Painting",
@@ -158,7 +172,8 @@ courses_attributes = [
     category: "Conceptual",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162092/pastel_w6s1mz.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 5
+    duration: 5,
+    published: false
   },
    {
     name: "Indian Painting",
@@ -168,7 +183,8 @@ courses_attributes = [
     category: "Traditional",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162091/indian_covbqe.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 5
+    duration: 5,
+    published: false
   },
   {
     name: "Acryllic Painting",
@@ -178,7 +194,8 @@ courses_attributes = [
     category: "Acryllic",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162091/acryllic_if9zxe.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 10
+    duration: 10,
+    published: false
   },
    {
     name: "Sand Painting",
@@ -188,7 +205,8 @@ courses_attributes = [
     category: "Sand Painting",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162090/sand_totdo5.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 10
+    duration: 10,
+    published: false
   },
    {
     name: "Digital Painting",
@@ -198,7 +216,8 @@ courses_attributes = [
     category: "Digital",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162090/digital_trf1yy.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 10
+    duration: 10,
+    published: false
   },
    {
     name: "Watercolour Painting",
@@ -208,7 +227,8 @@ courses_attributes = [
     category: "Watercolour",
     photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162094/watercolour_fpkwmp.jpg",
     materials: "You'll neeed a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 10
+    duration: 10,
+    published: false
   }
 ]
 
