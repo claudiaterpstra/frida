@@ -4,7 +4,7 @@ class ArtworksController < ApplicationController
   before_action :set_artwork, only: [:show, :edit, :update, :destroy]
 
   def index
-    @artworks = policy_scope(Artwork).order(created_at: :desc)
+    # @artworks = policy_scope(Artwork).order(created_at: :desc)
     @artworks = Artwork.all
   end
 

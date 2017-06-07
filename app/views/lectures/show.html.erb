@@ -31,7 +31,7 @@
       </div>
       <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
     <% else %>
-      <p>Upload your first artwork for <%= @lecture.name %></p>
+      <p>Upload your first artwork for <%= @lecture.title %></p>
       <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
     <% end %>
 </div>
