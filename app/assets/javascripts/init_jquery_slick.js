@@ -1,5 +1,5 @@
 $(document).on('ready', function() {
-  $('.user-studio-gallery').slick({
+  $('.carousel').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     variableWidth: true,
