@@ -19,11 +19,11 @@ Rails.application.routes.draw do
   end
 
   resources :lectures, except: [:new, :create] do
-    resources :artworks, only: [:new, :create]
+    resources :artworks, only: [:create]
   end
 
   resources :artworks, only: [:index, :show, :edit, :destroy] do
-    resources :feedbacks, only: [:create]
+    resources :feedbacks, only: [:show, :create]
   end
 
   resources :users, only: [:show, :edit, :update]
