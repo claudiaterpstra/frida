@@ -7,8 +7,13 @@ class FeedbacksController < ApplicationController
     @feedback.student = @feedback.artwork.user
     @feedback.teacher = @feedback.artwork.lecture.course.user
     if @feedback.save
-      redirect_to studio_path
-    else render :new
+      respond_to do |format|
+        format.html { redirect_to studio_path }
+        format.js
+    else
+      respond_to do |format|
+        format.html { render 'artworks/show' }
+        format.js
     end
   end
 

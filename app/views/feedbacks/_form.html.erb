@@ -1,0 +1,5 @@
+<%= simple_form_for [artwork, feedback], remote: true, class: 'form-inline' do |f| %>
+  <%= f.input :content, label: 'Feedback', as: :text %>
+  <%= f.submit "Start a conversation", class: "btn btn-frida" %>
+<% end %>
+

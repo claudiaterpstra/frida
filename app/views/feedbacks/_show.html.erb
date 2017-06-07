@@ -1,0 +1,6 @@
+<% if feedback.teacher == current_user %>
+  <p> <%= feedback.teacher.first_name %> says <%= feedback.content  %> </p>
+<% elsif feedback.student == current_user %>
+  <p> <%= feedback.student.first_name %> says <%= feedback.content  %> </p>
+<% end %>
+
