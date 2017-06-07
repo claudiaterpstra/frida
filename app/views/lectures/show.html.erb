@@ -23,15 +23,15 @@
     <h2>Submit Your Artwork!</h2>
   </div>
 
-    <% if @lecture.artworks.blank? %>
-      Upload your first artwork for <%= @lecture.title %>
-      <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
-    <% else %>
+    <% if @lecture.artworks %>
       <div id="artworks">
         <% @lecture.artworks.each do |artwork| %>
           <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
         <% end %>
       </div>
+      <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
+    <% else %>
+      <p>Upload your first artwork for <%= @lecture.name %></p>
       <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
     <% end %>
 </div>
