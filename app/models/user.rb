@@ -7,10 +7,13 @@ class User < ApplicationRecord
   has_many :courses_participated, -> { distinct }, through: :participations, source: :course
   has_many :course_reviews
   has_many :artworks
+  has_many :feedbacks, :class_name => "Feedback", :foreign_key => "teacher_id"
+  has_many :feedbacks, :class_name => "Feedback", :foreign_key => "student_id"
   has_attachment :photo
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
+
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
