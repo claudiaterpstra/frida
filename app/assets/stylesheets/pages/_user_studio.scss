@@ -15,7 +15,26 @@
   }
 
   h4 {
-    margin-left: 20px;
+    // margin-left: 20px;
+  }
+}
+
+.hr-large {
+  width: 828px;
+}
+
+.artworks-filter-all li {
+  font-size: 15px;
+  a {
+    color: $frida-blue;
+  }
+}
+
+.artworks-filter-names li {
+  font-size: 12px;
+
+  a {
+    color: $frida-blue;
   }
 }
 
@@ -53,8 +72,8 @@
   background-color: $frida-red;
   color: $frida-white;
   text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
+  padding: 3px 0;
+  border-radius: 2px;
   position: absolute;
   // z-index: 1;
   top: 200px;
@@ -68,4 +87,8 @@
 
 .modal {
   z-index: 10500;
+}
+
+.studio-right-column {
+  padding-bottom: 20px;
 }

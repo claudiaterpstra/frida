@@ -3,28 +3,28 @@
     <div class="row">
       <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
         <div class="user-studio-sidebar">
-          <h4>Filter by lecture:</h4>
           <ul>
-            <li>
-              <%= link_to "All (#{@artworks_all.count})", studio_path %>
-            </li>
+              <span class="artworks-filter-all"><li><%= link_to "View All Artwork (#{@artworks_all.count})", studio_path %></li></span>
+              <h4>View by course:</h4>
+
+
+              <h4>View by lecture:</h4>
               <% @lectures.uniq.each do | lecture | %>
-            <li>
-              <%= link_to "#{lecture.title} (#{lecture.artworks.count})", studio_path(lecture: lecture.title) %>
-            </li>
+
+              <span class="artworks-filter-names"><li><%= link_to "#{lecture.title} (#{lecture.artworks.count})", studio_path(lecture: lecture.title) %></li></span>
             <% end %>
           </ul>
         </div>
     </div>
 
-    <div class="col-lg-9 col-md-8 col-sm-12">
-      <h2>Your Studio</h2>
-      <h4>Hey <%= @user.first_name %>! Find all your artwork uploads here and view feedback from your course instructor.</h4>
-        <div class="hr-medium">
+    <div class="col-lg-9 col-md-8 col-sm-12 studio-right-column">
+      <h2>Your Frida Studio</h2>
+      <h4>Hey <%= @user.first_name %>! Manage all your artwork uploads here and access feedback from your course instructor by clicking on any image. Got a question? Hit us up help@frida.studio.</h4>
+        <div class="hr-large">
           <hr>
         </div>
 
-        <h3>Your Artwork</h3>
+<!--         <h3>Your Artwork</h3> -->
           <% if @artworks_all.count > 0 %>
             <% @artworks.order(:id).each do |artwork| %>
 
