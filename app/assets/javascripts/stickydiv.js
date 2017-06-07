@@ -1,3 +1,4 @@
+
 // function fixDiv() {
 //     var $div = $("#stickydiv");
 //     if ($(window).scrollTop() > $div.data("top")) {

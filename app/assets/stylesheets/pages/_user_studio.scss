@@ -1,0 +1,71 @@
+.user-studio-sidebar {
+  height: 300px;
+  width: 250px;
+  border: 1px solid #EEEEEE;
+  padding-top: 20px;
+  padding-right: 10px;
+  margin-top: 20px;
+
+  li {
+    list-style: none;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  h4 {
+    margin-left: 20px;
+  }
+}
+
+.studio-uploads {
+  display: inline-block;
+}
+
+.studio-upload-img {
+  cursor: pointer;
+  cursor: hand;
+  background-size: cover !important;
+  width: 200px;
+  height: 300px;
+  position: relative;
+  margin: 2px;
+  padding-bottom: 20px;
+  transition: 0.5s;
+  opacity: 1;
+
+  // &:hover {
+  //   transition: 0.5s;
+  //   opacity:0.5;
+  //   background-color: Black;
+  // }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: $frida-red;
+  color: $frida-white;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  // z-index: 1;
+  top: 200px;
+  left: 20%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal {
+  z-index: 10500;
+}

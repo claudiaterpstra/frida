@@ -1,7 +1,7 @@
 <%= render 'shared/subnav' %>
 <div class="container user-show">
   <div class="row">
-    <div class="col-lg-3 col-md-4 hide-sm">
+    <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
       <div class="user-side-bar">
 <!--         <div class="user-side-img">
           <%# unique_image_tag(@user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
@@ -16,7 +16,8 @@
 
     <div class="col-lg-9 col-md-8 col-sm-12">
       <h2>Manage Courses</h2>
-      <h4>Hey <%= @user.first_name %>! Keep all your courses updated here, view your students' work and give them feedback.</h4>
+      <h4>Hey <%= @user.first_name %>! Keep all your courses updated here, view your students' work and give them feedback.
+      If you'd like to create a new course, go on and hit that red button on the left!</h4>
         <div class="hr-medium">
           <hr>
         </div>

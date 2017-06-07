@@ -1,7 +1,7 @@
 <%= render 'shared/subnav' %>
 <div class="container user-show">
   <div class="row">
-    <div class="col-lg-3 col-md-4 hide-sm">
+    <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
       <div class="user-side-bar">
         <div class="user-side-img">
           <%= unique_image_tag(@user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
@@ -42,7 +42,7 @@
       <div class="user-show-studio">
         <h3>Your Studio</h3>
           <div class="user-studio-gallery carousel">
-
+            <%= render 'shared/artworkcard' %>
           </div>
       </div>
 

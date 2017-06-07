@@ -1,9 +1,9 @@
 <% if @artwork.errors.any? %>
    $('#new_artwork').html("<%= j render 'artworks/form', lecture: @lecture, artwork: @artwork %>");
 <% else %>
-  var new_artwork = $('<%= cl_image_tag @artwork.photo.path, width: 500, height: 300, crop: :fill %>').hide();
-  $('#artworks').append(new_artwork);
-  new_artwork.slideDown();
+  var new_artwork = $("<%= j render 'sliderupload', artwork: @artwork %>");
+  $('#artworks').slick('slickAdd', new_artwork);
+  // new_artwork.slideDown();
   $('#new_artwork').html("<%= j render 'artworks/form', lecture: @lecture, artwork: Artwork.new %>");
   $('.attachinary-input').attachinary();
 <% end %>
