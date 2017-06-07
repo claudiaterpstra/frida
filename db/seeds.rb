@@ -246,7 +246,7 @@ courses_attributes = [
 
   rand(1..3).times do
     attrs = courses_attributes.sample.merge(user: user)
-    attrs_no_photo = attrs.slice(:name, :description, :price, :rating, :category, :user)
+    attrs_no_photo = attrs.slice(:name, :description, :price, :rating, :category, :user, :materials, :duration, :published)
     c = Course.create!(attrs_no_photo)
     c.photo_url = attrs[:photo]
     puts "Course #{c.name} created"

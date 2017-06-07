@@ -30,16 +30,21 @@ h4 {
 }
 
 .course-card-img {
-  background-color: $frida-medium-grey;
   flex: 1 0 30%;
   height: 100%;
+  background-size: cover;
+  transition: 0.5s;
+
+  &:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+  }
 }
 
 .course-card-content {
-  flex: 1 0 70%;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 30px;
+  position: relative;
+  flex-grow: 1;
+  padding: 30px;
 
   h3 {
     font-size: 20px;
@@ -57,5 +62,6 @@ h4 {
 }
 
 .course-card-links {
-  margin-top: 80px;
+  position: absolute;
+  bottom: 30px;
 }
