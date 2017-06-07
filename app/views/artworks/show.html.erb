@@ -1,6 +1,5 @@
 <% if @artwork %>
-
-  <%= render 'show', artwork: @artwork, feedback: @feedback %>
+  <%= render 'show_modal', artwork: @artwork, feedback: @feedback %>
 <% else %>
   <p>No artwork currently.</p>
 <% end %>

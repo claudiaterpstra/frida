@@ -21,14 +21,9 @@
       <% @artworks.order(:id).each do |artwork| %>
 
         <div data-toggle="modal" data-target="#artwork">
-          <%= render 'artworks/show', artwork: artwork, feedback: @feedback %>
-
+          <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
         </div>
       <% end %>
     <% end %>
-
-
-
-
 
 </div>
