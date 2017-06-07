@@ -15,8 +15,8 @@
         <div class="course-side-btn">
           <% if user_signed_in? %>
             <% if @course.user == current_user %>
-              <%= link_to "Update", edit_course_path(@course), class: "btn btn-frida" %>
-              <%= link_to "Delete", course_path(@course), method: :delete, class: "btn btn-frida" %>
+              <%= link_to "Update", edit_course_path(@course), class: "btn btn-frida btn-teacher" %>
+              <%= link_to "Delete", course_path(@course), method: :delete, class: "btn btn-frida btn-teacher" %>
             <% elsif current_user.participates_to?(@course)  %>
               You are booked on this course
             <% else %>

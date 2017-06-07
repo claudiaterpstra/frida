@@ -49,21 +49,15 @@
   width: 200px;
   height: 300px;
   position: relative;
-  margin: 2px;
-  padding-bottom: 20px;
   transition: 0.5s;
-  opacity: 1;
 
-  // &:hover {
-  //   transition: 0.5s;
-  //   opacity:0.5;
-  //   background-color: Black;
-  // }
-}
-
-.tooltip {
   position: relative;
   display: inline-block;
+
+  &:hover {
+    transition: 0.5s;
+    background-color: rgba(0,0,0,0.2);
+  }
 }
 
 .tooltiptext {
@@ -75,19 +69,17 @@
   padding: 3px 0;
   border-radius: 2px;
   position: absolute;
-  // z-index: 1;
   top: 200px;
   left: 20%;
 }
 
-.tooltip:hover .tooltiptext {
+.studio-upload-img:hover .tooltiptext {
   visibility: visible;
-  opacity: 1;
 }
 
-.modal {
-  z-index: 10500;
-}
+// .modal {
+//   z-index: 10500;
+// }
 
 .studio-right-column {
   padding-bottom: 20px;

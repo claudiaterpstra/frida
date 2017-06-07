@@ -27,14 +27,13 @@
 <!--         <h3>Your Artwork</h3> -->
           <% if @artworks_all.count > 0 %>
             <% @artworks.order(:id).each do |artwork| %>
-
-            <div class="studio-uploads">
-              <div data-toggle="modal" data-target="#artwork" class="studio-upload-img tooltip">
-                <span class="tooltiptext">Add/View Feedback</span>
+            <div class="studio-uploads" style="background-image: url('<%= cl_image_path artwork.photo.path, width: 200, height: 300, crop: :fill %>')">
+              <div data-toggle="modal" data-target="#artwork" class="studio-upload-img">
+                <span class="tooltiptext invisible">Add/View Feedback</span>
                 <%= render 'artworks/show', artwork: artwork, feedback: @feedback %>
               </div>
+            </div>
             <% end %>
-           </div>
           <% end %>
     </div>
   </div>
