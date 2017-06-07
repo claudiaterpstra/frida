@@ -26,8 +26,6 @@ class PagesController < ApplicationController
       @artworks = Artwork.all.where(user: @user)
     end
 
-
-
     @lectures = []
     @artworks.each do |art|
       @lectures << art.lecture
@@ -38,10 +36,16 @@ class PagesController < ApplicationController
   end
 
   def manage_courses
-    if current_user.courses_participated.count > 0
-      @courses = current_user.courses_participated
-    else
+   @courses = Course.all.where(user: @user)
+
+   @artworks = []
+   @courses.each do |course|
+    course.lectures.each do |lecture|
+      lecture.artworks.each do |artwork|
+        @artworks << artwork
+      end
     end
+   end
 
   end
 
