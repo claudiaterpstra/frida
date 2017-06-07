@@ -11,6 +11,12 @@
           </div>
           <div class="modal-body">
             <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
+              <p><%= artwork.message %></p>
+
+            <%= simple_form_for [artwork, feedback], class: 'form-inline' do |f| %>
+                    <%= f.input :content, label: 'Feedback', as: :text %>
+                    <%= f.submit "Add your Feedback", class: "btn btn-frida" %>
+                    <% end %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

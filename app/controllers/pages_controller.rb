@@ -33,6 +33,8 @@ class PagesController < ApplicationController
       @lectures << art.lecture
     end
 
+    @feedback = Feedback.new
+
   end
 
   def manage_courses

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   resources :artworks, only: [:index, :show, :edit, :destroy] do
-    resources :feedback, only: [:create]
+    resources :feedbacks, only: [:create]
   end
 
   resources :users, only: [:show, :edit, :update]
