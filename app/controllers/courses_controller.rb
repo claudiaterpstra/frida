@@ -66,7 +66,6 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
   end
 
   def course_params
-    # Missing strong params for materials?
-    params.require(:course).permit(:name, :category, :description, :price, :rating, :photo, :search, :course_materials)
+    params.require(:course).permit(:name, :category, :description, :price, :rating, :photo, :search, :materials, :duration)
   end
 end
