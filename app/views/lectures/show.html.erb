@@ -5,8 +5,8 @@
   </div>
 </div>
 
-<div class="container lectures-info">
-  <div class="lecture-banner-title">
+<div class="lectures-info">
+  <div class="container lecture-banner-title">
     <p><%= @lecture.course.name %></p>
     <h2><%= @lecture.title %></h2>
   </div>
@@ -15,25 +15,34 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur rem ipsa, suscipit animi.
     Quisquam eos repellendus assumenda.</p>
   </div>
-</div>
 
-<div class="container user-uploads-container">
-  <div class="user-uploads-title">
-    <p>Your Turn</p>
-    <h2>Submit Your Artwork!</h2>
+  <div class="container user-uploads-container">
+    <div class="user-uploads-title">
+      <p>Your Turn</p>
+      <h2>Submit Your Artwork!</h2>
+    </div>
   </div>
 
+  <div class="user-upload-form">
     <% if @lecture.artworks %>
-      <div id="artworks">
-        <% @lecture.artworks.each do |artwork| %>
-          <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
-        <% end %>
+    <div class="user-upload-gallery carousel" id="artworks">
+      <% @lecture.artworks.each do |artwork| %>
+      <div class="courses-box courses-box-slick">
+        <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_path artwork.photo.path, crop: :fill %>');">
+        <%# cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
+        <div class="card-category card-category-slick"><p><%= artwork.message %></p></div>
+        </div>
       </div>
+      <% end %>
+    </div>
+      <div class="artworks-form">
+        <hr>
       <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
+      </div>
     <% else %>
       <p>Upload your first artwork for <%= @lecture.title %></p>
-      <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
-    <% end %>
+        <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
+        <% end %>
+      </div>
+  </div>
 </div>
-
-

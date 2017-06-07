@@ -55,6 +55,36 @@
   text-align: center;
 }
 
-.user-upload-form a.btn {
-  margin-bottom: 20px;
+.user-upload-form {
+  margin: auto;
+  width: 1055px;
+
+  a.btn {
+    margin-bottom: 20px;
+  }
+}
+
+.user-upload-gallery {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+
+  img {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  a {
+    text-align: center;
+  }
+  .courses-box-slick {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.artworks-form {
+  margin: auto;
+  width: 600px;
+  padding-bottom: 100px;
 }

@@ -9,6 +9,7 @@ class ArtworksController < ApplicationController
   end
 
   def show
+    @feedback = Feedback.new
   end
 
   def new
