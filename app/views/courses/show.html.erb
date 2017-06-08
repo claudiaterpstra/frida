@@ -1,5 +1,12 @@
 <div class="container">
     <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');">
+        <% if user_signed_in? %>
+          <% current_user.participations.each do |participation| %>
+            <% if participation.course == @course %>
+              <input type="button", id="button", class="btn btn-frida", value="Go to lectures"/>
+            <% end %>
+          <% end %>
+        <% end %>
     </div>
 </div>
 
@@ -54,6 +61,7 @@
           <hr>
         </div>
 
+        <div id="button-scroll"></div>
         <div class="course-banner-title">
           <p>curriculum</p>
           <h2>Course Lessons</h2>

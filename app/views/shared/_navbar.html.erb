@@ -7,6 +7,11 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+  <!-- Manage Courses -->
+  <% if user_signed_in? && current_user.courses.count > 0 %>
+    <%= link_to 'Manage Courses', manage_courses_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  <% end %>
+
     <!-- About link -->
     <%= link_to "About", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
