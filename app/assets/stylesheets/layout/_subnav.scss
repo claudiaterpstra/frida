@@ -13,19 +13,43 @@
   margin-right: auto;
 }
 
-.subnav-list li {
+.subnav-list ul {
   margin-bottom: 0;
-  color: $frida-grey;
-  display: inline-block;
-  list-style: none;
-  margin-right: 20px;
+  // width: 45%;
 
-  a {
+  li {
+    width: 125px;
+    text-align: center;
+    margin-bottom: 0;
     color: $frida-grey;
-  }
+    display: inline-block;
+    list-style: none;
 
-  &.active {
-    text-decoration: underline;
+    a {
+      color: $frida-grey;
+      display: inline-block;
+      // width: 25%;
+      // padding: .75rem 0;
+      margin: 0;
+      text-decoration: none;
+    }
   }
+}
+
+.subnav-link-two:hover ~ hr {
+  margin-left: 125px;
+}
+
+.subnav-link-three:hover ~ hr {
+  margin-left: 250px;
+}
+
+hr.hr-subnav {
+  height: .25rem;
+  width: 125px;
+  margin: 0;
+  background: $frida-red;
+  border: none;
+  transition: .3s ease-in-out;
 }
 
