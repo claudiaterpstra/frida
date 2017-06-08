@@ -6,7 +6,11 @@
 <!--         <li class=<%# 'active' if params[:action] == 'show' %>><%# link_to "Profile", user_path(current_user) %></li>
  -->    <li class=<%= 'active' if params[:action] == 'studio' %>><%= link_to "Studio", studio_path %></li>
         <li class=<%= 'active' if params[:action] == 'my_courses' %>><%= link_to "Manage Courses", manage_courses_path %></li>
+        <% if user_signed_in? && current_user.courses.count > 0 %>
+          <li class=<%= 'active' if params[:action] == 'give_feedback' %>><%= link_to "Give Feedback", give_feedback_path %></li>
+        <% end %>
 <!--         <li class=<%# 'active' if params[:action] == 'account' %>><%# link_to "Account", root_path %></li>
+
  -->  </ul>
     </div>
   </div>

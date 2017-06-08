@@ -22,6 +22,7 @@ skip_after_action :verify_authorized
 
   def show
     @artwork = Artwork.new
+    @artworks = current_user.artworks.where(lecture_id: @lecture.id)
   end
 
     def destroy
