@@ -1,6 +1,7 @@
 <% @lecture.artworks.each do |artwork| %>
+<% image_url = artwork.photo ? artwork.photo.path : "sample" %>
   <div class="courses-box courses-box-slick">
-    <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>');">
+    <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_tag image_url, width: 500, height: 300, crop: :fill %>');">
       <div class="card-course-name-slick"><p><%= artwork.message %></p></div>
     <% end %>
     </div>
