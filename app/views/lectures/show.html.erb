@@ -11,8 +11,7 @@
   </div>
 
   <div class="lecture-description">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur rem ipsa, suscipit animi.
-    Quisquam eos repellendus assumenda.</p>
+    <p><%= @lecture.description %></p>
   </div>
 
   <div class="container user-uploads-container">
@@ -37,6 +36,8 @@
       <div class="artworks-form">
         <hr>
       <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
+      <br>
+       <%= link_to "View your artwork in studio", studio_path, class:"studio-link" %>
       </div>
     <% else %>
       <p>Upload your first artwork for <%= @lecture.title %></p>
