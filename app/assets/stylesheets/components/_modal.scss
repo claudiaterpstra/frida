@@ -16,3 +16,24 @@
     color: $frida-grey;
   }
 }
+
+.p-right {
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 15px;
+  padding-right: 10px;
+  img {
+    border-radius: 50px;
+    margin-left: 10px;
+  }
+}
+
+.p-left {
+  margin-bottom: 10px;
+  font-size: 15px;
+  padding-right: 10px;
+  img {
+    border-radius: 50px;
+    margin-right: 10px;
+  }
+}

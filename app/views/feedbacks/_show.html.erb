@@ -1,6 +1,11 @@
-<% if feedback.teacher.nil? %>
-  <p>Student(<%= feedback.student.first_name %>) says <%= feedback.content  %></p>
-<% elsif feedback.student.nil? %>
-  <p>Teacher(<%= feedback.teacher.first_name %>) says <%= feedback.content  %></p>
-<% end %>
+   <% if feedback.teacher.nil? %>
+    <div class="p-left">
+      <%= unique_image_tag(feedback.student, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+      <%= feedback.content  %>
+    </div>
+  <% elsif feedback.student.nil? %>
+    <div class="p-right"> <%= feedback.content  %>
+      <%= unique_image_tag(feedback.teacher, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+    </div>
+  <% end %>
 
