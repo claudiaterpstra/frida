@@ -20,27 +20,19 @@ class PagesController < ApplicationController
     @feedback = Feedback.new
     @courses = @user.courses_participated
     @lectures = @user.courses_participated.collect(&:lectures).flatten
-    @artworks_count = current_user.artworks.count
+    @artworks_count = @user.artworks.count
 
     if params[:lecture]
       @artworks = current_user.artworks.where(lecture: Lecture.find(params[:lecture]))
     elsif params[:course]
       @artworks = Course.find(params[:course]).artworks.where(user: current_user)
     else
-      @artworks = current_user.artworks
+      @artworks = @user.artworks
     end
   end
 
   def manage_courses
-    @courses = current_user.courses
-    @artworks = []
-    @courses.each do |course|
-      course.lectures.each do |lecture|
-        lecture.artworks.each do |artwork|
-          @artworks << artwork
-        end
-      end
-    end
+    @courses = @user.courses
   end
 
   def studentdashboard
