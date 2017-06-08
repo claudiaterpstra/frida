@@ -1,12 +1,11 @@
 <%= simple_form_for @course, class: 'form-inline' do |f| %>
   <%= f.input :name, placeholder: 'What is your course title?' %>
-  <%= f.input :category, collection: ["Portrait", "Landscape", "Conceptual", "Modern", "Traditional",
-              "Cubism", "Expressionism", "Surrealism", "Abstract", "Acryllic", "Sand Painting", "Digital",
-              "Watercolour"], placeholder: 'e.g. portraits, landscapes, etc.' %>
-  <%= f.input :description, placeholder: 'How would you describe your course?' %>
+  <%= f.input :category, collection: ["Portrait", "Landscape", "Conceptual", "Modern", "Traditional", "Cubism", "Expressionism", "Surrealism", "Abstract", "Acryllic", "Sand Painting", "Digital", "Watercolour"], placeholder: 'e.g. portraits, landscapes, etc.' %>
+  <%= f.input :duration, label: 'Duration (in hours)', placeholder: 'How long (in hours) would it take for you to complete the course?' %>
   <%= f.input :price, placeholder: 'What is the price of your course in £ ?' %>
+  <%= f.input :materials, label: 'Course Materials', placeholder: 'What tools would you need?' %>
+  <%= f.input :description, placeholder: 'How would you describe your course?' %>
   <%= f.input :photo, as: :attachinary %>
-  <%= f.association :materials, as: :check_boxes, include_hidden: false %>
 
   <%= f.submit "Submit", class: "btn-frida" %>
 <% end %>

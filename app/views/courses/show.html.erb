@@ -10,7 +10,7 @@
         <div class="course-side-img">
         <div class="course-side-info">
           <h2>£<%= @course.price %></h2>
-          <p>5 hours of video lessons </p>
+          <p><%= @course.duration %> hours of video lessons </p>
         </div>
         <div class="course-side-btn">
           <% if user_signed_in? %>
@@ -27,13 +27,18 @@
           <% end %>
         </div>
         <div class="course-rating">
-          <%= image_tag "frida-icon.png", {class: "show-card-image"}%>
-          <p>Frida Says</p>
-          <% @course.rating.times do |rating| %>
-            <i class="fa fa-heart" aria-hidden="true"></i>
-          <% end %>
-          <% (5 - @course.rating).times do |rating| %>
-            <i class="fa fa-heart-o" aria-hidden="true"></i>
+          <% if @course.rating > 0 %>
+            <%= image_tag "frida-icon.png", {class: "show-card-image"}%>
+            <p>Frida Says</p>
+            <% @course.rating.times do |rating| %>
+              <i class="fa fa-heart" aria-hidden="true"></i>
+            <% end %>
+            <% (5 - @course.rating).times do |rating| %>
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+            <% end %>
+          <% else %>
+          <br>
+          <p>No rating by Frida yet!</p>
           <% end %>
         </div>
       </div>
@@ -64,11 +69,7 @@
         </div>
 
         <div class="materials-list">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
+          <p><%= @course.materials %></p>
         </div>
 
         <div class="course-banner-title">
@@ -83,8 +84,7 @@
             </div>
             <div class="artist-bio">
               <h2><%= @course.user.first_name %> <%= @course.user.last_name %></h2>
-              <p>Born in 1967 in Mexico City, <%= @course.user.first_name %> is the leading Mexican artist of the generation that emerged in the wake of the influence of Gabriel Orozco and Francis Alÿs. <%= @course.user.first_name %> studied with Orozco in the informal studio class established in the older artist’s atelier in the late 1980s.
-              </p>
+              <p><%= @course.user.biodata %></p>
 
               <div class="artist-socials">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
