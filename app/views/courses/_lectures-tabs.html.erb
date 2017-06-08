@@ -44,7 +44,7 @@
         <p><%= lecture.description %></p>
         <% if user_signed_in? %>
           <% if current_user.participates_to?(@course) %>
-        <%= link_to '<i class = "fa fa-play"></i>'.html_safe, lecture_path(lecture), class: "btn search-button lecture-button" %>
+        <%= link_to '<i class = "fa fa-play"></i> Start'.html_safe, lecture_path(lecture), class: "btn search-button lecture-button" %>
         <% end %>
         <% end %>
       </div>
