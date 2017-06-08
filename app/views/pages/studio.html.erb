@@ -1,69 +1,36 @@
-
 <%= render 'shared/subnav' %>
-  <div class="container user-studio">
-    <div class="row">
-      <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
-        <div class="user-studio-sidebar">
-          <ul>
-              <span class="artworks-filter-all"><li><%= link_to "View All Artwork (#{@artworks_all.count})", studio_path %></li></span>
-              <h4>View by course:</h4>
+<div class="container user-studio">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
+      <div class="user-studio-sidebar">
+        <ul>
+          <span class="artworks-filter-all"><li><%= link_to "View All Artwork (#{@artworks_all.count})", studio_path %></li></span>
+          <h4>View by course:</h4>
 
 
-              <h4>View by lecture:</h4>
-              <% @lectures.uniq.each do | lecture | %>
+          <h4>View by lecture:</h4>
+          <% @lectures.uniq.each do | lecture | %>
 
-              <span class="artworks-filter-names"><li><%= link_to "#{lecture.title} (#{lecture.artworks.count})", studio_path(lecture: lecture.title) %></li></span>
-            <% end %>
-          </ul>
-        </div>
+          <span class="artworks-filter-names"><li><%= link_to "#{lecture.title} (#{lecture.artworks.count})", studio_path(lecture: lecture.title) %></li></span>
+          <% end %>
+        </ul>
+      </div>
     </div>
 
     <div class="col-lg-9 col-md-8 col-sm-12 studio-right-column">
       <h2>Your Frida Studio</h2>
       <h4>Hey <%= @user.first_name %>! Manage all your artwork uploads here and access feedback from your course instructor by clicking on any image. Got a question? Hit us up help@frida.studio.</h4>
-        <div class="hr-large">
-          <hr>
-        </div>
-
-<!--         <h3>Your Artwork</h3> -->
-          <% if @artworks_all.count > 0 %>
-            <% @artworks.order(:id).each do |artwork| %>
-            <div class="studio-uploads" style="background-image: url('<%= cl_image_path artwork.photo.path, width: 200, height: 300, crop: :fill %>')">
-              <div data-toggle="modal" data-target="#artwork" class="studio-upload-img">
-                <span class="tooltiptext invisible">Add/View Feedback</span>
-                <%= render 'artworks/show', artwork: artwork, feedback: @feedback %>
-              </div>
-            </div>
-            <% end %>
-          <% end %>
+      <div class="hr-large">
+        <hr>
       </div>
+
+      <!-- <h3>Your Artwork</h3> -->
+      <% if @artworks_all.count > 0 %>
+      <% @artworks.order(:id).each do |artwork| %>
+      <%= render 'artworks/show', artwork: artwork, feedback: @feedback %>
+      <% end %>
+      <% end %>
     </div>
   </div>
-
-<div class="container">
-  <div class="text-center course-heading">
-    <h1>Studio</h1>
-    <%= render 'courses/searchform' %>
-  </div>
-  <br>
-
-   <ul>
-    <li>
-      <%= link_to "All (#{@artworks.count})", studio_path %>
-    </li>
-      <% @lectures.uniq.each do | lecture | %>
-    <li>
-      <%= link_to "#{lecture.title} (#{@artworks.count})", studio_path(lecture: lecture.title) %>
-    </li>
-    <% end %>
-  </ul>
-
-  <% if @artworks.count > 0 %>
-    <% @artworks.order(:id).each do |artwork| %>
-
-      <div data-toggle="modal" data-target="#artwork">
-        <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
-      </div>
-    <% end %>
-  <% end %>
 </div>
+

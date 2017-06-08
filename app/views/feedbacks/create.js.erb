@@ -5,10 +5,9 @@
   // Create a paragraph for the new review. But hide it.
   var new_feedback = $("<%= j render 'feedbacks/show', feedback: @feedback %>").hide();
   // Add it to the DOM, at the end of the existing reviews. It's still hidden.
-  $('#feedbacks-<%= @feedback.artwork.id %>').append(new_feedback);
+  $('.feedbacks-<%= @feedback.artwork.id %>').append(new_feedback);
   // Show the new review with an animation!
   new_feedback.slideDown();
   // Reset the form
-  $('#feedback_content').val('');
-
+  $('.feedback-input').val('');
 <% end %>

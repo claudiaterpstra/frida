@@ -17,13 +17,12 @@ class PagesController < ApplicationController
   end
 
   def studio
-
-    @artworks_all = Artwork.all.where(user: @user)
+    @artworks_all = current_user.artworks
     if params[:lecture]
       @lecture = Lecture.find_by_title(params[:lecture])
-      @artworks = Artwork.all.where(user: @user, lecture_id: @lecture.id)
+      @artworks = current_user.artworks.where(lecture_id: @lecture.id)
     else
-      @artworks = Artwork.all.where(user: @user)
+      @artworks = current_user.artworks
     end
 
     @lectures = []
@@ -32,7 +31,6 @@ class PagesController < ApplicationController
     end
 
     @feedback = Feedback.new
-
   end
 
   def manage_courses

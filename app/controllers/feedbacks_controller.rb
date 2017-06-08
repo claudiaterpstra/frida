@@ -5,7 +5,6 @@ class FeedbacksController < ApplicationController
     @artwork = Artwork.find(params[:artwork_id])
   end
 
-
   def create
     @feedback = Feedback.new(feedback_params)
     @artwork = Artwork.find(params[:artwork_id])
