@@ -1,5 +1,6 @@
 <div class="container">
     <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');">
+      <input type="button", id="button", class="btn-frida", value="Go to lectures"/>
     </div>
 </div>
 
@@ -59,6 +60,7 @@
           <h2>Course Lessons</h2>
         </div>
 
+        <div id="button-scroll"></div>
         <div class="lectures-list">
           <%= render 'lectures-tabs', locals: {course: @course} %>
         </div>
