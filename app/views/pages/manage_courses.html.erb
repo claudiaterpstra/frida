@@ -1,7 +1,11 @@
 <%= render 'shared/subnav' %>
 <% if current_user.courses.count < 1 %>
   <div class="container">
-    <p>Contact us at hello@frida.com if you want to teach a course!</p>
+    <div class="manage-courses-msg">
+      <h3>Hey <%= @user.first_name %>!</h3>
+      <h4>Contact us at hello@frida.com if you want to teach a course.</h4>
+      <h4>– Team Frida</h4>
+    </div>
   </div>
 <% else %>
   <div class="container user-show">
