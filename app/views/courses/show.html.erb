@@ -1,90 +1,81 @@
 <div class="container">
-    <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');">
-        <% if user_signed_in? %>
-          <% current_user.participations.each do |participation| %>
-            <% if participation.course == @course %>
-              <input type="button", id="button", class="btn btn-frida", value="Go to lectures"/>
-            <% end %>
-          <% end %>
-        <% end %>
-    </div>
+  <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');">
+    <% if user_signed_in? %>
+    <% current_user.participations.each do |participation| %>
+    <% if participation.course == @course %>
+    <input type="button", id="button", class="btn btn-frida", value="Go to lectures"/>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="container user-show">
   <div class="row">
     <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
       <div class="course-side-bar">
-        <div class="course-side-img">
         <div class="course-side-info">
           <h2>£<%= @course.price %></h2>
           <p><%= @course.duration %> hours of video lessons </p>
-        </div>
-        <div class="course-side-btn">
-          <% if user_signed_in? %>
+          <div class="course-side-btn">
+            <% if user_signed_in? %>
             <% if @course.user == current_user %>
-              <%= link_to "Update", edit_course_path(@course), class: "btn btn-frida btn-teacher" %>
-              <%= link_to "Delete", course_path(@course), method: :delete, class: "btn btn-frida btn-teacher" %>
+            <%= link_to "Update", edit_course_path(@course), class: "btn btn-frida btn-teacher" %>
+            <%= link_to "Delete", course_path(@course), method: :delete, class: "btn btn-frida btn-teacher" %>
             <% elsif current_user.participates_to?(@course)  %>
-              You are booked on this course
+            You are booked on this course
             <% else %>
-              <%= render 'courses/shared/bookcoursebutton' %>
-            <% end %>
-          <% else %>
             <%= render 'courses/shared/bookcoursebutton' %>
-          <% end %>
-        </div>
-        <div class="course-rating">
-          <% if @course.rating > 0 %>
+            <% end %>
+            <% else %>
+            <%= render 'courses/shared/bookcoursebutton' %>
+            <% end %>
+          </div>
+          <div class="course-rating">
+            <% if @course.rating > 0 %>
             <%= image_tag "frida-icon.png", {class: "show-card-image"}%>
             <p>Frida Says</p>
             <% @course.rating.times do |rating| %>
-              <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
             <% end %>
             <% (5 - @course.rating).times do |rating| %>
-              <i class="fa fa-heart-o" aria-hidden="true"></i>
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
             <% end %>
-          <% else %>
-          <br>
-          <p>No rating by Frida yet!</p>
-          <% end %>
+            <% else %>
+            <br>
+            <p>No rating by Frida yet!</p>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
     <div class="col-lg-9 col-md-8 col-sm-12">
       <div class="course-right-column">
-
         <div class="course-intro">
           <h2><%= @course.name %></h2>
           <p><%= @course.description %></p>
           <hr>
         </div>
-
         <div id="button-scroll"></div>
         <div class="course-banner-title">
           <p>curriculum</p>
           <h2>Course Lessons</h2>
         </div>
-
         <div class="lectures-list">
           <%= render 'lectures-tabs', locals: {course: @course} %>
         </div>
-
         <div class="course-banner-title" id="course-banner-title-padding">
           <p>things you'll need</p>
           <h2>Course Materials</h2>
         </div>
-
         <div class="materials-list">
           <p><%= @course.materials %></p>
         </div>
-
         <div class="course-banner-title">
           <p>meet the artist</p>
           <h2>Your Course Instructor</h2>
         </div>
-
         <div class="artist-profile">
           <div class="artist-first-row">
             <div class="artist-img">
@@ -107,249 +98,60 @@
             </div>
           </div>
         </div>
-
         <div class="course-banner-title">
           <p>what our users say</p>
           <h2>Course Reviews</h2>
         </div>
-
         <div class="course-reviews">
           <div class="average-rating-show">
             <% if @course.average_rating > 0 %>
-
-              <h3>Average User Rating:</h3>
-              <p>
-                <% @course.average_rating.times do |rating| %>
-                  <i class="fa fa-heart" aria-hidden="true"></i>
-                <% end %>
-                <% (5 - @course.average_rating).times do %>
-                  <i class="fa fa-heart-o" aria-hidden="true"></i>
-                <% end %>
-              </p>
-              <% else %>
-                <p>No reviews yet!</p>
+            <h3>Average User Rating:</h3>
+            <p>
+              <% @course.average_rating.times do |rating| %>
+              <i class="fa fa-heart" aria-hidden="true"></i>
+              <% end %>
+              <% (5 - @course.average_rating).times do %>
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+              <% end %>
+            </p>
+            <% else %>
+            <p>No reviews yet!</p>
             <% end %>
-
 
             <% @course.course_reviews.each do |r| %>
             <p>
               <%= r.user.first_name %> says:
               <% r.rating.times do %>
-                <i class="fa fa-heart" aria-hidden="true"></i>
+              <i class="fa fa-heart" aria-hidden="true"></i>
               <% end %>
               <% (5 - r.rating).times do %>
-                <i class="fa fa-heart-o" aria-hidden="true"></i>
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
               <% end %>
             </p>
             <p class="review-content"><%= r.content %></p>
             <br>
-          <% end %>
+            <% end %>
 
             <% if user_signed_in? %>
-             <% current_user.participations.each do |participation| %>
-              <% if participation.course == @course %>
-                <div class="course_review_form">
-                    <h3>Add A Review</h3>
-                  <%= simple_form_for [@course, @course_review], class: 'form-inline' do |f| %>
-                    <%= f.input :rating, collection: 1..5 %>
-                    <%= f.input :content, label: 'Review', as: :text %>
-
-                    <%= f.submit "Add A Review", class: "btn btn-frida" %>
-                  <% end %>
-                <% end %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-    </div>
-  </div>
-</div>
-
-<!--   <div class="container">
-    <div class="banner-course-bio">
-    <p><%# @course.description %></p>
-    </div>
-  </div> -->
-
-<!-- <div class="container">
-  <div class="materials-banner-title">
-    <p>Category: <%= @course.category %></p>
-    <h2>Course Overview</h2>
-  </div>
-
-  <div class="banner-course-bio">
-    <p><%= @course.description %></p>
-  </div>
-
-  <div class="overview-details">
-    <div class="overview-duration overview-text">
-      <%= image_tag "alarm-clock.png", {class: "show-card-image"}%>
-      <p>5 hours of video lessons </p>
-    </div>
-
-    <div class="overview-price overview-text">
-      <%= image_tag "money-bag.png", {class: "show-card-image"}%>
-      <p>£<%= @course.price %></p>
-    </div>
-
-    <div class="overview-rating overview-text">
-      <%= image_tag "frida-icon.png", {class: "show-card-image"}%>
-        <p>Frida Says</p>
-        <% @course.rating.times do |rating| %>
-          <i class="fa fa-heart" aria-hidden="true"></i>
-        <% end %>
-        <% (5 - @course.rating).times do |rating| %>
-          <i class="fa fa-heart-o" aria-hidden="true"></i>
-        <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="lectures-banner-title">
-    <p>curriculum</p>
-    <h2>Course Lessons</h2>
-  </div>
-
-  <div class="lectures-banner">
-    <%= render 'lectures-tabs', locals: {course: @course} %>
-  </div>
-</div>
-
-<div class="container">
-  <div class="materials-banner-title">
-    <p>things you'll need</p>
-    <h2>Course Materials</h2>
-  </div>
-
-  <div class="materials-banner-details">
-    <div class="materials-banner-img"></div>
-    <div class="materials-banner-info text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-4">
-            <i class="fa fa-paint-brush" aria-hidden="true"></i><br>
-            <p>Brush</p>
-          </div>
-
-          <div class="col-xs-12 col-sm-4">
-            <i class="fa fa-pencil" aria-hidden="true"></i><br>
-            <p>Pencil</p>
-          </div>
-
-          <div class="col-xs-12 col-sm-4">
-            <i class="fa fa-tree" aria-hidden="true"></i><br>
-            <p>Paper</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="artist-banner-title">
-    <p>meet the artist</p>
-    <h2>Your Course Instructor</h2>
-  </div>
-</div>
-<div class="container artist-show">
-  <div class="row">
-    <div class="col-xs-12 col-sm-5 col-sm-offset-1">
-      <div class="artist-banner-profile">
-        <%= unique_image_tag(@course.user) %>
-      </div>
-      <div class="artist-full-name">
-        <h2></h2>
-      </div>
-      <div class="artist-banner-socials">
-          <i class="fa fa-facebook" aria-hidden="true"></i>
-          <i class="fa fa-twitter" aria-hidden="true"></i>
-          <i class="fa fa-instagram" aria-hidden="true"></i>
-          <i class="fa fa-dribbble" aria-hidden="true"></i>
-          <i class="fa fa-github-alt" aria-hidden="true"></i>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-5">
-      <div class="artist-banner-info">
-        <h2><%= @course.user.first_name %> <%= @course.user.last_name %></h2>
-        <p>Born in 1967 in Mexico City, <%= @course.user.first_name %> is the leading Mexican artist of the generation that emerged in the wake of the influence of Gabriel Orozco and Francis Alÿs. <%= @course.user.first_name %> studied with Orozco in the informal studio class established in the older artist’s atelier in the late 1980s.
-        </p>
-          <div class="artist-banner-contact">
-          <hr>
-          <p>Got questions about the course?</p>
-          <%= link_to "Message Me", courses_path, class: "btn btn-frida" %>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="artist-banner-title">
-    <p>course reviews</p>
-    <h2>Frida Feedback</h2>
-  </div>
-</div>
-<div class="container reviews-show">
-  <div class="row">
-    <div class="col-xs-12 col-sm-5 col-sm-offset-1">
-
-      <div class="average-rating-show">
-        <% if @course.average_rating > 0 %>
-
-          <h3>Average User Rating:</h3>
-          <p>
-            <% @course.average_rating.times do |rating| %>
-              <i class="fa fa-heart" aria-hidden="true"></i>
-            <% end %>
-            <% (5 - @course.average_rating).times do %>
-              <i class="fa fa-heart-o" aria-hidden="true"></i>
-            <% end %>
-          </p>
-          <% else %>
-            <p>No reviews yet!</p>
-        <% end %>
-      </div>
-
-      <% @course.course_reviews.each do |r| %>
-        <p>
-          <%= r.user.first_name %> says:
-          <% r.rating.times do %>
-            <i class="fa fa-heart" aria-hidden="true"></i>
-          <% end %>
-          <% (5 - r.rating).times do %>
-            <i class="fa fa-heart-o" aria-hidden="true"></i>
-          <% end %>
-        </p>
-        <p class="review-content"><%= r.content %></p>
-        <br>
-      <% end %>
-    </div>
-
-    <div class="col-xs-12 col-sm-5">
-      <% if user_signed_in? %>
-       <% current_user.participations.each do |participation| %>
-        <% if participation.course == @course %>
-          <div class="course_review_form">
+            <% current_user.participations.each do |participation| %>
+            <% if participation.course == @course %>
+            <div class="course_review_form">
               <h3>Add A Review</h3>
-            <%= simple_form_for [@course, @course_review], class: 'form-inline' do |f| %>
+              <%= simple_form_for [@course, @course_review], class: 'form-inline' do |f| %>
               <%= f.input :rating, collection: 1..5 %>
               <%= f.input :content, label: 'Review', as: :text %>
 
               <%= f.submit "Add A Review", class: "btn btn-frida" %>
+              <% end %>
+              <% end %>
+            </div>
             <% end %>
-          <% end %>
+            <% end %>
           </div>
-        <% end %>
-      <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
- -->
+</div>
+

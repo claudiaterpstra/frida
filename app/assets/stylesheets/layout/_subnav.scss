@@ -44,6 +44,10 @@
   margin-left: 250px;
 }
 
+.subnav-link-four:hover ~ hr {
+  margin-left: 375px;
+}
+
 hr.hr-subnav {
   height: .25rem;
   width: 125px;
