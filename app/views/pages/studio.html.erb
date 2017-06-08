@@ -27,7 +27,7 @@
       <!-- <h3>Your Artwork</h3> -->
       <% if @artworks_all.count > 0 %>
       <% @artworks.order(:id).each do |artwork| %>
-      <%= render 'artworks/show', artwork: artwork, feedback: @feedback %>
+      <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
       <% end %>
       <% end %>
     </div>

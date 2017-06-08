@@ -1,39 +1,42 @@
-<div data-toggle="modal" data-target="#artwork-<%= artwork.id %>"><%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %></div>
-<p><%= artwork.message %></p>
+<div class="studio-uploads" style="background-image: url('<%= cl_image_path artwork.photo.path, width: 200, height: 300, crop: :fill %>')">
+  <div class="studio-upload-img" data-toggle="modal" data-target="#artwork-<%= artwork.id %>">
+    <span class="tooltiptext invisible">Add/View Feedback</span>
+  </div>
+</div>
 
-<div id="artwork-<%= artwork.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="artwork-<%= artwork.id %>" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Artwork from: <%= artwork.user.first_name %></h4>
+        <h4 class="modal-title" id="myModalLabel">Artwork by: <%= artwork.user.first_name %></h4>
       </div>
       <div class="modal-body">
         <%= cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>
-        <p><%= artwork.message %></p>
-
-        <div style='display:none'>
-          <form id='imageform'>
-            <label>Comment</label>
-            <input type='textarea' name='comment'> </input>
-            <input type='submit' value='Tag'></input>
-          </form>
+        <br>
+        <h4>Title: <%= artwork.message %></h4>
+        <hr>
+        <div class="feedbacks-<%= artwork.id %>">
+        <% artwork.feedbacks.each do |feedback| %>
+          <% if feedback.teacher.nil? %>
+            <p>Student(<%= feedback.student.first_name %>) says <%= feedback.content  %></p>
+          <% elsif feedback.student.nil? %>
+            <p>Teacher(<%= feedback.teacher.first_name %>) says <%= feedback.content  %></p>
+          <% end %>
+        <% end %>
         </div>
 
-        <% artwork.feedbacks.each do |feedback| %>
-            <%= render 'feedbacks/show', feedback: feedback %>
-          <% end %>
-        <div id="feedbacks-<%= artwork.id %>"></div>
-
-        <%= render 'feedbacks/form', :artwork => artwork, :feedback => feedback %>
+        <%= simple_form_for [artwork, feedback], remote: true, class: 'form-inline' do |f| %>
+        <%= f.input :content, label: 'Feedback', as: :text, input_html: {class: "feedback-input"} %>
+        <%= f.submit "Send Message", class: "btn btn-frida" %>
+        <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-frida" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
-
 
 
 
