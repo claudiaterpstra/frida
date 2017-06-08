@@ -23,9 +23,9 @@
   </div>
 
   <div class="user-upload-form">
-    <% if @lecture.artworks %>
+    <% if @artworks %>
     <div class="user-upload-gallery carousel" id="artworks">
-      <% @lecture.artworks.each do |artwork| %>
+      <% @artworks.each do |artwork| %>
       <div class="courses-box courses-box-slick">
         <div class="card course-card card-course-slick" style="background-image: url('<%= cl_image_path artwork.photo.path, crop: :fill %>');">
         <%# cl_image_tag artwork.photo.path, width: 500, height: 300, crop: :fill %>

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  before_action :set_current_user, only: [:dashboard, :account, :manage_courses, :studio]
+  before_action :set_current_user, only: [:dashboard, :account, :manage_courses, :studio, :give_feedback]
 
   skip_before_action :authenticate_user!, only: [ :home ]
   skip_after_action :verify_authorized, only: [ :home, :studentdashboard, :dashboard ]
@@ -17,45 +17,22 @@ class PagesController < ApplicationController
   end
 
   def studio
-    @artworks_all = current_user.artworks
+    @feedback = Feedback.new
+    @courses = @user.courses_participated
+    @lectures = @user.courses_participated.collect(&:lectures).flatten
+    @artworks_count = current_user.artworks.count
+
     if params[:lecture]
-      @lecture = Lecture.find_by_title(params[:lecture])
-      @artworks = current_user.artworks.where(lecture_id: @lecture.id)
+      @artworks = current_user.artworks.where(lecture: Lecture.find(params[:lecture]))
     elsif params[:course]
-      temp_art = current_user.artworks
-      @artworks = []
-      temp_art.each do |art|
-        @artworks << art if art.course.id == params[:course].to_i
-      end
-      @artworks
+      @artworks = Course.find(params[:course]).artworks.where(user: current_user)
     else
       @artworks = current_user.artworks
     end
-
-    @lectures = []
-    @courses = []
-    @artworks_all.each do |art|
-      @lectures << art.lecture
-      @courses << art.lecture.course
-    end
-
-    @hash = {}
-    @courses.uniq.each do |course|
-      course.lectures.each do |lecture|
-        if lecture.artworks.pluck(:user_id).include?(@user.id)
-          count = lecture.artworks.pluck(:user_id).count(@user.id)
-          count.times do
-            @hash.keys.include?(lecture.course.id) ? @hash[lecture.course.id] += 1 : @hash[lecture.course.id] = 1
-          end
-        end
-      end
-    end
-
-    @feedback = Feedback.new
   end
 
   def manage_courses
-    @courses = Course.all.where(user: @user)
+    @courses = current_user.courses
     @artworks = []
     @courses.each do |course|
       course.lectures.each do |lecture|
@@ -64,7 +41,6 @@ class PagesController < ApplicationController
         end
       end
     end
-  end
   end
 
   def studentdashboard
@@ -75,8 +51,29 @@ class PagesController < ApplicationController
     authorize current_user
   end
 
+  def give_feedback
+    @feedback = Feedback.new
+
+    @courses = @user.courses
+    @lectures = @user.lectures
+    @artworks = @user.student_artworks
+
+    @students = @user.students
+
+    if params[:course]
+      @artworks = @user.student_artworks.where(lectures: { course_id: params[:course] } )
+    elsif params[:lecture]
+      @artworks = @user.student_artworks.where(lecture_id: params[:lecture] )
+    elsif params[:student]
+      @artworks = @user.student_artworks.where(user_id: params[:student])
+    end
+
+  end
+
   private
 
   def set_current_user
     @user = current_user
   end
+
+end

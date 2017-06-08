@@ -1,0 +1,45 @@
+<%= render 'shared/subnav' %>
+  <div class="container user-studio">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
+        <div class="user-studio-sidebar">
+          <ul>
+
+              <span class="artworks-filter-all"><li><%= link_to "View All Artwork (#{@user.student_artworks.count})", give_feedback_path %></li></span>
+              <h4>View by student:</h4>
+              <% @students.uniq.each do | student | %>
+                <span class="artworks-filter-names"><li><%= link_to "#{student.first_name} #{student.last_name} (#{student.artworks.count})", give_feedback_path(student: student.id) %></li></span>
+              <% end %>
+
+              <h4>View by course:</h4>
+              <% @courses.uniq.each do | course | %>
+                <span class="artworks-filter-names"><li><%= link_to "#{course.name} (#{course.artworks.count})", give_feedback_path(course: course.id) %></li></span>
+              <% end %>
+
+              <h4>View by lecture:</h4>
+              <% @lectures.each do | lecture | %>
+                <% if lecture.artworks.count > 0 %>
+                  <span class="artworks-filter-names"><li><%= link_to "#{lecture.title} (#{lecture.artworks.count})", give_feedback_path(lecture: lecture.id)
+                   %></li></span>
+                 <% end %>
+              <% end %>
+          </ul>
+        </div>
+    </div>
+
+    <div class="col-lg-9 col-md-8 col-sm-12 studio-right-column">
+      <h2>Artworks Awaiting Feedback</h2>
+      <h4>Hey <%= @user.first_name %>! Manage all your artwork uploads here and access feedback from your course instructor by clicking on any image. Got a question? Hit us up help@frida.studio.</h4>
+          <hr>
+        </div>
+
+      <!-- <h3>Your Artwork</h3> -->
+      <% if @artworks.count > 0 %>
+      <% @artworks.sort_by(&:id).each do |artwork| %>
+      <%= render 'artworks/show', artwork: artwork, feedback: @feedback %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
