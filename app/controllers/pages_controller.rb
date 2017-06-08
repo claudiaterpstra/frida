@@ -10,6 +10,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @courses = current_user.courses_participated
+    @artworks = Artwork.all.where(user: @user)
   end
 
   def account
@@ -17,9 +18,8 @@ class PagesController < ApplicationController
 
   def studio
 
-    if params[:search]
-      @artworks = Artwork.where("category LIKE ?", "%#{params[:search]}%")
-    elsif params[:lecture]
+    @artworks_all = Artwork.all.where(user: @user)
+    if params[:lecture]
       @lecture = Lecture.find_by_title(params[:lecture])
       @artworks = Artwork.all.where(user: @user, lecture_id: @lecture.id)
     else
@@ -27,7 +27,7 @@ class PagesController < ApplicationController
     end
 
     @lectures = []
-    @artworks.each do |art|
+    @artworks_all.each do |art|
       @lectures << art.lecture
     end
 

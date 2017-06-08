@@ -5,8 +5,8 @@
 
 <div class="container user-show">
   <div class="row">
-    <div class="col-lg-3 col-md-4 hide-sm">
-      <div class="course-side-bar" id="stickydiv">
+    <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
+      <div class="course-side-bar">
         <div class="course-side-img">
         <div class="course-side-info">
           <h2>£<%= @course.price %></h2>
@@ -15,8 +15,8 @@
         <div class="course-side-btn">
           <% if user_signed_in? %>
             <% if @course.user == current_user %>
-              <%= link_to "Update", edit_course_path(@course), class: "btn btn-frida" %>
-              <%= link_to "Delete", course_path(@course), method: :delete, class: "btn btn-frida" %>
+              <%= link_to "Update", edit_course_path(@course), class: "btn btn-frida btn-teacher" %>
+              <%= link_to "Delete", course_path(@course), method: :delete, class: "btn btn-frida btn-teacher" %>
             <% elsif current_user.participates_to?(@course)  %>
               You are booked on this course
             <% else %>
@@ -63,7 +63,7 @@
           <%= render 'lectures-tabs', locals: {course: @course} %>
         </div>
 
-        <div class="course-banner-title">
+        <div class="course-banner-title" id="course-banner-title-padding">
           <p>things you'll need</p>
           <h2>Course Materials</h2>
         </div>

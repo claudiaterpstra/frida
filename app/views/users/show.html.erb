@@ -1,7 +1,7 @@
 <%= render 'shared/subnav' %>
 <div class="container user-show">
   <div class="row">
-    <div class="col-lg-3 col-md-4 hide-sm">
+    <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
       <div class="user-side-bar">
         <div class="user-side-img">
           <%= unique_image_tag(@user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
@@ -24,7 +24,7 @@
 
     <div class="col-lg-9 col-md-8 col-sm-12">
       <div class="user-greeting">
-        <h2>What's up, I'm <%= @user.first_name %>!</h2>
+        <h2>Hey, I'm <%= @user.first_name %>!</h2>
           <h3 class="sentence">I have
             <div class="slidingVertical">
               <span>mad skills.</span>
