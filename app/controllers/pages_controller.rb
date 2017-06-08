@@ -17,18 +17,38 @@ class PagesController < ApplicationController
   end
 
   def studio
-
-    @artworks_all = Artwork.all.where(user: @user)
+    @artworks_all = current_user.artworks
     if params[:lecture]
       @lecture = Lecture.find_by_title(params[:lecture])
       @artworks = Artwork.all.where(user: @user, lecture_id: @lecture.id)
+    elsif params[:course]
+      temp_art = current_user.artworks
+      @artworks = []
+      temp_art.each do |art|
+        @artworks << art if art.course.id == params[:course].to_i
+      end
+      @artworks
     else
       @artworks = Artwork.all.where(user: @user)
     end
 
     @lectures = []
+    @courses = []
     @artworks_all.each do |art|
       @lectures << art.lecture
+      @courses << art.lecture.course
+    end
+
+    @hash = {}
+    @courses.uniq.each do |course|
+      course.lectures.each do |lecture|
+        if lecture.artworks.pluck(:user_id).include?(@user.id)
+          count = lecture.artworks.pluck(:user_id).count(@user.id)
+          count.times do
+            @hash.keys.include?(lecture.course.id) ? @hash[lecture.course.id] += 1 : @hash[lecture.course.id] = 1
+          end
+        end
+      end
     end
 
     @feedback = Feedback.new
@@ -36,17 +56,16 @@ class PagesController < ApplicationController
   end
 
   def manage_courses
-   @courses = Course.all.where(user: @user)
-
-   @artworks = []
-   @courses.each do |course|
-    course.lectures.each do |lecture|
-      lecture.artworks.each do |artwork|
-        @artworks << artwork
+    @courses = Course.all.where(user: @user)
+    @artworks = []
+    @courses.each do |course|
+      course.lectures.each do |lecture|
+        lecture.artworks.each do |artwork|
+          @artworks << artwork
+        end
       end
     end
-   end
-
+  end
   end
 
   def studentdashboard
@@ -62,4 +81,3 @@ class PagesController < ApplicationController
   def set_current_user
     @user = current_user
   end
-end
