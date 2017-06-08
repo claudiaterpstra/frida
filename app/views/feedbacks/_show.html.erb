@@ -1,6 +1,6 @@
 <% if feedback.teacher.nil? %>
-  <p>Student(<%= feedback.student.first_name %>) says <%= feedback.content  %> </p>
+  <p>Student(<%= feedback.student.first_name %>) says <%= feedback.content  %></p>
 <% elsif feedback.student.nil? %>
-  <p>Teacher(<%= feedback.teacher.first_name %>) says <%= feedback.content  %> </p>
+  <p>Teacher(<%= feedback.teacher.first_name %>) says <%= feedback.content  %></p>
 <% end %>
 

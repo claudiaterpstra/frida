@@ -1,4 +1,3 @@
-
 <%= render 'shared/subnav' %>
   <div class="container user-studio">
     <div class="row">
@@ -6,7 +5,6 @@
         <div class="user-studio-sidebar">
           <ul>
               <span class="artworks-filter-all"><li><%= link_to "View All Artwork (#{@artworks_all.count})", studio_path %></li></span>
-
               <h4>View by course:</h4>
               <% @courses.uniq.each do | course | %>
                 <span class="artworks-filter-names"><li><%= link_to "#{course.name} (#{@hash[course.id]})", studio_path(course: course) %></li></span>
@@ -23,7 +21,6 @@
     <div class="col-lg-9 col-md-8 col-sm-12 studio-right-column">
       <h2>Your Frida Studio</h2>
       <h4>Hey <%= @user.first_name %>! Manage all your artwork uploads here and access feedback from your course instructor by clicking on any image. Got a question? Hit us up help@frida.studio.</h4>
-        <div class="hr-large">
           <hr>
         </div>
 
@@ -39,33 +36,14 @@
             <% end %>
           <% end %>
       </div>
+
+      <!-- <h3>Your Artwork</h3> -->
+      <% if @artworks_all.count > 0 %>
+      <% @artworks.sort_by(:id).each do |artwork| %>
+      <%= render 'artworks/show', artwork: artwork, feedback: @feedback %>
+      <% end %>
+      <% end %>
     </div>
   </div>
-
-<div class="container">
-  <div class="text-center course-heading">
-    <h1>Studio</h1>
-    <%= render 'courses/searchform' %>
-  </div>
-  <br>
-
-   <ul>
-    <li>
-      <%= link_to "All (#{@artworks.count})", studio_path %>
-    </li>
-      <% @lectures.uniq.each do | lecture | %>
-    <li>
-      <%= link_to "#{lecture.title} (#{@artworks.count})", studio_path(lecture: lecture.title) %>
-    </li>
-    <% end %>
-  </ul>
-
-  <% if @artworks.count > 0 %>
-    <% @artworks.sort_by(&:id).each do |artwork| %>
-
-      <div data-toggle="modal" data-target="#artwork">
-        <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
-      </div>
-    <% end %>
-  <% end %>
 </div>
+
