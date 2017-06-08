@@ -13,7 +13,6 @@
 
 .tab-title {
   background-color: $frida-light-grey;
-
 }
 
 .tab--title {
@@ -26,6 +25,7 @@
   padding: 10px;
   transition: all 0.3s ease;
   margin: 0px !important;
+  position: relative;
   &:hover {
     cursor: pointer;
     background-color: $frida-red;
@@ -67,6 +67,12 @@
   background-image: image_url("minus.png");
 }
 
-.start-icon {
+.start-icon i {
+  color: black;
+}
 
+.right-button {
+  position: absolute;
+  right: 31px;
+  bottom: 14px;
 }

@@ -28,21 +28,25 @@
   <% @course.lectures.each do |lecture| %>
     <div class="tab tab-title">
       <h2 class="tab--title">
-        <div class="start-icon">
+        <div class="tab-icon"></div>
+          Lecture <%= count %>
+          <% count += 1 %>
+          <div class="start-icon right-button">
         <% if user_signed_in? %>
           <% if current_user.participates_to?(@course) %>
           <%= link_to '<i class = "fa fa-play"></i>'.html_safe, lecture_path(lecture) %>
           <% end %>
         <% end %>
         </div>
-        <div class="tab-icon"></div>
-          Lecture <%= count %>
-          <% count += 1 %>
       </h2>
       <div class="content-block block-skin-grey clearfix">
         <h2 class="content-block-title"><%= lecture.title %></h2>
         <p><%= lecture.description %></p>
+        <% if user_signed_in? %>
+          <% if current_user.participates_to?(@course) %>
         <%= link_to "Start this lecture", lecture_path(lecture) %>
+        <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>
