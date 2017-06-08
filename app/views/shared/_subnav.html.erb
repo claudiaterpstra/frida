@@ -7,7 +7,10 @@
          --><li class="subnav-link-three" <%= 'active' if params[:action] == 'my_courses' %>><%= link_to "Manage Courses", manage_courses_path %></li><!--
          -->
         <% if user_signed_in? && current_user.courses.count > 0 %>
-          <li class="subnav-link-four" <%= 'active' if params[:action] == 'give_feedback' %>><%= link_to "Give Feedback", give_feedback_path %></li><!--
+          <li class="subnav-link-four " <%= 'active' if params[:action] == 'give_feedback' %>><%= link_to "Give Feedback", give_feedback_path %></li><!--
+         --><hr class="hr-subnav">
+        <% else %>
+          <!--
          --><hr class="hr-subnav">
         <% end %>
       </ul>
