@@ -12,7 +12,9 @@
 
           <h4>View by lecture:</h4>
           <% @lectures.each do |lecture| %>
-          <span class="artworks-filter-names"><li><%= link_to "#{lecture.title} (#{lecture.artworks.where(user: @user).count})", studio_path(lecture: lecture) %></li></span>
+            <% if lecture.artworks.where(user: @user).count > 0 %>
+              <span class="artworks-filter-names"><li><%= link_to "#{lecture.title} (#{lecture.artworks.where(user: @user).count})", studio_path(lecture: lecture) %></li></span>
+            <% end %>
           <% end %>
         </ul>
       </div>
@@ -25,9 +27,9 @@
 
       <!-- <h3>Your Artwork</h3> -->
       <% if @artworks.count > 0 %>
-      <% @artworks.sort_by(&:id).each do |artwork| %>
-      <%= render 'artworks/show', artwork: artwork, feedback: @feedback %>
-      <% end %>
+        <% @artworks.sort_by(&:id).each do |artwork| %>
+          <%= render 'artworks/show', artwork: artwork, feedback: @feedback %>
+        <% end %>
       <% else %>
       <h4>No artworks found... Please refine your search</h4>
       <% end %>
