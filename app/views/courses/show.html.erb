@@ -1,4 +1,4 @@
-<div class="container">
+  <div class="container">
   <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');">
     <% if user_signed_in? %>
     <% current_user.participations.each do |participation| %>
