@@ -1,7 +1,7 @@
 /* Main class */
 .navbar-wagon {
   font-family: $navbar-font;
-
+  z-index: 1000;
   // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: transparent;
   transition: all 0.3s ease;
