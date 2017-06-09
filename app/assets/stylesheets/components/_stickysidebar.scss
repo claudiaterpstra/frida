@@ -7,3 +7,10 @@
   top: 15px;
   overflow: hidden;
 }
+
+@media (max-width: 1000px) {
+  #sticky {
+    position: relative;
+    padding-bottom: 25px;
+  }
+}
