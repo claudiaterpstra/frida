@@ -1,6 +1,6 @@
 class LecturesController < ApplicationController
 before_action :set_course, only: [:new, :create]
-before_action :set_lecture, only: [:show]
+before_action :set_lecture, only: [:show, :edit, :update]
 skip_before_action :authenticate_user!, only: [:index, :show]
 skip_after_action :verify_authorized
 
@@ -25,6 +25,15 @@ skip_after_action :verify_authorized
     @artworks = current_user.artworks.where(lecture_id: @lecture.id)
   end
 
+  def edit
+  end
+
+  def update
+    @lecture.update(lecture_params)
+    redirect_to course_path(@lecture.course)
+
+  end
+
     def destroy
       # authorize @lecture
       @lecture.destroy
@@ -41,6 +50,6 @@ skip_after_action :verify_authorized
   end
 
   def lecture_params
-    params.require(:lecture).permit(:title, :description, :url, :duration, :category, :materials, :price, :photo)
+    params.require(:lecture).permit(:title, :description, :url)
   end
 end

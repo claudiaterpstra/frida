@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1>Editing <%= @lecture.title %></h1>
+      <%= simple_form_for @lecture, class: 'form-inline' do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :url %>
+      <%= f.submit "Submit", class: "btn-frida" %>
+      <% end %>
+    </div>
+  </div>
+</div>
