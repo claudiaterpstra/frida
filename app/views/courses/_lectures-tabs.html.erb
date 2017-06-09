@@ -11,6 +11,7 @@
           <div class="content-block block-skin-grey clearfix">
             <h2 class="content-block-title"><%= lecture.title %></h2>
               <p><%= lecture.description %></p>
+              <%= link_to "Edit this lecture", edit_lecture_path(lecture) %>
           </div>
       </div>
     <% end %>
