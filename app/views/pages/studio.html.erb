@@ -4,16 +4,18 @@
     <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
       <div class="user-studio-sidebar">
         <ul>
-          <span class="artworks-filter-all"><li><%= link_to "View All Artwork (#{@artworks_count})", studio_path %></li></span>
+          <span class="artworks-filter-all <%= 'active' if params[:course].nil? && params[:lecture].nil? %>"><li><%= link_to "View All Artwork (#{@artworks_count})", studio_path %></li></span>
           <h4>View by course:</h4>
           <% @courses.each do |course| %>
-          <span class="artworks-filter-names"><li><%= link_to "#{course.name} (#{course.artworks.where(user: @user).count})", studio_path(course: course) %></li></span>
+            <% if course.artworks.where(user: @user).count > 0 %>
+              <span class="artworks-filter-names <%= 'active' if params[:course].to_i == course.id %>"><li><%= link_to "#{course.name} (#{course.artworks.where(user: @user).count})", studio_path(course: course) %></li></span>
+            <% end %>
           <% end %>
 
           <h4>View by lecture:</h4>
           <% @lectures.each do |lecture| %>
             <% if lecture.artworks.where(user: @user).count > 0 %>
-              <span class="artworks-filter-names"><li><%= link_to "#{lecture.title} (#{lecture.artworks.where(user: @user).count})", studio_path(lecture: lecture) %></li></span>
+              <span class="artworks-filter-names <%= 'active' if params[:lecture].to_i == lecture.id %>"><li><%= link_to "#{lecture.title} (#{lecture.artworks.where(user: @user).count})", studio_path(lecture: lecture) %></li></span>
             <% end %>
           <% end %>
         </ul>

@@ -22,18 +22,31 @@
   width: 828px;
 }
 
-.artworks-filter-all li {
-  font-size: 15px;
-  a {
-    color: $frida-blue;
+.artworks-filter-all {
+  li {
+    font-size: 15px;
+
+    a {
+      color: $frida-blue;
+    }
+  }
+
+  &.active a {
+    text-decoration: underline;
   }
 }
 
-.artworks-filter-names li {
-  font-size: 12px;
+.artworks-filter-names  {
+  li {
+    font-size: 12px;
 
-  a {
-    color: $frida-blue;
+    a {
+      color: $frida-blue;
+    }
+  }
+
+  &.active a {
+    text-decoration: underline;
   }
 }
 
