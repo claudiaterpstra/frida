@@ -21,7 +21,7 @@
     </div>
 
     <div class="col-lg-9 col-md-8 col-sm-12 studio-right-column">
-      <h2>Your Frida Studio</h2>
+      <h2>Your Artwork</h2>
       <h4>Hey <%= @user.first_name %>! Manage all your artwork uploads here and access feedback from your course instructor by clicking on any image. Got a question? Hit us up help@frida.studio.</h4>
       <hr>
 
@@ -31,7 +31,7 @@
           <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
         <% end %>
       <% else %>
-      <h4>No artworks found... Please refine your search</h4>
+      <h4>Uh-oh! You've got no artwork yet. Start a course, upload your work and we'll sort this studio out!</h4>
       <% end %>
     </div>
   </div>
