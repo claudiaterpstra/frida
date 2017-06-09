@@ -13,20 +13,34 @@
         <h4 class="modal-title" id="myModalLabel">Artwork by: <%= artwork.user.first_name %></h4>
       </div>
       <div class="modal-body">
-        <%= cl_image_tag image_url, width: 500, height: 300, crop: :fill %>
-        <br>
+        <div class="modal-heading">
+          <%= cl_image_tag image_url, width: 500, height: 300, crop: :fill %>
+          <br>
         <h4>Title: <%= artwork.message %></h4>
+        </div>
         <hr>
         <div class="feedbacks-<%= artwork.id %>">
         <% artwork.feedbacks.each do |feedback| %>
           <% if feedback.teacher.nil? %>
             <div class="p-left">
-              <%= unique_image_tag(feedback.student, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
-              <%= feedback.content  %>
+              <div class="feedback-img">
+                <%= unique_image_tag(feedback.student, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+              </div>
+              <div class="feedback-content">
+                <%= feedback.content %>
+                <div class="triangle-left"></div>
+              </div>
             </div>
           <% elsif feedback.student.nil? %>
-            <div class="p-right"> <%= feedback.content  %>
-              <%= unique_image_tag(feedback.teacher, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+
+            <div class="p-right">
+              <div class="feedback-content">
+                <%= feedback.content  %>
+                <div class="triangle-right"></div>
+              </div>
+              <div class="feedback-img">
+                <%= unique_image_tag(feedback.teacher, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+              </div>
             </div>
           <% end %>
         <% end %>
