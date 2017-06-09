@@ -233,7 +233,7 @@ courses_attributes = [
 ]
 
 
-5.times do |i|
+7.times do |i|
   user = User.create!(
     email: Faker::Internet.free_email,
     password: '123456',
@@ -244,7 +244,7 @@ courses_attributes = [
 
   puts "User #{i} created"
 
-  rand(1..3).times do
+  rand(1..4).times do
     attrs = courses_attributes.sample.merge(user: user)
     attrs_no_photo = attrs.slice(:name, :description, :price, :rating, :category, :user, :materials, :duration, :published)
     c = Course.create!(attrs_no_photo)
