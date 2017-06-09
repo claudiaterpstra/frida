@@ -25,21 +25,20 @@
               <% end %>
           </ul>
         </div>
-    </div>
+      </div>
 
     <div class="col-lg-9 col-md-8 col-sm-12 studio-right-column">
-      <h2>Artworks Awaiting Feedback</h2>
-      <h4>Hey <%= @user.first_name %>! Manage all your artwork uploads here and access feedback from your course instructor by clicking on any image. Got a question? Hit us up help@frida.studio.</h4>
+      <h2>Give Feedback</h2>
+      <h4>Hey <%= @user.first_name %>! Manage all your student's artwork here and give them feedback by clicking on any image. Got a question? Hit us up help@frida.studio.</h4>
           <hr>
-        </div>
-
-      <!-- <h3>Your Artwork</h3> -->
+      <h3>Students Artwork</h3>
       <% if @artworks.count > 0 %>
       <% @artworks.sort_by(&:id).each do |artwork| %>
-      <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
-      <% end %>
+        <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
+        <% end %>
       <% end %>
     </div>
   </div>
 </div>
+
 

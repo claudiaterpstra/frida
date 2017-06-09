@@ -130,6 +130,12 @@
   background: transparent !important;
   color: black !important;
 }
+
+.navbar-wagon-dropdown-menu li > a > i {
+  padding-right: 8px;
+  color: $frida-red;
+}
+
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
   height: 10px;
