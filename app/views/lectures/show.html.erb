@@ -39,6 +39,7 @@
       <%= render 'artworks/form', lecture: @lecture, artwork: @artwork %>
       <br>
        <%= link_to "View your artwork in studio", studio_path, class:"studio-link" %>
+       <%= link_to "Go back to the course page", course_path(@lecture.course), class:"studio-link" %>
       </div>
     <% else %>
       <p>Upload your first artwork for <%= @lecture.title %></p>
