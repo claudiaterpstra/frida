@@ -50,7 +50,7 @@
 }
 
 .feedback-content {
-  border: 1px solid #000000;
+  border: 1px solid $frida-grey;
   padding: 10px;
   border-radius: 8px;
   position: relative;
@@ -64,8 +64,8 @@
   margin: auto 0px;
   height: 10px;
   width: 10px;
-  border-right: 1px solid #000000;
-  border-top: 1px solid #000000;
+  border-right: 1px solid $frida-grey;
+  border-top: 1px solid $frida-grey;
   transform: rotate(45deg);
   background: white;
 }
@@ -78,8 +78,8 @@
   margin: auto 0px;
   height: 10px;
   width: 10px;
-  border-left: 1px solid #000000;
-  border-bottom: 1px solid #000000;
+  border-left: 1px solid $frida-grey;
+  border-bottom: 1px solid $frida-grey;
   transform: rotate(45deg);
   background: white;
 }
