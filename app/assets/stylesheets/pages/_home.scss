@@ -5,7 +5,7 @@
 .banner-home {
   color: white;
   text-align: center;
-  height: 100vh;
+  height: calc(100vh - 152px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -25,6 +25,10 @@
   color: black;
   margin-bottom: 20px;
   }
+}
+
+.banner-content {
+  z-index: 2;
 }
 
 .banner-cta a.btn {

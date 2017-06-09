@@ -1,7 +1,12 @@
-<div class="banner-home" style="background-image: url(<%= image_path 'home-banner.png' %>);">
+<div class="banner-home" >
+  <div class="video">
+    <video autoplay loop>
+    <source src: url(<%= video_tag("http://res.cloudinary.com/rebekah/video/upload/v1497018356/Sketch_c1crga.mp4")%>)>
+    </video>
+  </div>
   <div class="banner-content">
     <h1>the online art school</h1>
-    <p>change your life, learn to paint</p>
+      <br>
       <div class="banner-cta">
         <%= link_to "LEARN", courses_path, class: "btn btn-frida" %>
         <% if user_signed_in? %>
