@@ -41,7 +41,7 @@ class User < ApplicationRecord
   end
 
   def students
-    courses.collect(&:students).flatten.uniq
+    courses.flat_map(&:students).uniq
   end
 
   def one_participation?
