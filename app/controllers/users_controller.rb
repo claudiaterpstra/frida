@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   skip_after_action :verify_authorized
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :set_user, only: [:show]
   def show
     @courses = @user.courses_participated
+    @artworks = @user.artworks.where(featured: true)
   end
 
   def edit

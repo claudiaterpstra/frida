@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   resources :artworks, only: [:index, :show, :edit, :destroy] do
     resources :feedbacks, only: [:show, :create]
+    patch '/feature', to: 'artworks#feature'
   end
 
   resources :users, only: [:show, :edit, :update]

@@ -1,4 +1,6 @@
+<% if @user == current_user %>
 <%= render 'shared/subnav' %>
+<% end %>
 <div class="container user-show">
   <div class="row">
     <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
@@ -16,7 +18,9 @@
         <p><%= @user.biodata %></p>
         <br>
         <p>Member Since: <%= @user.created_at.strftime("%e %B %Y") %></p>
-        <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
+        <% if @user == current_user  %>
+          <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
+        <% end %>
       </div>
 
       </div>
@@ -28,10 +32,10 @@
           <h3 class="sentence">I have
             <div class="slidingVertical">
               <span>mad skills.</span>
-              <span>enrolled on <%= pluralize current_user.participations.count, "course" %>.</span>
-              <span>unlocked <%= pluralize current_user.badge_count, "badge" %>.</span>
-              <span>contributed <%= pluralize current_user.course_reviews.count, "review" %>.</span>
-              <span>uploaded <%= pluralize current_user.artworks.count, "artwork" %>.</span>
+              <span>enrolled on <%= pluralize @user.participations.count, "course" %>.</span>
+              <span>unlocked <%= pluralize @user.badge_count, "badge" %>.</span>
+              <span>completed <%= pluralize @user.course_reviews.count, "course" %>.</span>
+             <span>uploaded <%= pluralize @user.artworks.count, "artwork" %>.</span>
             </div>
         </h3>
       </div>
@@ -43,6 +47,11 @@
       <div class="user-show-studio">
         <h3>My Featured Artwork</h3>
           <div class="user-studio-gallery carousel">
+          <% if @artworks %>
+          <%= render 'shared/featuredartwork' %>
+          <% else %>
+          <p>No featured artwork yet</p>
+          <% end %>
           </div>
       </div>
 
@@ -50,7 +59,6 @@
         <h3>My Courses</h3>
           <div class="user-studio-gallery carousel">
             <%= render 'shared/enrolledcoursecard' %>
-
           </div>
       </div>
 
