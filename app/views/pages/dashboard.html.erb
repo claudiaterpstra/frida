@@ -28,8 +28,8 @@
               <span>are awesome.</span>
               <span>are enrolled on <%= pluralize current_user.participations.count, "course" %>.</span>
               <span>have unlocked <%= pluralize current_user.badge_count, "badge" %>.</span>
-              <span>have <%= pluralize current_user.course_reviews.count, "course" %>.</span>
-              <span>completed 3 Frida courses.</span>
+              <span>have contributed <%= pluralize current_user.course_reviews.count, "review" %>.</span>
+              <span>have uploaded <%= pluralize current_user.artworks.count, "artwork" %>.</span>
             </div>
         </h3>
       </div>
