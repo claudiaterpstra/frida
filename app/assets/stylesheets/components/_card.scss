@@ -43,14 +43,13 @@
   right: 0;
   width: 100%;
   z-index: 2;
-  background: black;
   opacity: 0;
-  transition: 0.5s;
+  transition: 0.8s;
 }
 .card-link:hover{
-  transition: 0.5s;
+  transition: 0.8s;
   opacity:0.5;
-  background-color: Black;
+  background-color: White;
 }
 
 .card-course-name-slick h2 {

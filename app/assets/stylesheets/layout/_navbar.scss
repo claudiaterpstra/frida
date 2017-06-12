@@ -136,6 +136,14 @@
   color: $frida-red;
 }
 
+.navbar-wagon-item img {
+
+  &:hover {
+    transition: 0.5s;
+    opacity: 0.8;
+  }
+}
+
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
   height: 10px;
