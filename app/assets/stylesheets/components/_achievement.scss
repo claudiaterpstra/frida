@@ -1,39 +1,43 @@
+.user-dashboard-badges {
+  padding-bottom: 20px;
+}
+
 .achievement-badges{
   display: flex;
-  align-items: flex-start;
-  padding: 20px;
+  flex-wrap: wrap;
+  // padding: 20px;
 }
 
 .achievement-participation {
-  // align-items: flex-start;
-  width: 220px;
-  height: 250px;
-  background-image: url('http://res.cloudinary.com/hw3i/image/upload/v1496400702/Badge1-Participation1_ogjxeo.png');
+  width: 155px;
+  height: 177px;
+  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497273164/Badge_1_-_Participation_1_rgc56a.png');
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .achievement-three-participations {
-  // align-items: flex-start;
-  width: 220px;
-  height: 250px;
-  background-image: url('http://res.cloudinary.com/hw3i/image/upload/v1496400703/Badge2-Participation3_b1nhos.png');
+  width: 155px;
+  height: 176px;
+  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497273163/Badge_2_-_Participation_3_smo8v1.png');
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .achievement-first-expressionism {
-  // align-items: flex-start;
-  width: 220px;
-  height: 250px;
-  background-image: url('http://res.cloudinary.com/hw3i/image/upload/v1496400702/Badge3-Category_fu8zwt.png');
+  width: 155px;
+  height: 177px;
+  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497273163/Badge_3_-_Category_x8ekgf.png');
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .achievement-first-review {
-  // align-items: flex-start;
-  width: 220px;
-  height: 250px;
-  background-image: url('http://res.cloudinary.com/hw3i/image/upload/v1496400702/Badge4-Review_emmype.png');
+  width: 155px;
+  height: 177px;
+  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497273163/Badge_4_-_Review_xdrsps.png');
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .achievement-badges {
@@ -41,12 +45,13 @@
   align-items: flex-start;
   padding: 20px;
 }
-  
+
 .achievement-courses-created {
   width: 220px;
   height: 250px;
   background-image: url('http://res.cloudinary.com/do6jihcuc/image/upload/v1496402782/Badge5_rsvl0e.png');
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .achievement-number-students {
@@ -54,16 +59,18 @@
   height: 250px;
   background-image: url('http://res.cloudinary.com/do6jihcuc/image/upload/v1496402897/Badge_6_-_5_Students_zu6tru.png');
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .achievement-locked {
   opacity: 0.2;
-  width: 220px;
-  height: 250px;
+  width: 155px;
+  height: 177px;
+  background-size: cover;
 
   p {
-    color: grey;
+    color: $frida-grey;
   }
 }
-  
+
 
