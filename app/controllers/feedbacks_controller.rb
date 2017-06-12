@@ -11,10 +11,8 @@ class FeedbacksController < ApplicationController
     @feedback.artwork = @artwork
     if current_user == @feedback.artwork.lecture.course.user
       @feedback.teacher = current_user
-      @feedback.student = @artwork.user
     elsif current_user == @feedback.artwork.user
       @feedback.student = current_user
-      @feedback.teacher = @artwork.course.user
     end
     if @feedback.save
       create_notification(@feedback)

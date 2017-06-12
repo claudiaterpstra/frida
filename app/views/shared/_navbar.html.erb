@@ -8,7 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
   <!-- Manage Courses -->
-  <% if user_signed_in? && current_user.courses.count > 0 %>
+  <% if user_signed_in? && current_user.teacher %>
     <%= link_to 'Manage Courses', manage_courses_path, class: "navbar-wagon-item navbar-wagon-link" %>
   <% end %>
 
@@ -33,11 +33,11 @@
           </div>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <% current_user.notifications.each do |notification| %>
-              <% if current_user.courses.count < 1 %>
+              <% if current_user.teacher == false %>
                 <li>
                   <%= link_to "#{User.find(notification.notified_by_id).first_name} has commented on your artwork, #{notification.feedback.artwork.message}", studio_path %>
                 </li>
-              <% elsif current_user.courses.count > 0 %>
+              <% elsif current_user.teacher %>
                 <li>
                   <%= link_to "#{User.find(notification.notified_by_id).first_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", give_feedback_path %>
                 </li>
