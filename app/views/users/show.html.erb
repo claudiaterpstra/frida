@@ -1,4 +1,6 @@
+<% if @user == current_user %>
 <%= render 'shared/subnav' %>
+<% end %>
 <div class="container user-show">
   <div class="row">
     <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
@@ -16,7 +18,9 @@
         <p><%= @user.biodata %></p>
         <br>
         <p>Member Since: <%= @user.created_at.strftime("%e %B %Y") %></p>
-        <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
+        <% if @user == current_user  %>
+          <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
+        <% end %>
       </div>
 
       </div>
@@ -28,9 +32,9 @@
           <h3 class="sentence">I have
             <div class="slidingVertical">
               <span>mad skills.</span>
-              <span>enrolled on <%= pluralize current_user.participations.count, "course" %>.</span>
-              <span>unlocked <%= pluralize current_user.badge_count, "badge" %>.</span>
-              <span>completed <%= pluralize current_user.course_reviews.count, "course" %>.</span>
+              <span>enrolled on <%= pluralize @user.participations.count, "course" %>.</span>
+              <span>unlocked <%= pluralize @user.badge_count, "badge" %>.</span>
+              <span>completed <%= pluralize @user.course_reviews.count, "course" %>.</span>
               <span>left 2 reviews.</span>
             </div>
         </h3>
