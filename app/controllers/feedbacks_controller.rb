@@ -11,10 +11,13 @@ class FeedbacksController < ApplicationController
     @feedback.artwork = @artwork
     if current_user == @feedback.artwork.lecture.course.user
       @feedback.teacher = current_user
+      @feedback.student = @artwork.user
     elsif current_user == @feedback.artwork.user
       @feedback.student = current_user
+      @feedback.teacher = @artwork.course.user
     end
     if @feedback.save
+      create_notification(@feedback)
       respond_to do |format|
         format.html { redirect_to studio_path }
         format.js
@@ -31,5 +34,13 @@ class FeedbacksController < ApplicationController
 
   def feedback_params
     params.require(:feedback).permit(:content)
+  end
+
+  def create_notification(feedback)
+    if @feedback.student_id == current_user.id
+      Notification.create(user_id: @feedback.teacher_id, notified_by_id: current_user.id, feedback_id: feedback.id)
+    elsif @feedback.teacher_id == current_user.id
+      Notification.create(user_id: @feedback.student_id, notified_by_id: current_user.id, feedback_id: feedback.id)
+    end
   end
 end

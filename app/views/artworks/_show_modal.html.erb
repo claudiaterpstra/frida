@@ -21,7 +21,10 @@
         <hr>
         <div class="feedbacks-<%= artwork.id %>">
         <% artwork.feedbacks.each do |feedback| %>
-          <% if feedback.teacher.nil? %>
+
+
+          <% if feedback.student == current_user %>
+
             <div class="p-left">
               <div class="feedback-img">
                 <%= unique_image_tag(feedback.student, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
@@ -31,7 +34,7 @@
                 <div class="triangle-left"></div>
               </div>
             </div>
-          <% elsif feedback.student.nil? %>
+          <% elsif feedback.teacher == current_user %>
 
             <div class="p-right">
               <div class="feedback-content">

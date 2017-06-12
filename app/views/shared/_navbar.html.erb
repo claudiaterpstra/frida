@@ -21,14 +21,36 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-    <!-- Studio Link -->
- <!--    <%= link_to "Studio", root_path, class: "navbar-wagon-item navbar-wagon-link" %> -->
-
       <!-- Notification -->
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-red">3</div>
+          <div class="dropdown">
+            <div class="badge badge-red"><%= current_user.notifications.count %></div>
+            <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"></i>
+              <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+
+                <% if current_user.courses.count == 0 %>
+                  <% current_user.notifications.each do |notification| %>
+                    <li>
+                    <%= link_to studio_path do %>
+                      <p>User <%= notification.notified_by_id %> has commented on your artwork.</p>
+                    <% end %>
+                    </li>
+                  <% end %>
+                <% elsif current_user.courses.count > 0 %>
+                  <% current_user.notifications.each do |notification| %>
+
+                    <li>
+                      <%= link_to give_feedback_path do %>
+                        <p>User <%= notification.notified_by_id %> has commented on your artwork.</p>
+                      <% end %>
+                    </li>
+
+                  <% end %>
+                <% end %>
+
+              </ul>
+          </div>
         </div>
       <% end %>
 
