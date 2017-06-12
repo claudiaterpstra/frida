@@ -95,6 +95,26 @@
 //   z-index: 10500;
 // }
 
+.artwork-container {
+  position: relative;
+  width: 200px;
+  overflow: hidden;
+}
+
 .studio-right-column {
   padding-bottom: 20px;
+}
+
+.red-thing {
+  position: absolute;
+  top: 25px;
+  right: -49px;
+  background-color: $frida-red;
+  padding: 0 50px;
+  transform: rotate(45deg);
+  color: white;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  p {
+    margin: 0;
+  }
 }

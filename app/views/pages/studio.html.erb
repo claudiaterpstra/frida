@@ -30,11 +30,26 @@
       <!-- <h3>Your Artwork</h3> -->
       <% if @artworks.count > 0 %>
         <% @artworks.sort_by(&:id).each do |artwork| %>
-          <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
+          <div class="artwork-container">
+            <% if artwork.id == params["artwork"].to_i %>
+              <div class="random red-thing"><p>feedback</p></div>
+            <% end %>
+                <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
+          </div>
         <% end %>
       <% else %>
-      <h4>Uh-oh! You've got no artwork yet. Start a course, upload your work and we'll sort this studio out!</h4>
+      <h4>Uh-oh! You've got no artwork yet. Start a course, upload your work and let's sort this studio out!</h4>
       <% end %>
     </div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <script>
+    $( document ).ready(function() {
+      $('.studio-uploads').click(function () {
+        $('.random').empty();
+      });
+    });
+  </script>
+<% end %>
