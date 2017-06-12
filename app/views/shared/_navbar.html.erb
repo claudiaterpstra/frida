@@ -31,16 +31,20 @@
           <div class="badge badge-red"><%= current_user.notifications.where(read: false).count %></div>
           </div>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <% current_user.notifications.where(read: false).each do |notification| %>
-              <% if current_user.teacher == false %>
-                <li>
-                  <%= link_to "#{User.find(notification.notified_by_id).first_name} has commented on your artwork, #{notification.feedback.artwork.message}", link_through_path(notification) %>
-                </li>
-              <% elsif current_user.teacher %>
-                <li>
-                  <%= link_to "#{User.find(notification.notified_by_id).first_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", link_through_path(notification) %>
-                </li>
+            <% if current_user.notifications.where(read: false).count > 0 %>
+              <% current_user.notifications.where(read: false).each do |notification| %>
+                <% if current_user.teacher == false %>
+                  <li>
+                    <%= link_to "#{User.find(notification.notified_by_id).first_name} has commented on your artwork, #{notification.feedback.artwork.message}", link_through_path(notification) %>
+                  </li>
+                <% elsif current_user.teacher %>
+                  <li>
+                    <%= link_to "#{User.find(notification.notified_by_id).first_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", link_through_path(notification) %>
+                  </li>
+                <% end %>
               <% end %>
+            <% else %>
+              <li style="font-size: 12px; margin-left: 17px;">No new notifications</li>
             <% end %>
           </ul>
         </div>
