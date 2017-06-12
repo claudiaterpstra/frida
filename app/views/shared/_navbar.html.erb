@@ -22,37 +22,30 @@
     <% if user_signed_in? %>
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <div class="dropdown">
-            <div class="badge badge-red"><%= current_user.notifications.count %></div>
-            <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"></i>
-              <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
 
-                <% if current_user.courses.count == 0 %>
-                  <% current_user.notifications.each do |notification| %>
-                    <li>
-                    <%= link_to studio_path do %>
-                      <p>User <%= notification.notified_by_id %> has commented on your artwork.</p>
-                    <% end %>
-                    </li>
-                  <% end %>
-                <% elsif current_user.courses.count > 0 %>
-                  <% current_user.notifications.each do |notification| %>
 
-                    <li>
-                      <%= link_to give_feedback_path do %>
-                        <p>User <%= notification.notified_by_id %> has commented on your artwork.</p>
-                      <% end %>
-                    </li>
-
-                  <% end %>
-                <% end %>
-
-              </ul>
+<!-- Profile picture and dropdown -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+        <div class="badge-container dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-envelope-o"></i>
+          <div class="badge badge-red"><%= current_user.notifications.count %></div>
           </div>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <% current_user.notifications.each do |notification| %>
+              <% if current_user.courses.count < 1 %>
+                <li>
+                  <%= link_to "#{User.find(notification.notified_by_id).first_name} has commented on your artwork, #{notification.feedback.artwork.message}", studio_path %>
+                </li>
+              <% elsif current_user.courses.count > 0 %>
+                <li>
+                  <%= link_to "#{User.find(notification.notified_by_id).first_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", give_feedback_path %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
         </div>
-      <% end %>
+      </div>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -73,13 +66,6 @@
               <%= link_to edit_user_path(current_user) do %>
                 <i class="fa fa-cog"></i> <%= t(".profile", default: " Edit settings") %>
               <% end %>
-            </li>
-<!--             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
-              <% end %>
-            </li> -->
-            <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: " Log out") %>
               <% end %>
