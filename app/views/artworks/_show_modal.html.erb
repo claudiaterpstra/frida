@@ -17,10 +17,12 @@
           <%= cl_image_tag image_url, width: 500, height: 300, crop: :fill %>
           <br>
         <h4>Title: <%= artwork.message %></h4>
+          <% if artwork.user == current_user %>
           <% if artwork.featured %>
             <h4><i class = "fa fa-star"></i> Featured on your profile page</h4>
             <% else %>
           <%= link_to '<i class = "fa fa-star-o"></i> Feature on your profile page'.html_safe, artwork_feature_path(artwork), method: :patch %>
+          <% end %>
           <% end %>
         </div>
         <hr>
