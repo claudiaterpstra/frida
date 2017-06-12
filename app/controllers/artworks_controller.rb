@@ -48,7 +48,7 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.find(params[:artwork_id])
     @artwork.featured = true
     @artwork.save
-    redirect_to :back
+    redirect_to user_path(@artwork.user)
   end
 
   private

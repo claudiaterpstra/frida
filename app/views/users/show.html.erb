@@ -43,7 +43,11 @@
       <div class="user-show-studio">
         <h3>My Featured Artwork</h3>
           <div class="user-studio-gallery carousel">
-          <%= render 'shared/artworkcard' %>
+          <% if @artworks %>
+          <%= render 'shared/featuredartwork' %>
+          <% else %>
+          <p>No featured artwork yet</p>
+          <% end %>
           </div>
       </div>
 
