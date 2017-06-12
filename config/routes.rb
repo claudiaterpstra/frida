@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'notifications/link_through'
+
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
   get 'studio', to: 'pages#studio'
   get 'manage_courses', to: 'pages#manage_courses'
   get 'give_feedback', to: 'pages#give_feedback'
+  get 'notifications/:id/link_through', to: 'notifications#link_through',
+                                        as: :link_through
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :courses do
     resources :participations, only: [:create]

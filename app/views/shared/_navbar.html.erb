@@ -23,23 +23,22 @@
 
       <!-- Notification -->
 
-
 <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
         <div class="badge-container dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-red"><%= current_user.notifications.count %></div>
+          <div class="badge badge-red"><%= current_user.notifications.where(read: false).count %></div>
           </div>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <% current_user.notifications.each do |notification| %>
+            <% current_user.notifications.where(read: false).each do |notification| %>
               <% if current_user.teacher == false %>
                 <li>
-                  <%= link_to "#{User.find(notification.notified_by_id).first_name} has commented on your artwork, #{notification.feedback.artwork.message}", studio_path %>
+                  <%= link_to "#{User.find(notification.notified_by_id).first_name} has commented on your artwork, #{notification.feedback.artwork.message}", link_through_path(notification) %>
                 </li>
               <% elsif current_user.teacher %>
                 <li>
-                  <%= link_to "#{User.find(notification.notified_by_id).first_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", give_feedback_path %>
+                  <%= link_to "#{User.find(notification.notified_by_id).first_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", link_through_path(notification) %>
                 </li>
               <% end %>
             <% end %>
