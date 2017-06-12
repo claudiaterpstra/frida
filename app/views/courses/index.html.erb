@@ -6,13 +6,11 @@
   <%# link_to "Add A Course", new_course_path %>
   <br>
 
-
   <div class="courses-display">
-
     <% @courses.order(:id).each do |course| %>
 
-      <div class="courses-box">
-        <div class="card course-card" style="background-image: url('<%= cl_image_path course.photo? ? course.photo.path : 'logo.png', crop: :fill %>');">
+      <div class="courses-box wow slideInDown" data-wow-delay="<%= rand(0.0..1.0)%>s">
+        <div class="card course-card" style="background-image: url('<%= cl_image_path course.photo? ? course.photo.path : 'logo.png', width: 200, height: 300, crop: :fill %>');">
           <div class="card-category"><%= course.category %></div>
           <%= link_to "", course_path(course), class: "card-link"  %>
         </div>
@@ -35,9 +33,8 @@
         <%# link_to "Edit Course", edit_course_path(course) %>
         <span></span>
       </div>
-
-
       <% end %>
       </div>
-
 </div>
+
+<%= render 'courses/shared/scrollreveal' %>
