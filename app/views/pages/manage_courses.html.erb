@@ -1,5 +1,5 @@
 <%= render 'shared/subnav' %>
-<% if current_user.courses.count < 1 %>
+<% if current_user.teacher == false %>
   <div class="container">
     <div class="manage-courses-msg">
       <h3>Hey <%= @user.first_name %>!</h3>
@@ -7,7 +7,7 @@
       <h4>– Team Frida</h4>
     </div>
   </div>
-<% else %>
+<% elsif current_user.teacher %>
   <div class="container user-show">
     <div class="row">
       <div class="col-lg-3 col-md-4 hide-sm" id="sticky">

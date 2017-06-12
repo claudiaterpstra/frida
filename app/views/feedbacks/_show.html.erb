@@ -1,18 +1,18 @@
-   <% if feedback.teacher.nil? %>
+   <% if feedback.author == feedback.student %>
     <div class="p-left">
-      <%= unique_image_tag(feedback.student, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+      <%= unique_image_tag(feedback.author, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
       <div class="feedback-content">
         <%= feedback.content  %>
         <div class="triangle-left"></div>
       </div>
     </div>
-  <% elsif feedback.student.nil? %>
+  <% else %>
     <div class="p-right">
   <dive class="feedback-content">
     <%= feedback.content  %>
     <div class="triangle-right"></div>
   </dive>
-      <%= unique_image_tag(feedback.teacher, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+      <%= unique_image_tag(feedback.author, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
     </div>
   <% end %>
 

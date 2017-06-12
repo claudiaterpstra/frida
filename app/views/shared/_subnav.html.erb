@@ -5,7 +5,7 @@
         <li class="subnav-link-one <%= 'active' if params[:action] == 'dashboard' %>"><%= link_to "Dashboard", dashboard_path %></li><!--
          --><li class="subnav-link-two <%= 'active' if params[:action] == 'studio' %>"><%= link_to "Studio", studio_path %></li><!--
          --><li class="subnav-link-three <%= 'active' if params[:action] == 'manage_courses' %>"><%= link_to "Manage Courses", manage_courses_path %></li><!--
-        <% if user_signed_in? && current_user.courses.count > 0 %>
+        <% if user_signed_in? && current_user.teacher %>
           --><li class="subnav-link-four <%= 'active' if params[:action] == 'give_feedback' %>"><%= link_to "Give Feedback", give_feedback_path %></li><!--
         <% end %>
           --><hr class="hr-subnav">

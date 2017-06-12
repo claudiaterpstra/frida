@@ -8,7 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
   <!-- Manage Courses -->
-  <% if user_signed_in? && current_user.courses.count > 0 %>
+  <% if user_signed_in? && current_user.teacher %>
     <%= link_to 'Manage Courses', manage_courses_path, class: "navbar-wagon-item navbar-wagon-link" %>
   <% end %>
 
@@ -21,16 +21,30 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-    <!-- Studio Link -->
- <!--    <%= link_to "Studio", root_path, class: "navbar-wagon-item navbar-wagon-link" %> -->
-
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
+
+<!-- Profile picture and dropdown -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+        <div class="badge-container dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-red">3</div>
+          <div class="badge badge-red"><%= current_user.notifications.where(read: false).count %></div>
+          </div>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <% current_user.notifications.where(read: false).each do |notification| %>
+              <% if current_user.teacher == false %>
+                <li>
+                  <%= link_to "#{User.find(notification.notified_by_id).first_name} has commented on your artwork, #{notification.feedback.artwork.message}", link_through_path(notification) %>
+                </li>
+              <% elsif current_user.teacher %>
+                <li>
+                  <%= link_to "#{User.find(notification.notified_by_id).first_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", link_through_path(notification) %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
         </div>
-      <% end %>
+      </div>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -51,13 +65,6 @@
               <%= link_to edit_user_path(current_user) do %>
                 <i class="fa fa-cog"></i> <%= t(".profile", default: " Edit settings") %>
               <% end %>
-            </li>
-<!--             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
-              <% end %>
-            </li> -->
-            <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: " Log out") %>
               <% end %>

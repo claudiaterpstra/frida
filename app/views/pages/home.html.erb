@@ -10,7 +10,7 @@
       <div class="banner-cta">
         <%= link_to "LEARN", courses_path, class: "btn btn-frida" %>
         <% if user_signed_in? %>
-          <% if current_user.courses.count > 0 %>
+          <% if current_user.teacher %>
             <%= link_to "TEACH", new_course_path, class: "btn btn-frida" %>
           <% end %>
         <% end %>

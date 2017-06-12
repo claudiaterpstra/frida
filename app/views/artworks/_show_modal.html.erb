@@ -21,17 +21,20 @@
         <hr>
         <div class="feedbacks-<%= artwork.id %>">
         <% artwork.feedbacks.each do |feedback| %>
-          <% if feedback.teacher.nil? %>
+
+
+          <% if feedback.author == feedback.student %>
+
             <div class="p-left">
               <div class="feedback-img">
-                <%= unique_image_tag(feedback.student, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+                <%= unique_image_tag(feedback.author, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
               </div>
               <div class="feedback-content">
                 <%= feedback.content %>
                 <div class="triangle-left"></div>
               </div>
             </div>
-          <% elsif feedback.student.nil? %>
+          <% elsif feedback.author == feedback.teacher %>
 
             <div class="p-right">
               <div class="feedback-content">
@@ -39,7 +42,7 @@
                 <div class="triangle-right"></div>
               </div>
               <div class="feedback-img">
-                <%= unique_image_tag(feedback.teacher, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
+                <%= unique_image_tag(feedback.author, :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
               </div>
             </div>
           <% end %>
