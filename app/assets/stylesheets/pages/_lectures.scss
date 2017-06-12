@@ -97,6 +97,15 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 100px;
+  width: 600px;
+  margin: auto;
+}
+
+.studio-link {
+  &:hover {
+    color: #AB2B2B;
+    cursor: pointer;
+  }
 }
 
 i.fa.fa-chevron-left {
