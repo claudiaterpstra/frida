@@ -4,9 +4,9 @@ class NotificationsController < ApplicationController
   def link_through
     @notification.update(read: true)
     if current_user.teacher
-      redirect_to give_feedback_path(@notification.feedback)
+      redirect_to give_feedback_path(@notification.feedback, artwork: @notification.feedback.artwork.id)
     else
-      redirect_to studio_path(@notification.feedback)
+      redirect_to studio_path(@notification.feedback, artwork: @notification.feedback.artwork.id)
     end
   end
 

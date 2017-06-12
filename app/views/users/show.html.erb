@@ -35,7 +35,7 @@
               <span>enrolled on <%= pluralize @user.participations.count, "course" %>.</span>
               <span>unlocked <%= pluralize @user.badge_count, "badge" %>.</span>
               <span>completed <%= pluralize @user.course_reviews.count, "course" %>.</span>
-              <span>left 2 reviews.</span>
+             <span>uploaded <%= pluralize @user.artworks.count, "artwork" %>.</span>
             </div>
         </h3>
       </div>
@@ -65,6 +65,12 @@
       <div class="user-show-studio">
         <h3>Badges I've Earned</h3>
         <p>BADGES HERE</p>
+        <div class="achievement-badges">
+          <div class="achievement-participation <%= current_user.one_participation? ? '' : 'hidden' %>"></div>
+          <div class="achievement-three-participations <%= current_user.three_participations? ? '' : 'hidden' %>"></div>
+          <div class="achievement-first-expressionism <%= current_user.first_expressionism? ? '' : 'hidden' %>"></div>
+          <div class="achievement-first-review <%= current_user.first_review? ? '' : 'hidden' %>"></div>
+        </div>
       </div>
     </div>
 
