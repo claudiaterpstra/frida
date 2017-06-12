@@ -1,0 +1,19 @@
+<div id="fullpage">
+  <div class="section about-container" data-anchor="about">
+    <%= link_to "#team", class: "floating" do %>
+      <%= image_tag 'arrow.png' %>
+    <% end %>
+  </div>
+
+  <div class="section about-team" data-anchor="team">Section II</div>
+  <div class="section about-final" data-anchor="final">Section III</div>
+</div>
+
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      $('#fullpage').fullpage()
+        anchors:['about', 'team', 'final']
+    });
+  </script>
+<% end %>

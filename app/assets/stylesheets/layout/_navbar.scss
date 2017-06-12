@@ -13,10 +13,9 @@
   text-transform: uppercase;
 }
 
-.nav-absolute {
-  position: absolute;
-  right: 0;
-  left: 0;
+.navbar-fixed {
+  position: fixed;
+  width: 100%;
 }
 
 /* Optional class to fix the navbar on top */
@@ -120,6 +119,7 @@
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
 }
+
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
@@ -160,4 +160,16 @@
   border-top: 1px solid #E6E6E6;
 }
 
+.navbar-notifications li {
+  a {
+    background-color: white;
+    // color: $frida-red !important;
+    font-size: 12px !important;
+  }
+
+  &:hover {
+    background-color: $frida-light-grey;
+    // border-bottom: 1px solid #E6E6E6;
+  }
+}
 

@@ -1,4 +1,4 @@
-<div class="navbar-wagon <%= params[:action] == "home" ? "nav-absolute" : "" %>">
+<div class="navbar-wagon <%= params[:action] == "home" ? "nav-absolute" : "" %> <%= "navbar-fixed" if params[:action] == "about" %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo copy.png" %>
@@ -13,7 +13,7 @@
   <% end %>
 
     <!-- About link -->
-    <%= link_to "About", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "About", about_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Courses link -->
     <%= link_to "Courses", courses_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -30,7 +30,7 @@
           <i class="fa fa-envelope-o"></i>
           <div class="badge badge-red"><%= current_user.notifications.where(read: false).count %></div>
           </div>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu navbar-notifications">
             <% if current_user.notifications.where(read: false).count > 0 %>
               <% current_user.notifications.where(read: false).each do |notification| %>
                 <% if current_user.teacher == false %>
