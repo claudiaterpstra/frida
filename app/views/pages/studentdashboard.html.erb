@@ -11,7 +11,7 @@
     <div class="dashboard-stats">
       <h4>You are enrolled on <%= pluralize current_user.participations.count, "course" %>.</h4>
       <h4>You have unlocked <%= pluralize current_user.badge_count, "badge" %>.</h4>
-      <h4>You have reviewed <%= pluralize current_user.course_reviews.count, "course" %>.</h4>
+      <h4>You have contributed <%= pluralize current_user.course_reviews.count, "review" %>.</h4>
     </div>
   </div>
 </div>
