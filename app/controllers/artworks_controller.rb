@@ -20,6 +20,7 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.new(artwork_params)
     @artwork.lecture = @lecture
     @artwork.user = current_user
+    @artwork.featured = false
     if @artwork.save
       respond_to do |format|
         format.html { redirect_to lecture_path(@lecture) }
@@ -41,6 +42,13 @@ class ArtworksController < ApplicationController
 
   def destroy
     @artwork.destroy
+  end
+
+  def feature
+    @artwork = Artwork.find(params[:artwork_id])
+    @artwork.featured = true
+    @artwork.save
+    redirect_to :back
   end
 
   private

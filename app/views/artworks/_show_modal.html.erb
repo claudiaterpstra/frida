@@ -17,6 +17,11 @@
           <%= cl_image_tag image_url, width: 500, height: 300, crop: :fill %>
           <br>
         <h4>Title: <%= artwork.message %></h4>
+        <% if artwork.featured %>
+          <p>Featured</p>
+          <% else %>
+        <%= link_to "Feature this artwork", artwork_feature_path(artwork), method: :patch %>
+        <% end %>
         </div>
         <hr>
         <div class="feedbacks-<%= artwork.id %>">

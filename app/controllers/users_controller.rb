@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
   def show
     @courses = @user.courses_participated
+    @artworks = @user.artworks.where(featured: true)
   end
 
   def edit
