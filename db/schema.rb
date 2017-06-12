@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612133928) do
+ActiveRecord::Schema.define(version: 20170612144406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,13 +69,11 @@ ActiveRecord::Schema.define(version: 20170612133928) do
   create_table "feedbacks", force: :cascade do |t|
     t.string   "content"
     t.integer  "artwork_id"
-    t.integer  "student_id"
-    t.integer  "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "author_id"
     t.index ["artwork_id"], name: "index_feedbacks_on_artwork_id", using: :btree
-    t.index ["student_id"], name: "index_feedbacks_on_student_id", using: :btree
-    t.index ["teacher_id"], name: "index_feedbacks_on_teacher_id", using: :btree
+    t.index ["author_id"], name: "index_feedbacks_on_author_id", using: :btree
   end
 
   create_table "lectures", force: :cascade do |t|

@@ -1,7 +1,14 @@
 class Feedback < ApplicationRecord
   belongs_to :artwork
-  belongs_to :student, :class_name => 'User'
-  belongs_to :teacher, :class_name => 'User'
+  belongs_to :author, class_name: 'User'
   has_many :notifications, dependent: :destroy
   validates :content, presence: :true
+
+  def teacher
+    artwork.lecture.course.user
+  end
+
+  def student
+    artwork.user
+  end
 end
