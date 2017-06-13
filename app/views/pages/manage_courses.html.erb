@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do  %>
+  frida - manage <%= current_user.full_name %>'s courses
+<% end %>
+
 <%= render 'shared/subnav' %>
 <% if current_user.teacher == false %>
   <div class="container">

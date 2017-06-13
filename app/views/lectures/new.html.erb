@@ -1,7 +1,11 @@
-  <div class="lectures-banner-title">
-    <p>Your Curriculum</p>
-    <h2>Add A Lecture</h2>
-  </div>
+<% content_for(:title_tag) do  %>
+  frida - new lecture for <%= @course.name.downcase %>
+<% end %>
+
+<div class="lectures-banner-title">
+  <p>Your Curriculum</p>
+  <h2>Add A Lecture</h2>
+</div>
 
 <div class="container lecture-form">
   <div class="row">
