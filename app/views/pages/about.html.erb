@@ -1,12 +1,97 @@
-<div id="fullpage">
+<div id="parallax-frida">
+
+<section>
+  <div class="title about-container" data-anchor="about" >
+    <h3>a le wagon final project</h3>
+    <h1>London #74</h1>
+  </div>
+</section>
+
+<section>
+    <div class="parallax-one">
+      <h2>ABOUT FRIDA</h2>
+      <h3>the online art school</h3>
+    </div>
+</section>
+
+<section>
+  <div class="block">
+    <p><span class="first-character sc">F</span>rida</p>
+<!--     <p class="line-break margin-top-10"></p>
+    <p class="margin-top-10">xoxo</p> -->
+  </div>
+</section>
+
+<section>
+  <div class="parallax-two">
+    <h2>THE TEAM</h2>
+  </div>
+</section>
+
+<section>
+  <div class="block">
+    <p><span class="first-character ny">B</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia maxime, ea porro quidem voluptatem animi, expedita deserunt repellendus perferendis unde, ipsum, debitis placeat vero. Distinctio amet cumque et pariatur rem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, quaerat quo ex magnam porro, excepturi accusamus natus quod nobis nulla. Expedita vitae impedit deleniti quaerat, cum facere eligendi in illum.</p>
+    <p class="line-break margin-top-10"></p>
+    <p class="margin-top-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus voluptatibus nobis quasi quae ipsum, praesentium sapiente dicta quo numquam neque reprehenderit vel quisquam voluptas, culpa omnis modi eaque inventore. Doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab atque dolore facere iure vitae aperiam tempore doloribus quas rem quaerat, incidunt facilis, soluta nostrum in laborum nesciunt delectus qui. Eius.</p>
+  </div>
+</section>
+
+<section>
+  <div class="parallax-three">
+    <h2></h2>
+  </div>
+</section>
+
+<section>
+  <div class="block about-final" data-anchor="final">
+    <p><span class="first-character atw">W</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, obcaecati distinctio consequatur hic error consectetur, nihil voluptates quae corporis ipsum voluptas. Quod optio, sint explicabo alias architecto, eos possimus voluptatem.</p>
+    <p class="line-break margin-top-10"></p>
+    <p class="margin-top-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae debitis corrupti qui, veritatis enim earum voluptatum corporis laborum. Minima dignissimos asperiores, labore molestiae cumque ratione, repellendus ipsam dolore commodi! Ipsa.</p>
+    <%= link_to "#about", class: "floating scroll-center" do %>
+      <%= image_tag 'arrowup.png' %>
+      <p id="scroll-text">BACK TO TOP</p>
+    <% end %>
+  </div>
+</section>
+
+</div>
+
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      $('#fullpage').fullpage()
+        anchors:['about', 'final']
+    });
+  </script>
+<% end %>
+
+<!-- <div id="fullpage">
   <div class="section about-container" data-anchor="about">
-    <%= link_to "#team", class: "floating" do %>
+    <%= link_to "#team", class: "floating scroll-center" do %>
       <%= image_tag 'arrow.png' %>
+      <p id="scroll-text">SCROLL</p>
+    <% end %>
+    <div class="container">
+      <div class="about-title">
+        <h2 id="about-title-text">a final project by</h2></span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section about-team" data-anchor="team">Section II
+    <%= link_to "#final", class: "floating scroll-center" do %>
+      <%= image_tag 'arrow.png' %>
+      <p id="scroll-text">SCROLL</p>
     <% end %>
   </div>
 
-  <div class="section about-team" data-anchor="team">Section II</div>
-  <div class="section about-final" data-anchor="final">Section III</div>
+  <div class="section about-final" data-anchor="final">Section III
+    <%= link_to "#about", class: "floating scroll-center" do %>
+      <%= image_tag 'arrowup.png' %>
+      <p id="scroll-text">BACK TO TOP</p>
+    <% end %>
+  </div>
 </div>
 
 <% content_for(:after_js) do %>
@@ -17,3 +102,4 @@
     });
   </script>
 <% end %>
+ -->
