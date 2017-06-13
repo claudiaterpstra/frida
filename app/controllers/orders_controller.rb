@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   skip_after_action :verify_authorized
   def show
     @order = Order.find(params[:id])
+    @course = Course.find(@order.course_sku)
   end
 
   def create

@@ -3,6 +3,7 @@ class PaymentsController < ApplicationController
   skip_after_action :verify_authorized
 
   def new
+    @course = Course.find(@order.course_sku)
   end
 
   def create

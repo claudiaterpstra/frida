@@ -1,4 +1,4 @@
-<h1>Purchase of Course <%= @order.course_sku %></h1>
+<h1>Purchase of Course: <%= @course.name %></h1>
 <%= form_tag order_payments_path(@order) do %>
   <article>
     <label class="amount">
