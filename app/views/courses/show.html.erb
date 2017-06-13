@@ -15,7 +15,7 @@
     <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
       <div class="course-side-bar">
         <div class="course-side-info">
-          <h2>£<%= @course.price %></h2>
+          <h2><p>Amount: <%= humanized_money_with_symbol(@course.price) %></p></h2>
           <p><%= @course.duration %> hours of video lessons </p>
           <div class="course-side-btn">
             <% if user_signed_in? %>
