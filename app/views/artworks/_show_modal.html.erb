@@ -14,17 +14,18 @@
       </div>
       <div class="modal-body">
         <div class="modal-heading">
-        <div id="canvas-artwork-<%= artwork.id %>", style="width: 500px">
-          <%= cl_image_tag image_url, width: 500, height: 300, crop: :fill %>
-          <% if pins %>
-            <% pins.each do |pin| %>
-            <div class="artwork-pin" style="left:<%= pin.left %>%; top:<%= pin.top %>%;">
-              <span><%= pin.numero %></span>
-            </div>
+          <div id="canvas-artwork-<%= artwork.id %>" style="height: 300px; width: 500px">
+            <%= cl_image_tag image_url, width: 500, height: 300, crop: :fill %>
+            <% if pins %>
+              <% pins.each do |pin| %>
+              <div class="artwork-pin" style="left:<%= pin.left %>%; top:<%= pin.top %>%;">
+                <span><%= pin.numero %></span>
+              </div>
+              <% end %>
             <% end %>
-          <% end %>
           </div>
-          <br>
+        </div>
+        <br>
         <h4>Title: <%= artwork.message %></h4>
           <% if artwork.user == current_user %>
           <% if artwork.featured %>
@@ -33,7 +34,6 @@
           <%= link_to '<i class = "fa fa-star-o"></i> Feature on your profile page'.html_safe, artwork_feature_path(artwork), method: :patch %>
           <% end %>
           <% end %>
-        </div>
         <hr>
         <div class="feedbacks-<%= artwork.id %>">
         <% artwork.feedbacks.each do |feedback| %>
@@ -84,6 +84,7 @@
   $(canvas_artwork_id).click(function(event){
     numero += 1;
 
+
     // Handle Coordinates
     // (x, y) => coordinates relative to the page, (0, 0) is the top left corner
     // (top, left) => cooridnates of the image expressed in % from the top left corner of the image
@@ -91,21 +92,18 @@
     var boundingRect = this.getBoundingClientRect();
     var x0 = boundingRect.left
     var y0 = boundingRect.top
-    var x = event.pageX;
-    var y = event.pageY;
+    var x = event.pageX - $(this).parent().offset().left;
+    var y = event.pageY - $(this).parent().offset().top;
     var width = $(this).width();
     var height = $(this).height();
-    var left = Math.round(( (x - x0) / width ) * 100);
-    var top = Math.round(( (y - y0) / height ) * 100);
-
-    console.log(boundingRect)
+    var left = Math.round(( (x - x0) / 500 ) * 100);
+    var top = Math.round(( (y - y0) / 300 ) * 100);
+    console.log( x0, y0, width, height, x, y )
 
     // Create a pin DIV and append it to the image
     var pin = $('<div class="artwork-pin" style="left:' + left + '%; top:'+ top + '%;"><span>' + numero + '</span></div>').hide();
     $(this).append(pin)
     pin.fadeIn();
-
-    console.log('<%= artwork_pins_path(artwork) %>');
 
     // Save It In DB
     $.post({
