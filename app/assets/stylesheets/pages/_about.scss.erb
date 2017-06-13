@@ -203,6 +203,9 @@
   }
 }
 
+.line-right {
+  border-right: 1px solid $frida-grey;
+}
 
 // .about-container {
 //   background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497352587/Ocean_igjwcn.jpg');
@@ -282,11 +285,22 @@
   justify-content: center;
   width: 100%;
   text-decoration: none;
+  margin-top: 50px;
+  &:hover {
+    text-decoration: none;
+
+  }
 
   a {
     position: absolute;
     bottom: 50px;
     text-decoration: none;
+    &:hover {
+      text-decoration: none !important;
+      p {
+        text-decoration: none;
+      }
+    }
   }
 
   p {
@@ -294,6 +308,11 @@
     color: black;
     margin-top: 10px;
     text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+      color: $frida-red;
+    }
   }
 }
 
