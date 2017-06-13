@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613102152) do
+ActiveRecord::Schema.define(version: 20170613104159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,15 @@ ActiveRecord::Schema.define(version: 20170613102152) do
     t.index ["feedback_id"], name: "index_notifications_on_feedback_id", using: :btree
     t.index ["notified_by_id"], name: "index_notifications_on_notified_by_id", using: :btree
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "state"
+    t.string   "course_sku"
+    t.integer  "amount_pennies", default: 0, null: false
+    t.json     "payment"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "participations", force: :cascade do |t|
