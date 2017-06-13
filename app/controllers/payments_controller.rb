@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
   skip_after_action :verify_authorized
 
   def new
-    @course = Course.find(@order.course_sku)
+    @course = Course.find(@order.course_id)
   end
 
   def create
@@ -15,12 +15,12 @@ class PaymentsController < ApplicationController
   charge = Stripe::Charge.create(
     customer:     customer.id,   # You should store this customer id and re-use it.
     amount:       @order.amount_pennies, # or amount_cents
-    description:  "Payment for course #{@order.course_sku} for order #{@order.id}",
+    description:  "Payment for course #{@order.course_id} for order #{@order.id}",
     currency:     @order.amount.currency
   )
 
   @order.update(payment: charge.to_json, state: 'paid')
-  Participation.create!(user_id: current_user.id, course_id: @order.course_sku.to_i)
+  Participation.create!(user_id: current_user.id, course_id: @order.course_id)
   redirect_to order_path(@order)
 
   rescue Stripe::CardError => e

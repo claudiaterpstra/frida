@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613104159) do
+ActiveRecord::Schema.define(version: 20170613135126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,11 +101,11 @@ ActiveRecord::Schema.define(version: 20170613104159) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "state"
-    t.string   "course_sku"
     t.integer  "amount_pennies", default: 0, null: false
     t.json     "payment"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "course_id"
   end
 
   create_table "participations", force: :cascade do |t|
