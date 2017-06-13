@@ -82,7 +82,7 @@
               <%= unique_image_tag(@course.user) %>
             </div>
             <div class="artist-bio">
-              <h2><%= @course.user.first_name %> <%= @course.user.last_name %></h2>
+              <h2><%= @course.user.full_name %></h2>
               <p><%= @course.user.biodata %></p>
 
               <div class="artist-socials">
@@ -120,7 +120,7 @@
 
             <% @course.course_reviews.each do |r| %>
             <p>
-              <%= r.user.first_name %> says:
+              <%= r.user.full_name %> says:
               <% r.rating.times do %>
               <i class="fa fa-heart" aria-hidden="true"></i>
               <% end %>

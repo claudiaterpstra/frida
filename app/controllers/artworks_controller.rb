@@ -22,6 +22,8 @@ class ArtworksController < ApplicationController
     @artwork.user = current_user
     @artwork.featured = false
     if @artwork.save
+      feedback = Feedback.create!(content: "I have uploaded my artwork for feedback. Please let me know what you think!", artwork_id: @artwork.id, author_id: current_user.id)
+      Notification.create!(user_id: feedback.teacher.id, notified_by_id: feedback.author.id, feedback_id: feedback.id,  notice_type: 'upload')
       respond_to do |format|
         format.html { redirect_to lecture_path(@lecture) }
         format.js  # <-- will render `app/views/reviews/create.js.erb`

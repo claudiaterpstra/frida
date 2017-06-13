@@ -16,7 +16,7 @@
         </div>
         <div class="card-course-name">
           <h2><%= course.name %></h2>
-          <p>Artist: <%= course.user.first_name %> <%= course.user.last_name %></p>
+          <p>Artist: <%= course.user.full_name %></p>
           <p>Amount: <%= humanized_money_with_symbol(course.price) %></p>
           <div class="course-rating">
           <p>

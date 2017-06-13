@@ -239,7 +239,8 @@ courses_attributes = [
     password: '123456',
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    biodata: 'I am an Artist and a Teacher.'
+    biodata: 'I am an Artist and a Teacher.',
+    teacher: true
   )
 
   puts "User #{i} created"
