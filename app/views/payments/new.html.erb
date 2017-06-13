@@ -7,7 +7,7 @@
     <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');"></div>
     <h3>Hey <%= current_user.first_name %>!</h3>
     <p>Thanks for choosing <%= @course.name %>.</p>
-    <p>Click the 'Pay with Card' option to complete your purchase.</p>
+    <p>Click the 'Pay with Card' button to complete your purchase.</p>
     <%= form_tag order_payments_path(@order) do %>
       <article>
         <label class="amount">
