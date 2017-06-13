@@ -24,7 +24,7 @@
               <% end %>
             <% end %>
           </div>
-        </div>
+
         <br>
         <h4>Title: <%= artwork.message %></h4>
           <% if artwork.user == current_user %>
@@ -34,6 +34,7 @@
           <%= link_to '<i class = "fa fa-star-o"></i> Feature on your profile page'.html_safe, artwork_feature_path(artwork), method: :patch %>
           <% end %>
           <% end %>
+          </div>
         <hr>
         <div class="feedbacks-<%= artwork.id %>">
         <% artwork.feedbacks.each do |feedback| %>
@@ -92,7 +93,7 @@
     var boundingRect = this.getBoundingClientRect();
     var x0 = boundingRect.left
     var y0 = boundingRect.top
-    var x = event.pageX - $(this).parent().offset().left;
+    var x = event.pageX
     var y = event.pageY - $(this).parent().offset().top;
     var width = $(this).width();
     var height = $(this).height();
