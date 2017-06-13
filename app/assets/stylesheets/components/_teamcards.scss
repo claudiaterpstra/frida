@@ -1,0 +1,125 @@
+
+.slide-container {
+  margin: auto;
+  width: 600px;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.fridateam-card {
+  background: white;
+  width: 300px;
+  display: inline-block;
+  margin: auto;
+  border-radius: 5px;
+  position: relative;
+  text-align: center;
+  box-shadow: -1px 15px 30px -12px black;
+  z-index: 9999;
+}
+
+.fridateam-card__image {
+  position: relative;
+  height: 230px;
+  margin-bottom: 35px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  filter: gray;
+  -webkit-filter: grayscale(100%);
+
+  &:hover {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+  }
+}
+
+.fridateam-card__level {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.fridateam-card__level--archer {
+  color: $frida-red;
+}
+
+.fridateam-card__unit-name {
+  font-size: 26px;
+  color: black;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.fridateam-card__unit-description {
+  padding: 20px;
+  margin-bottom: 10px;
+
+  p {
+    font-family: "Helvetica";
+    font-size: 12px;
+  }
+}
+
+.fridateam-card__unit-stats--archer {
+  background: $frida-red;
+
+  .one-third {
+     border-right: 1px solid $frida-white;
+  }
+}
+
+
+.fridateam-card__unit-stats {
+
+  color: $frida-white;
+  font-weight: 700;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  .one-third {
+    width: 33%;
+    float: left;
+    padding: 20px 15px;
+  }
+
+  .stat {
+    position: relative;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .stat i {
+    &:hover {
+      color: $frida-grey;
+      cursor: pointer;
+    }
+  }
+
+  .stat-value {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 12px;
+  }
+
+  .no-border {
+    border-right: none;
+  }
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+

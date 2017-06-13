@@ -2,7 +2,7 @@
 
 <section>
   <div class="title about-container" data-anchor="about" >
-    <h3>a le wagon final project</h3>
+    <h3>a <%= link_to "Le Wagon", "https://www.lewagon.com/london", :target => "_blank" %> final project</h3>
     <h1>London #74</h1>
   </div>
 </section>
@@ -25,14 +25,98 @@
 <section>
   <div class="parallax-two">
     <h2>THE TEAM</h2>
+    <h3>Claudia + Hwei + Rebekah</h3>
   </div>
 </section>
 
 <section>
-  <div class="block">
-    <p><span class="first-character ny">B</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia maxime, ea porro quidem voluptatem animi, expedita deserunt repellendus perferendis unde, ipsum, debitis placeat vero. Distinctio amet cumque et pariatur rem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, quaerat quo ex magnam porro, excepturi accusamus natus quod nobis nulla. Expedita vitae impedit deleniti quaerat, cum facere eligendi in illum.</p>
-    <p class="line-break margin-top-10"></p>
-    <p class="margin-top-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus voluptatibus nobis quasi quae ipsum, praesentium sapiente dicta quo numquam neque reprehenderit vel quisquam voluptas, culpa omnis modi eaque inventore. Doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab atque dolore facere iure vitae aperiam tempore doloribus quas rem quaerat, incidunt facilis, soluta nostrum in laborum nesciunt delectus qui. Eius.</p>
+  <div class="block-card">
+    <div class="wrapper">
+      <div class="fridateam-card archer">
+        <div class="fridateam-card__image fridateam-card__image--archer">
+          <%= image_tag '' %>
+        </div>
+        <div class="fridateam-card__level fridateam-card__level--archer">Dutch Captain</div>
+        <div class="fridateam-card__unit-name">Claudia</div>
+        <div class="fridateam-card__unit-description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima mollitia amet quaerat numquam dolorum, esse consequuntur sit.</p>
+        </div>
+
+        <div class="fridateam-card__unit-stats fridateam-card__unit-stats--archer clearfix">
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-github-alt" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third no-border">
+            <div class="stat"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fridateam-card archer">
+        <div class="fridateam-card__image fridateam-card__image--archer">
+          <%= image_tag '' %>
+        </div>
+        <div class="fridateam-card__level fridateam-card__level--archer">Back-end Ninja</div>
+        <div class="fridateam-card__unit-name">Hwei</div>
+        <div class="fridateam-card__unit-description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima mollitia amet quaerat numquam dolorum, esse consequuntur sit.</p>
+        </div>
+
+        <div class="fridateam-card__unit-stats fridateam-card__unit-stats--archer clearfix">
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-github-alt" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third no-border">
+            <div class="stat"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fridateam-card archer">
+        <div class="fridateam-card__image fridateam-card__image--archer">
+          <%= image_tag '' %>
+        </div>
+        <div class="fridateam-card__level fridateam-card__level--archer">Design Bunny</div>
+        <div class="fridateam-card__unit-name">Rebekah</div>
+        <div class="fridateam-card__unit-description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima mollitia amet quaerat numquam dolorum, esse consequuntur sit.</p>
+        </div>
+
+        <div class="fridateam-card__unit-stats fridateam-card__unit-stats--archer clearfix">
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-github-alt" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third no-border">
+            <div class="stat"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -54,7 +138,6 @@
   </div>
 </section>
 
-</div>
 
 <% content_for(:after_js) do %>
   <script>
@@ -64,6 +147,7 @@
     });
   </script>
 <% end %>
+
 
 <!-- <div id="fullpage">
   <div class="section about-container" data-anchor="about">
@@ -94,12 +178,12 @@
   </div>
 </div>
 
-<% content_for(:after_js) do %>
+<%# content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
       $('#fullpage').fullpage()
         anchors:['about', 'team', 'final']
     });
   </script>
-<% end %>
+<%# end %>
  -->
