@@ -19,9 +19,9 @@
         <h4>Title: <%= artwork.message %></h4>
           <% if artwork.user == current_user %>
           <% if artwork.featured %>
-            <h4><i class = "fa fa-star"></i> Featured on your profile page</h4>
+            <h4><i class="fa fa-star" id="featured-star"></i>Featured on your Profile Page</h4>
             <% else %>
-          <%= link_to '<i class = "fa fa-star-o"></i> Feature on your profile page'.html_safe, artwork_feature_path(artwork), method: :patch %>
+          <h4 class="featured-text"><%= link_to '<i class="fa fa-star-o" id="featured-star-o"></i> Click to feature on your Profile Page'.html_safe, artwork_feature_path(artwork), method: :patch %></h4>
           <% end %>
           <% end %>
         </div>
