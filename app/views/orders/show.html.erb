@@ -1,13 +1,21 @@
-<div class="container">
-  <h1>Order Confirmation</h1>
-  <ul>
-    <li>Status: <%= @order.state %></li>
-    <li>Item: <%= @course.name %> by <%= @course.user.first_name %> <%= @course.user.last_name %></li>
-    <li>Amount Paid: <%= humanized_money_with_symbol(@order.amount) %></li>
-  <ul>
+<div class="payments-info">
+  <div class="container payments-banner-title">
+    <p>Order Confirmation</p>
+    <h2><%= @course.name %></h2>
+  </div>
+  <div class="container payments-container">
+    <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');"></div>
+    <h3>Hey <%= current_user.first_name %>!</h3>
+    <p>Thanks for paying <%= humanized_money_with_symbol(@order.amount) %>.</p>
+    <p>You're all set to start <%= @course.name %> by <%= @course.user.first_name %> <%= @course.user.last_name %>.</p>
 
-  <br>
-  <%= link_to "Start Your Course", course_path(@course) %>
-  <br>
-  <%= link_to "View In Dashboard", dashboard_path %>
+    <div class="order-links">
+       <%= link_to '<i class = "fa fa-chevron-left"></i> Go to your Dashboard'.html_safe, dashboard_path, class:"studio-link", id:"payments-links" %>
+       <%= link_to 'Start Your Course <i class = "fa fa-chevron-right"></i>'.html_safe, course_path(@course), class:"studio-link" %>
+    </div>
+<!--   <%# link_to "Start Your Course", course_path(@course) %>
+  <%# link_to "View In Dashboard", dashboard_path %> -->
+<!--     <p>Order Status: <%# @order.state.capitalize %></p> -->
+  </div>
 </div>
+

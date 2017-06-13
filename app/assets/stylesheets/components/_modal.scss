@@ -84,9 +84,18 @@
   background: white;
 }
 
+#featured-star {
+  color: #f4b400;
+}
 
+#featured-star-o {
+  color: $frida-red;
+}
 
-
-
-
+.featured-text {
+  a {
+    color: $frida-red;
+    font-size: 12px;
+  }
+}
 

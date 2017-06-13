@@ -1,0 +1,58 @@
+.payments-info {
+  margin: auto;
+  p {
+    margin: 0;
+  }
+}
+
+.payments-banner-title, {
+  background-color: $frida-light-grey;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 10px;
+  width: 600px;
+
+  p {
+    margin-top: 10px;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: "San Francisco";
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 400;
+  }
+}
+
+
+.payments-container {
+  text-align: center;
+  width: 600px;
+  border: 1px solid #EEEEEE;
+  padding-bottom: 20px;
+  margin-bottom: 100px;
+  padding-left: 0px;
+  padding-right: 0px;
+
+  h3 {
+    font-weight: 300;
+  }
+}
+
+.stripe-button-el {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.order-links {
+  padding-bottom: 0px;
+  padding-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 15px;
+  margin-left: 15px;
+}

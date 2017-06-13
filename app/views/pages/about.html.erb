@@ -1,19 +1,189 @@
-<div id="fullpage">
+<div id="parallax-frida">
+
+<section>
+  <div class="title about-container" data-anchor="about" >
+    <h3>a <%= link_to "Le Wagon", "https://www.lewagon.com/london", :target => "_blank" %> final project</h3>
+    <h1>London #74</h1>
+  </div>
+</section>
+
+<section>
+    <div class="parallax-one">
+      <h2>ABOUT FRIDA</h2>
+      <h3>the online art school</h3>
+    </div>
+</section>
+
+<section>
+  <div class="block">
+    <p><span class="first-character sc">F</span>rida</p>
+<!--     <p class="line-break margin-top-10"></p>
+    <p class="margin-top-10">xoxo</p> -->
+  </div>
+</section>
+
+<section>
+  <div class="parallax-two">
+    <h2>THE TEAM</h2>
+    <h3>Claudia + Hwei + Rebekah</h3>
+  </div>
+</section>
+
+<section>
+  <div class="block-card">
+    <div class="wrapper">
+      <div class="fridateam-card archer">
+        <div class="fridateam-card__image fridateam-card__image--archer">
+          <%= image_tag '' %>
+        </div>
+        <div class="fridateam-card__level fridateam-card__level--archer">Back-end Ninja</div>
+        <div class="fridateam-card__unit-name">Hwei</div>
+        <div class="fridateam-card__unit-description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima mollitia amet quaerat numquam dolorum, esse consequuntur sit.</p>
+        </div>
+
+        <div class="fridateam-card__unit-stats fridateam-card__unit-stats--archer clearfix">
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-github-alt" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third no-border">
+            <div class="stat"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fridateam-card archer">
+        <div class="fridateam-card__image fridateam-card__image--archer">
+          <%= image_tag '' %>
+        </div>
+        <div class="fridateam-card__level fridateam-card__level--archer">Dutch Captain</div>
+        <div class="fridateam-card__unit-name">Claudia</div>
+        <div class="fridateam-card__unit-description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima mollitia amet quaerat numquam dolorum, esse consequuntur sit.</p>
+        </div>
+
+        <div class="fridateam-card__unit-stats fridateam-card__unit-stats--archer clearfix">
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-github-alt" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third no-border">
+            <div class="stat"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fridateam-card archer">
+        <div class="fridateam-card__image fridateam-card__image--archer">
+          <%= image_tag '' %>
+        </div>
+        <div class="fridateam-card__level fridateam-card__level--archer">Design Bunny</div>
+        <div class="fridateam-card__unit-name">Rebekah</div>
+        <div class="fridateam-card__unit-description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima mollitia amet quaerat numquam dolorum, esse consequuntur sit.</p>
+        </div>
+
+        <div class="fridateam-card__unit-stats fridateam-card__unit-stats--archer clearfix">
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third">
+            <div class="stat"><i class="fa fa-github-alt" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+
+          <div class="one-third no-border">
+            <div class="stat"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+            <div class="stat-value"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="parallax-three">
+    <h2></h2>
+  </div>
+</section>
+
+<section>
+  <div class="block about-final" data-anchor="final">
+    <p><span class="first-character atw">W</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, obcaecati distinctio consequatur hic error consectetur, nihil voluptates quae corporis ipsum voluptas. Quod optio, sint explicabo alias architecto, eos possimus voluptatem.</p>
+    <p class="line-break margin-top-10"></p>
+    <p class="margin-top-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae debitis corrupti qui, veritatis enim earum voluptatum corporis laborum. Minima dignissimos asperiores, labore molestiae cumque ratione, repellendus ipsam dolore commodi! Ipsa.</p>
+    <%= link_to "#about", class: "floating scroll-center" do %>
+      <%= image_tag 'arrowup.png' %>
+      <p id="scroll-text">BACK TO TOP</p>
+    <% end %>
+  </div>
+</section>
+
+
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      $('#fullpage').fullpage()
+        anchors:['about', 'final']
+    });
+  </script>
+<% end %>
+
+
+<!-- <div id="fullpage">
   <div class="section about-container" data-anchor="about">
-    <%= link_to "#team", class: "floating" do %>
+    <%= link_to "#team", class: "floating scroll-center" do %>
       <%= image_tag 'arrow.png' %>
+      <p id="scroll-text">SCROLL</p>
+    <% end %>
+    <div class="container">
+      <div class="about-title">
+        <h2 id="about-title-text">a final project by</h2></span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section about-team" data-anchor="team">Section II
+    <%= link_to "#final", class: "floating scroll-center" do %>
+      <%= image_tag 'arrow.png' %>
+      <p id="scroll-text">SCROLL</p>
     <% end %>
   </div>
 
-  <div class="section about-team" data-anchor="team">Section II</div>
-  <div class="section about-final" data-anchor="final">Section III</div>
+  <div class="section about-final" data-anchor="final">Section III
+    <%= link_to "#about", class: "floating scroll-center" do %>
+      <%= image_tag 'arrowup.png' %>
+      <p id="scroll-text">BACK TO TOP</p>
+    <% end %>
+  </div>
 </div>
 
-<% content_for(:after_js) do %>
+<%# content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
       $('#fullpage').fullpage()
         anchors:['about', 'team', 'final']
     });
   </script>
-<% end %>
+<%# end %>
+ -->
