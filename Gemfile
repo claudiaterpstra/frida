@@ -27,6 +27,9 @@ gem 'attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
+# Stripe
+gem 'money-rails'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
