@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do  %>
+  frida - <%= current_user.full_name %>'s profile
+<% end %>
+
 <% if @user == current_user %>
 <%= render 'shared/subnav' %>
 <% end %>

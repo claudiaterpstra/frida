@@ -1,4 +1,8 @@
-  <div class="container">
+<% content_for(:title_tag) do  %>
+  frida - <%= @course.name.downcase %> course by <%= @course.user.full_name %>
+<% end %>
+
+<div class="container">
   <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');">
     <% if user_signed_in? %>
     <% current_user.participations.each do |participation| %>

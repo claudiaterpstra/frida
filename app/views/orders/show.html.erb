@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do  %>
+  frida - order confirmation for <%= @course.name.downcase %> by <%= @course.user.full_name %>
+<% end %>
+
 <div class="container">
   <h1>Order Confirmation</h1>
   <ul>

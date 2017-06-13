@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do  %>
+  frida - show me the monayyy
+<% end %>
+
 <h1>Purchase of Course: <%= @course.name %></h1>
 <%= form_tag order_payments_path(@order) do %>
   <article>
