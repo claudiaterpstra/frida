@@ -27,6 +27,10 @@ gem 'attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
+# Accepting payments
+gem 'money-rails' #to display price in different currencies
+gem 'stripe' #accept payments
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'

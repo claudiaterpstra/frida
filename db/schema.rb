@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612163224) do
+ActiveRecord::Schema.define(version: 20170613135126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,15 +41,6 @@ ActiveRecord::Schema.define(version: 20170612163224) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
-  create_table "course_materials", force: :cascade do |t|
-    t.integer  "course_id"
-    t.integer  "material_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["course_id"], name: "index_course_materials_on_course_id", using: :btree
-    t.index ["material_id"], name: "index_course_materials_on_material_id", using: :btree
-  end
-
   create_table "course_reviews", force: :cascade do |t|
     t.string   "content"
     t.integer  "rating"
@@ -64,15 +55,15 @@ ActiveRecord::Schema.define(version: 20170612163224) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "price"
     t.integer  "rating"
     t.string   "category"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.boolean  "published"
     t.text     "materials"
     t.integer  "duration"
+    t.integer  "price_pennies", default: 0, null: false
     t.index ["user_id"], name: "index_courses_on_user_id", using: :btree
   end
 
@@ -96,13 +87,6 @@ ActiveRecord::Schema.define(version: 20170612163224) do
     t.index ["course_id"], name: "index_lectures_on_course_id", using: :btree
   end
 
-  create_table "materials", force: :cascade do |t|
-    t.string   "name"
-    t.string   "icon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "notified_by_id"
@@ -113,6 +97,15 @@ ActiveRecord::Schema.define(version: 20170612163224) do
     t.index ["feedback_id"], name: "index_notifications_on_feedback_id", using: :btree
     t.index ["notified_by_id"], name: "index_notifications_on_notified_by_id", using: :btree
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "state"
+    t.integer  "amount_pennies", default: 0, null: false
+    t.json     "payment"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "course_id"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -151,8 +144,6 @@ ActiveRecord::Schema.define(version: 20170612163224) do
   end
 
   add_foreign_key "artworks", "lectures"
-  add_foreign_key "course_materials", "courses"
-  add_foreign_key "course_materials", "materials"
   add_foreign_key "course_reviews", "courses"
   add_foreign_key "courses", "users"
   add_foreign_key "feedbacks", "artworks"
