@@ -4,7 +4,7 @@
            <%= unique_image_tag(current_user, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill") %>
            <hr>
            <p>Welcome to your dashboard,</p>
-           <h1><%= current_user.first_name %></h1>
+           <h1><%= current_user.full_name %></h1>
            <br>
            <p>Donec nec lacus felis. In dignissim a felis auctor consequat. Donec sed massa vitae eros varius euismod id et turpis. Aenean pretium velit eget odio scelerisque placerat.</p>
 

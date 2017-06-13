@@ -1,7 +1,12 @@
-<div class="navbar-wagon <%= params[:action] == "home" ? "nav-absolute" : "" %> <%= "navbar-fixed" if params[:action] == "about" %>">
+<div class="navbar-wagon <%= params[:action] == "home" ? "nav-absolute" : "" %> <%= "navbar-fixed" if params[:action] == "about" %> <%= yield(:navbar) %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo copy.png" %>
+    <% if content_for?(:logo) %>
+      <%= image_tag yield(:logo) %>
+    <% else %>
+
+      <%= image_tag "logo copy.png" %>
+    <% end %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -35,11 +40,11 @@
               <% current_user.notifications.where(read: false).each do |notification| %>
                 <% if current_user.teacher == false %>
                   <li>
-                    <%= link_to "#{User.find(notification.notified_by_id).first_name} has commented on your artwork, #{notification.feedback.artwork.message}", link_through_path(notification) %>
+                    <%= link_to "#{User.find(notification.notified_by_id).full_name} has commented on your artwork, #{notification.feedback.artwork.message}", link_through_path(notification) %>
                   </li>
                 <% elsif current_user.teacher %>
                   <li>
-                    <%= link_to "#{User.find(notification.notified_by_id).first_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", link_through_path(notification) %>
+                    <%= link_to "#{User.find(notification.notified_by_id).full_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", link_through_path(notification) %>
                   </li>
                 <% end %>
               <% end %>

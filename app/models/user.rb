@@ -95,4 +95,9 @@ class User < ApplicationRecord
   def artist_badges
     [created_a_course?, count_students].count(true)
   end
+
+  def full_name
+    first_name + " " + last_name
+  end
+
 end
