@@ -84,7 +84,25 @@
   background: white;
 }
 
+.artwork{
+  width: 100%;
+  background-size: cover;
+  &-pin{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #B95224;
+    color: #B95224;
+    padding: 1em;
+    span {
+      position: absolute;
+    }
 
+  }
+}
 
 
 

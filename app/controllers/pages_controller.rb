@@ -18,9 +18,11 @@ class PagesController < ApplicationController
 
   def studio
     @feedback = Feedback.new
+    @pins = Pin.order(numero: :asc)
     @courses = @user.courses_participated
     @lectures = @user.courses_participated.collect(&:lectures).flatten
     @artworks_count = @user.artworks.count
+
 
     if params[:lecture]
       @artworks = current_user.artworks.where(lecture: Lecture.find(params[:lecture]))
