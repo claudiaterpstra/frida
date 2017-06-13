@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Order Confirmation</h1>
+  <ul>
+    <li>Status: <%= @order.state %></li>
+    <li>Item: <%= @course.name %> by <%= @course.user.first_name %> <%= @course.user.last_name %></li>
+    <li>Amount Paid: <%= humanized_money_with_symbol(@order.amount) %></li>
+  <ul>
+
+  <br>
+  <%= link_to "Start Your Course", course_path(@course) %>
+  <br>
+  <%= link_to "View In Dashboard", dashboard_path %>
+</div>
