@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
         <div class="modal-heading">
-        <div class="artwork">
+        <div id="canvas-artwork-<%= artwork.id %>", style="width: 500px">
           <%= cl_image_tag image_url, width: 500, height: 300, crop: :fill %>
           <% if pins %>
             <% pins.each do |pin| %>
@@ -80,7 +80,8 @@
 <%= content_for(:after_js) do %>
 <script>
   var numero = parseInt("<%= @pins.last ? @pins.last.numero : 0 %>");
-  $('.artwork').click(function(event){
+  var canvas_artwork_id = '#canvas-artwork-' + '<%= artwork.id %>';
+  $(canvas_artwork_id).click(function(event){
     numero += 1;
 
     // Handle Coordinates
@@ -97,10 +98,14 @@
     var left = Math.round(( (x - x0) / width ) * 100);
     var top = Math.round(( (y - y0) / height ) * 100);
 
+    console.log(boundingRect)
+
     // Create a pin DIV and append it to the image
     var pin = $('<div class="artwork-pin" style="left:' + left + '%; top:'+ top + '%;"><span>' + numero + '</span></div>').hide();
     $(this).append(pin)
     pin.fadeIn();
+
+    console.log('<%= artwork_pins_path(artwork) %>');
 
     // Save It In DB
     $.post({

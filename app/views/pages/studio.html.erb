@@ -34,7 +34,7 @@
             <% if artwork.id == params["artwork"].to_i %>
               <div class="random red-thing"><p>feedback</p></div>
             <% end %>
-                <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback, pins: @pins %>
+              <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback, pins: artwork.pins %>
           </div>
         <% end %>
       <% else %>
