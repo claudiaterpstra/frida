@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 20170612163224) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
+  create_table "course_materials", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "material_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["course_id"], name: "index_course_materials_on_course_id", using: :btree
+    t.index ["material_id"], name: "index_course_materials_on_material_id", using: :btree
+  end
+
   create_table "course_reviews", force: :cascade do |t|
     t.string   "content"
     t.integer  "rating"
@@ -85,6 +94,13 @@ ActiveRecord::Schema.define(version: 20170612163224) do
     t.datetime "updated_at",  null: false
     t.integer  "course_id"
     t.index ["course_id"], name: "index_lectures_on_course_id", using: :btree
+  end
+
+  create_table "materials", force: :cascade do |t|
+    t.string   "name"
+    t.string   "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -135,6 +151,8 @@ ActiveRecord::Schema.define(version: 20170612163224) do
   end
 
   add_foreign_key "artworks", "lectures"
+  add_foreign_key "course_materials", "courses"
+  add_foreign_key "course_materials", "materials"
   add_foreign_key "course_reviews", "courses"
   add_foreign_key "courses", "users"
   add_foreign_key "feedbacks", "artworks"

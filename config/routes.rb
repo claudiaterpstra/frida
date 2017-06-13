@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   mount Attachinary::Engine => "/attachinary"
   get 'dashboard', to: 'pages#dashboard'
+  get 'about', to: 'pages#about'
   get 'studentdashboard', to: 'pages#studentdashboard'
   get 'artistdashboard', to: 'pages#artistdashboard'
   get 'studio', to: 'pages#studio'
