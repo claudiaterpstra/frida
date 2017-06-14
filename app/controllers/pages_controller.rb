@@ -47,21 +47,10 @@ class PagesController < ApplicationController
 
   def give_feedback
     @feedback = Feedback.new
-
     @courses = @user.courses
     @lectures = @user.lectures
     @artworks = @user.student_artworks
-
     @students = @user.students
-
-    if params[:course]
-      @artworks = @user.student_artworks.where(lectures: { course_id: params[:course] } )
-    elsif params[:lecture]
-      @artworks = @user.student_artworks.where(lecture_id: params[:lecture] )
-    elsif params[:student]
-      @artworks = @user.student_artworks.where(user_id: params[:student])
-    end
-
   end
 
   private
