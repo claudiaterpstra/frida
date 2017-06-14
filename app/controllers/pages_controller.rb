@@ -49,8 +49,17 @@ class PagesController < ApplicationController
     @feedback = Feedback.new
     @courses = @user.courses
     @lectures = @user.lectures
-    @artworks = @user.student_artworks
     @students = @user.students
+
+    if params[:lecture]
+      @artworks = Lecture.find(params[:lecture]).artworks
+    elsif params[:course]
+      @artworks = Course.find(params[:course]).artworks
+    elsif params[:student]
+      @artworks = User.find(params[:student]).artworks
+    else
+      @artworks = @user.student_artworks
+    end
   end
 
   private

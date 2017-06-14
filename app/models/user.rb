@@ -41,6 +41,7 @@ class User < ApplicationRecord
 
   def students
     courses.flat_map(&:students).uniq
+    # binding.pry
   end
 
   def one_participation?
