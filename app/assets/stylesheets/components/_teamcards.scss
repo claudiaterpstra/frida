@@ -16,6 +16,7 @@
 .fridateam-card {
   background: white;
   width: 300px;
+  padding-top: 30px;
   display: inline-block;
   margin: auto;
   border-radius: 5px;
@@ -29,11 +30,11 @@
   }
 
   &.bekah:hover .img-bekah {
-    background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497457681/BYBI9R-CAAAnlp7_vmr6dd.jpg');
+    background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497460217/octdrey-catburn_qlcrqt.jpg');
   }
 
   &.hwei:hover .img-hwei {
-    background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497457681/BYBI9R-CAAAnlp7_vmr6dd.jpg');
+    background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497460217/coderdojo-octocat3_b57vz0.jpg');
   }
 
   &.claudia:hover .img-claudia {
@@ -69,26 +70,29 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin: auto;
+  transition: 0.8s;
 }
 
 .img-claudia {
   width: 220px;
   margin-bottom: 35px;
   border-radius: 50%;
-  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497456893/fridaprofilepic_klwang.png');
+  background-image: url('http://res.cloudinary.com/rebekah/image/upload/c_scale,w_690/v1497462910/claudiateamcard_l9bt71.png');
   background-repeat: no-repeat;
   background-size: cover;
   margin: auto;
+  transition: 0.8s;
 }
 
 .img-hwei {
   width: 220px;
   margin-bottom: 35px;
   border-radius: 50%;
-  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497456893/fridaprofilepic_klwang.png');
+  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497460551/hweifridaimg_iw6cpg.png');
   background-repeat: no-repeat;
   background-size: cover;
   margin: auto;
+  transition: 0.8s;
 }
 
 .fridateam-card__level {
@@ -96,6 +100,7 @@
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 3px;
+  margin-top: 10px;
 }
 
 .fridateam-card__level--archer {
