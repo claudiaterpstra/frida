@@ -10,7 +10,7 @@ class ArtworksController < ApplicationController
 
   def show
     @feedback = Feedback.new
-    @pins = Pin.order(numero: :asc)
+    @pins = @artwork.pins.order(numero: :asc)
   end
 
   def new

@@ -29,6 +29,7 @@
         <h4>Title: <%= artwork.message %></h4>
           <% if artwork.user == current_user %>
           <% if artwork.featured %>
+            <%= artwork.pins.order(numero: :asc).last&.numero %>
             <h4><i class = "fa fa-star"></i> Featured on your profile page</h4>
             <% else %>
           <%= link_to '<i class = "fa fa-star-o"></i> Feature on your profile page'.html_safe, artwork_feature_path(artwork), method: :patch %>
@@ -80,12 +81,9 @@
 
 <%= content_for(:after_js) do %>
 <script>
-  var numero = parseInt("<%= @pins.last ? @pins.last.numero : 0 %>");
+  numero['<%= artwork.id %>'] = <%= artwork.pins.empty? ? 1 : artwork.pins.order(numero: :asc).last.numero + 1 %>
   var canvas_artwork_id = '#canvas-artwork-' + '<%= artwork.id %>';
   $(canvas_artwork_id).click(function(event){
-    numero += 1;
-
-
     // Handle Coordinates
     // (x, y) => coordinates relative to the page, (0, 0) is the top left corner
     // (top, left) => cooridnates of the image expressed in % from the top left corner of the image
@@ -94,15 +92,12 @@
     var x0 = boundingRect.left
     var y0 = boundingRect.top
     var x = event.pageX
-    var y = event.pageY
-    var width = $(this).width();
-    var height = $(this).height();
+    var y = event.pageY - window.scrollY;
     var left = Math.round(( (x - x0) / 500 ) * 100);
     var top = Math.round(( (y - y0) / 300 ) * 100);
-    console.log( x0, y0, width, height, x, y )
 
     // Create a pin DIV and append it to the image
-    var pin = $('<div class="artwork-pin" style="left:' + left + '%; top:'+ top + '%;"><span>' + numero + '</span></div>').hide();
+    var pin = $('<div class="artwork-pin" style="left:' + left + '%; top:'+ top + '%;"><span>' + numero['<%= artwork.id %>'] + '</span></div>').hide();
     $(this).append(pin)
     pin.fadeIn();
 
@@ -110,8 +105,10 @@
     $.post({
       type: "POST",
       url: "<%= artwork_pins_path(artwork) %>",
-      data: { pin: {left: left, top: top, numero: numero }}
+      data: { pin: { left: left, top: top, numero: numero['<%= artwork.id %>'] }}
     });
+
+    numero['<%= artwork.id %>'] += 1;
   })
 </script>
 <% end %>

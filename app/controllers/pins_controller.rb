@@ -12,6 +12,7 @@ class PinsController < ApplicationController
   end
 
   private
+
   def pin_params
     params.require(:pin).permit(:left, :top, :numero)
   end

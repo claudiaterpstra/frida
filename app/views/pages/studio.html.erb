@@ -1,4 +1,18 @@
 <%= render 'shared/subnav' %>
+
+<% content_for(:after_js) do %>
+  <script>
+    var numero = {};
+
+    $( document ).ready(function() {
+      $('.studio-uploads').click(function () {
+        $('.random').empty();
+      });
+    });
+  </script>
+<% end %>
+
+
 <div class="container user-studio">
   <div class="row">
     <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
@@ -43,13 +57,3 @@
     </div>
   </div>
 </div>
-
-<% content_for(:after_js) do %>
-  <script>
-    $( document ).ready(function() {
-      $('.studio-uploads').click(function () {
-        $('.random').empty();
-      });
-    });
-  </script>
-<% end %>
