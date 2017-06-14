@@ -49,7 +49,7 @@ courses_attributes = [
     price_pennies: 7000,
     rating: 4,
     category: "Modern",
-    photo: "http://res.cloudinary.com/hw3i/image/upload/v1496154778/q1je6yn12rhqbcgireb9.jpg",
+    photo: "http://res.cloudinary.com/hw3i/image/upload/v1497463185/pop_art_rrhxkj.jpg",
     materials: "You'll need a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
     duration: 3,
     published: false
@@ -198,23 +198,12 @@ courses_attributes = [
     published: false
   },
    {
-    name: "Sand Painting",
-    description: "Painting on sand can be quite messy and it's a temporary art. The sand painting can be captured on video using speed motion, to understand how the artist works on them. It's normally done with minimal light, but has a focus light under the table where the sand painting is being created. Sand painting is created using coloured sands, which is moved around on a fixed surface using hands. It is practised in many countries and is known by several names, in India it's known as kolam or rangoli.",
-    price_pennies: 5000,
-    rating: 4,
-    category: "Sand Painting",
-    photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162090/sand_totdo5.jpg",
-    materials: "You'll need a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
-    duration: 10,
-    published: false
-  },
-   {
     name: "Digital Painting",
     description: "Digital painting is the art of creating artwork on a computer, which makes it resemble a watercolour painting, oil painting or even an acrylic painting. A digitally prepared oil painting and manually done oil painting will have plenty of differences, since you have access to plenty of other textures and instruments which are easily available on the system. Yes, you don't have to worry about paint spills a standing for long hours. You can do the same art in a relaxed manner, at the comfort of your homes.",
     price_pennies: 7000,
     rating: 4,
     category: "Digital",
-    photo: "http://res.cloudinary.com/hw3i/image/upload/v1496162090/digital_trf1yy.jpg",
+    photo: "http://res.cloudinary.com/hw3i/image/upload/v1497462892/digital_art_mvb8np.jpg",
     materials: "You'll need a thin(5-7mm) paintbrush, a thick (2-8cm) paintbrush, primary colour paint, a pencil, art block paper and water.",
     duration: 10,
     published: false
@@ -245,7 +234,7 @@ courses_attributes = [
 
   puts "User #{i} created"
 
-  rand(1..4).times do
+  rand(2..7).times do
     attrs = courses_attributes.sample.merge(user: user)
     attrs_no_photo = attrs.slice(:name, :description, :price_pennies, :rating, :category, :user, :materials, :duration, :published)
     c = Course.create!(attrs_no_photo)
