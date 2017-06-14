@@ -155,3 +155,8 @@
 </div>
 </div>
 
+
+<%= content_for(:meta_title, @course.name ) %>
+<%= content_for(:meta_description, @course.description ) %>
+<%= content_for(:meta_image, cl_image_path(@course.photo) ) %>
+
