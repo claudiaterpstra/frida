@@ -47,14 +47,16 @@
 
       <!-- <h3>Your Artwork</h3> -->
       <% if @artworks.count > 0 %>
-        <% @artworks.sort_by(&:id).each do |artwork| %>
-          <div class="artwork-container">
-            <% if artwork.id == params["artwork"].to_i %>
-              <div class="random red-thing"><p>feedback</p></div>
-            <% end %>
-              <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback, pins: artwork.pins %>
-          </div>
-        <% end %>
+        <div class="flex-container-artworks">
+          <% @artworks.sort_by(&:id).each do |artwork| %>
+            <div class="artwork-container" >
+              <% if artwork.id == params["artwork"].to_i %>
+                <div class="random red-thing"><p>feedback</p></div>
+              <% end %>
+                <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback, pins: artwork.pins %>
+            </div>
+          <% end %>
+        </div>
       <% else %>
       <h4>Uh-oh! You've got no artwork yet. Start a course, upload your work and let's sort this studio out!</h4>
       <% end %>
