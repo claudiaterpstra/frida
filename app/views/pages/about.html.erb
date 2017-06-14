@@ -1,3 +1,5 @@
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
 <div id="parallax-frida">
   <section>
     <div class="title about-container" data-anchor="about" >
@@ -48,17 +50,17 @@
 
           <div class="fridateam-card__unit-stats fridateam-card__unit-stats--archer clearfix">
             <div class="one-third">
-              <div class="stat"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+              <div class="stat"><%= link_to "<i class='fa fa-facebook' aria-hidden='true'></i>".html_safe, "http://www.facebook.com/hwei.tan", target: :_blank %></div>
               <div class="stat-value"></div>
             </div>
 
             <div class="one-third">
-              <div class="stat"><i class="fa fa-github-alt" aria-hidden="true"></i></div>
+              <div class="stat"><%= link_to "<i class='fa fa-github-alt' aria-hidden='true'></i>".html_safe, "http://www.github.com/hw3i", target: :_blank %></div>
               <div class="stat-value"></div>
             </div>
 
             <div class="one-third no-border">
-              <div class="stat"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+              <div class="stat"><%= link_to "<i class='fa fa-instagram' aria-hidden='true'></i>".html_safe, "http://www.instagram.com/hw3i", target: :_blank %></div>
               <div class="stat-value"></div>
             </div>
           </div>
@@ -76,12 +78,12 @@
 
           <div class="fridateam-card__unit-stats fridateam-card__unit-stats--archer clearfix">
             <div class="one-third">
-              <div class="stat"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+              <div class="stat"><%= link_to "<i class='fa fa-facebook' aria-hidden='true'></i>".html_safe, "http://www.facebook.com/claudia.terpstra.39", target: :_blank %></div>
               <div class="stat-value"></div>
             </div>
 
             <div class="one-third">
-              <div class="stat"><i class="fa fa-github-alt" aria-hidden="true"></i></div>
+              <div class="stat"><%= link_to "<i class='fa fa-github-alt' aria-hidden='true'></i>".html_safe, "http://www.github.com/claudiaterpstra", target: :_blank %></div>
               <div class="stat-value"></div>
             </div>
 
@@ -104,17 +106,17 @@
 
           <div class="fridateam-card__unit-stats fridateam-card__unit-stats--archer clearfix">
             <div class="one-third">
-              <div class="stat"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+              <div class="stat"><%= link_to "<i class='fa fa-facebook' aria-hidden='true'></i>".html_safe, "http://www.facebook.com/rebekahcheng", target: :_blank %></div>
               <div class="stat-value"></div>
             </div>
 
             <div class="one-third">
-              <div class="stat"><i class="fa fa-github-alt" aria-hidden="true"></i></div>
+              <div class="stat"><%= link_to "<i class='fa fa-github-alt' aria-hidden='true'></i>".html_safe, "http://www.github.com/rebekahcheng", target: :_blank %></div>
               <div class="stat-value"></div>
             </div>
 
             <div class="one-third no-border">
-              <div class="stat"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+              <div class="stat"><%= link_to "<i class='fa fa-instagram' aria-hidden='true'></i>".html_safe, "http://www.instagram.com/rebekahcheng", target: :_blank %></div>
               <div class="stat-value"></div>
             </div>
           </div>
@@ -133,11 +135,22 @@
   <section>
     <div class="block">
       <div class="row">
-        <div class="col-xs-6 line-right">
-          <p><span class="first-character">T</span>rida Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam ratione voluptate libero, obcaecati consectetur blanditiis id. Sunt dolor cumque praesentium sapiente animi esse pariatur laborum possimus, harum sequi, placeat eaque.</p>
+        <div class="title" data-anchor="about" >
+          <h3>Our Honorary Frida Members</h3>
+          <h1>THANK YOU</h1>
+          <i class="em em-raised_hands"></i>
         </div>
-        <div class="col-xs-6">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, minima praesentium neque quisquam dignissimos sunt saepe ea excepturi voluptate fugit explicabo veniam dolore iure nemo nobis, natus a consequuntur! Nemo.</p>
+        <div class="col-xs-6 col-xs-offset-3 thankyou">
+          <h2><%= link_to "Alex", "http://www.github.com/alex-felix", target: :_blank %>,
+          <%= link_to "Arthur", "http://www.github.com/arthur-littm", target: :_blank %>,
+          <%= link_to "Boris", "http://www.github.com/bpapillard", target: :_blank %>,
+          <%= link_to "Ed", "http://www.github.com/eschultz", target: :_blank %>,
+          <%= link_to "Guv", "http://www.github.com/guv0", target: :_blank %>,
+          <%= link_to "Romain", "http://www.github.com/lacampe", target: :_blank %>,
+          <%= link_to "Remi", "http://www.github.com/dyvoire", target: :_blank %>,
+          <%= link_to "Thomas", "http://www.github.com/thomassertorio", target: :_blank %>.
+          </h2>
+          <p></p>
         </div>
       </div>
       <div class="row">
