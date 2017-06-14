@@ -32,16 +32,40 @@
 .fridateam-card__image {
   position: relative;
   height: 230px;
-  margin-bottom: 35px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  filter: gray;
-  -webkit-filter: grayscale(100%);
+  // filter: gray;
+  // -webkit-filter: grayscale(100%);
 
   &:hover {
-    filter: none;
-    -webkit-filter: grayscale(0%);
+    // filter: none;
+    // -webkit-filter: grayscale(0%);
   }
+
+  img {
+    width: 220px;
+    border-radius: 50%;
+    margin-top: 25px;
+  }
+}
+
+.img-bekah {
+  width: 220px;
+  margin-bottom: 35px;
+  border-radius: 50%;
+  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497456893/fridaprofilepic_klwang.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+}
+
+.img-bekah:hover {
+  width: 220px;
+  border-radius: 50%;
+  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497457681/BYBI9R-CAAAnlp7_vmr6dd.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
 }
 
 .fridateam-card__level {

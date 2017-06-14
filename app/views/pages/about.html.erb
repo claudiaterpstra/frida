@@ -88,15 +88,15 @@
             </div>
 
             <div class="one-third no-border">
-              <div class="stat"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+              <div class="stat"><%= link_to "<i class='fa fa-instagram' aria-hidden='true'></i>".html_safe, "http://www.instagram.com/claudia.terpstra", target: :_blank %></div>
               <div class="stat-value"></div>
             </div>
           </div>
         </div>
 
         <div class="fridateam-card archer wow slideInDown" data-wow-delay="<%= rand(0.5..1.0)%>s">
-          <div class="fridateam-card__image fridateam-card__image--archer">
-            <%= image_tag '' %>
+          <div class="fridateam-card__image fridateam-card__image--archer img-bekah">
+            <%# image_tag 'http://res.cloudinary.com/rebekah/image/upload/v1497456893/fridaprofilepic_klwang.png' %>
           </div>
           <div class="fridateam-card__level fridateam-card__level--archer">Design Bunny</div>
           <div class="fridateam-card__unit-name">Rebekah</div>
