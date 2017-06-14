@@ -38,13 +38,13 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu navbar-notifications">
             <% if current_user.notifications.where(read: false).count > 0 %>
               <% current_user.notifications.where(read: false).each do |notification| %>
-                <% if current_user.teacher == false %>
-                  <li>
-                    <%= link_to "#{User.find(notification.notified_by_id).full_name} has #{notification.notice_type}ed on your artwork #{notification.feedback.artwork.message}", link_through_path(notification) %>
-                  </li>
-                <% elsif current_user.teacher %>
+                <% if current_user.courses.include?(notification.feedback.artwork.lecture.course) %>
                   <li>
                     <%= link_to "#{User.find(notification.notified_by_id).full_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", link_through_path(notification) %>
+                  </li>
+                <% else %>
+                  <li>
+                    <%= link_to "#{User.find(notification.notified_by_id).full_name} has #{notification.notice_type}ed on your artwork #{notification.feedback.artwork.message}", link_through_path(notification) %>
                   </li>
                 <% end %>
               <% end %>
