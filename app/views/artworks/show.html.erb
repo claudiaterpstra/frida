@@ -3,7 +3,7 @@
 <% end %>
 
 <% if @artwork %>
-  <%= render 'show_modal', artwork: @artwork, feedback: @feedback %>
+  <%= render 'show_modal', artwork: @artwork, feedback: @feedback, pins: @pins %>
 <% else %>
   <p>No artwork currently.</p>
 <% end %>
