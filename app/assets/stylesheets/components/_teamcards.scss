@@ -107,6 +107,15 @@
     }
   }
 
+  .stat a {
+    color: $frida-white;
+
+    &:hover {
+      color: $frida-grey;
+      cursor: pointer;
+    }
+  }
+
   .stat-value {
     text-transform: uppercase;
     font-weight: 400;
