@@ -1,6 +1,17 @@
 <% content_for(:title_tag) do  %>
   frida - give feedback
 <% end %>
+<% content_for(:after_js) do %>
+  <script>
+    var numero = {};
+
+    $( document ).ready(function() {
+      $('.studio-uploads').click(function () {
+        $('.random').empty();
+      });
+    });
+  </script>
+<% end %>
 
 <%= render 'shared/subnav' %>
   <div class="container user-studio">
@@ -45,7 +56,7 @@
               <% if artwork.id == params["artwork"].to_i %>
                 <div class="random red-thing"><p class="ribbon-content">feedback</p></div>
               <% end %>
-              <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
+              <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback, pins: artwork.pins %>
             </div>
             <% end %>
         </div>
@@ -54,12 +65,4 @@
   </div>
 </div>
 
-<% content_for(:after_js) do %>
-  <script>
-    $( document ).ready(function() {
-      $('.studio-uploads').click(function () {
-        $('.random').empty();
-      });
-    });
-  </script>
-<% end %>
+

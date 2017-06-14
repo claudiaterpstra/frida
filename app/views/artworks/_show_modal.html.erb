@@ -17,17 +17,30 @@
       </div>
       <div class="modal-body">
         <div class="modal-heading">
-          <%= cl_image_tag image_url, width: 500, height: 300, crop: :fill %>
-          <br>
+          <div class="artwork" id="canvas-artwork-<%= artwork.id %>" style="height: 300px; width: 500px">
+            <%= cl_image_tag image_url, width: 500, height: 300, crop: :fill %>
+            <% if pins %>
+              <% pins.each do |pin| %>
+              <div class="artwork-pin" style="left:<%= pin.left %>%; top:<%= pin.top %>%;">
+                <span><%= pin.numero %></span>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+
+        <br>
         <h4>Title: <%= artwork.message %></h4>
           <% if artwork.user == current_user %>
           <% if artwork.featured %>
+            <h4><i class = "fa fa-star"></i> Featured on your profile page</h4>
+
             <h4><i class="fa fa-star" id="featured-star"></i>Featured on your Profile Page</h4>
+
             <% else %>
           <h4 class="featured-text"><%= link_to '<i class="fa fa-star-o" id="featured-star-o"></i> Click to feature on your Profile Page'.html_safe, artwork_feature_path(artwork), method: :patch %></h4>
           <% end %>
           <% end %>
-        </div>
+          </div>
         <hr>
         <div class="feedbacks-<%= artwork.id %>">
         <% artwork.feedbacks.each do |feedback| %>
@@ -71,7 +84,39 @@
   </div>
 </div>
 
+<%= content_for(:after_js) do %>
+<script>
+  numero['<%= artwork.id %>'] = <%= artwork.pins.empty? ? 1 : artwork.pins.order(numero: :asc).last.numero + 1 %>
+  var canvas_artwork_id = '#canvas-artwork-' + '<%= artwork.id %>';
+  $(canvas_artwork_id).click(function(event){
+    // Handle Coordinates
+    // (x, y) => coordinates relative to the page, (0, 0) is the top left corner
+    // (top, left) => cooridnates of the image expressed in % from the top left corner of the image
+    // Improvement deal with responsive issue by getting the actual size of the image from the image
+    var boundingRect = this.getBoundingClientRect();
+    var x0 = boundingRect.left
+    var y0 = boundingRect.top
+    var x = event.pageX
+    var y = event.pageY - window.scrollY;
+    var left = Math.round(( (x - x0) / 500 ) * 100);
+    var top = Math.round(( (y - y0) / 300 ) * 100);
 
+    // Create a pin DIV and append it to the image
+    var pin = $('<div class="artwork-pin" style="left:' + left + '%; top:'+ top + '%;"><span>' + numero['<%= artwork.id %>'] + '</span></div>').hide();
+    $(this).append(pin)
+    pin.fadeIn();
+
+    // Save It In DB
+    $.post({
+      type: "POST",
+      url: "<%= artwork_pins_path(artwork) %>",
+      data: { pin: { left: left, top: top, numero: numero['<%= artwork.id %>'] }}
+    });
+
+    numero['<%= artwork.id %>'] += 1;
+  })
+</script>
+<% end %>
 
 
 

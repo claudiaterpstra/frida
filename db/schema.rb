@@ -41,15 +41,6 @@ ActiveRecord::Schema.define(version: 20170613141513) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
-  create_table "course_materials", force: :cascade do |t|
-    t.integer  "course_id"
-    t.integer  "material_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["course_id"], name: "index_course_materials_on_course_id", using: :btree
-    t.index ["material_id"], name: "index_course_materials_on_material_id", using: :btree
-  end
-
   create_table "course_reviews", force: :cascade do |t|
     t.string   "content"
     t.integer  "rating"
@@ -96,13 +87,6 @@ ActiveRecord::Schema.define(version: 20170613141513) do
     t.index ["course_id"], name: "index_lectures_on_course_id", using: :btree
   end
 
-  create_table "materials", force: :cascade do |t|
-    t.string   "name"
-    t.string   "icon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "notified_by_id"
@@ -134,6 +118,16 @@ ActiveRecord::Schema.define(version: 20170613141513) do
     t.index ["user_id"], name: "index_participations_on_user_id", using: :btree
   end
 
+  create_table "pins", force: :cascade do |t|
+    t.integer  "left"
+    t.integer  "top"
+    t.integer  "numero"
+    t.integer  "artwork_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_pins_on_artwork_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -161,8 +155,6 @@ ActiveRecord::Schema.define(version: 20170613141513) do
   end
 
   add_foreign_key "artworks", "lectures"
-  add_foreign_key "course_materials", "courses"
-  add_foreign_key "course_materials", "materials"
   add_foreign_key "course_reviews", "courses"
   add_foreign_key "courses", "users"
   add_foreign_key "feedbacks", "artworks"
@@ -172,4 +164,5 @@ ActiveRecord::Schema.define(version: 20170613141513) do
   add_foreign_key "notifications", "users", column: "notified_by_id"
   add_foreign_key "participations", "courses"
   add_foreign_key "participations", "users"
+  add_foreign_key "pins", "artworks"
 end

@@ -3,6 +3,20 @@
 <% end %>
 
 <%= render 'shared/subnav' %>
+
+<% content_for(:after_js) do %>
+  <script>
+    var numero = {};
+
+    $( document ).ready(function() {
+      $('.studio-uploads').click(function () {
+        $('.random').empty();
+      });
+    });
+  </script>
+<% end %>
+
+
 <div class="container user-studio">
   <div class="row">
     <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
@@ -39,7 +53,7 @@
               <% if artwork.id == params["artwork"].to_i %>
                 <div class="random red-thing"><p>feedback</p></div>
               <% end %>
-                <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
+                <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback, pins: artwork.pins %>
             </div>
           <% end %>
         </div>
@@ -49,13 +63,3 @@
     </div>
   </div>
 </div>
-
-<% content_for(:after_js) do %>
-  <script>
-    $( document ).ready(function() {
-      $('.studio-uploads').click(function () {
-        $('.random').empty();
-      });
-    });
-  </script>
-<% end %>
