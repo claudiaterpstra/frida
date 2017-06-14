@@ -39,14 +39,16 @@
           <hr>
       <h3>Students Artwork</h3>
       <% if @artworks.count > 0 %>
-      <% @artworks.sort_by(&:id).each do |artwork| %>
-        <div class="artwork-container">
-          <% if artwork.id == params["artwork"].to_i %>
-            <div class="random red-thing"><p class="ribbon-content">feedback</p></div>
-          <% end %>
-          <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
+        <div class="flex-container-artworks">
+          <% @artworks.sort_by(&:id).each do |artwork| %>
+            <div class="artwork-container">
+              <% if artwork.id == params["artwork"].to_i %>
+                <div class="random red-thing"><p class="ribbon-content">feedback</p></div>
+              <% end %>
+              <%= render 'artworks/show_modal', artwork: artwork, feedback: @feedback %>
+            </div>
+            <% end %>
         </div>
-        <% end %>
       <% end %>
     </div>
   </div>

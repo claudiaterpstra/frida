@@ -40,7 +40,7 @@
               <% current_user.notifications.where(read: false).each do |notification| %>
                 <% if current_user.teacher == false %>
                   <li>
-                    <%= link_to "#{User.find(notification.notified_by_id).full_name} has #{notice_type}ed on your artwork, #{notification.feedback.artwork.message}", link_through_path(notification) %>
+                    <%= link_to "#{User.find(notification.notified_by_id).full_name} has #{notification.notice_type}ed on your artwork #{notification.feedback.artwork.message}", link_through_path(notification) %>
                   </li>
                 <% elsif current_user.teacher %>
                   <li>

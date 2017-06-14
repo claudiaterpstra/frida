@@ -94,12 +94,16 @@
 // .modal {
 //   z-index: 10500;
 // }
+.flex-container-artworks {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .artwork-container {
   position: relative;
   width: 200px;
   overflow: hidden;
-  display: inline;
+  margin: 5px;
 }
 
 .studio-right-column {
@@ -118,4 +122,8 @@
   p {
     margin: 0;
   }
+}
+
+* {
+  box-sizing:border-box;
 }
