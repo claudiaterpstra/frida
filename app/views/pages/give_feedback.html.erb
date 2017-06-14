@@ -1,6 +1,17 @@
 <% content_for(:title_tag) do  %>
   frida - give feedback
 <% end %>
+<% content_for(:after_js) do %>
+  <script>
+    var numero = {};
+
+    $( document ).ready(function() {
+      $('.studio-uploads').click(function () {
+        $('.random').empty();
+      });
+    });
+  </script>
+<% end %>
 
 <%= render 'shared/subnav' %>
   <div class="container user-studio">
@@ -52,12 +63,4 @@
   </div>
 </div>
 
-<% content_for(:after_js) do %>
-  <script>
-    $( document ).ready(function() {
-      $('.studio-uploads').click(function () {
-        $('.random').empty();
-      });
-    });
-  </script>
-<% end %>
+
