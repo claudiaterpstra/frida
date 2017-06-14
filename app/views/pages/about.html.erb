@@ -38,9 +38,8 @@
   <section>
     <div class="block-card">
       <div class="wrapper">
-        <div class="fridateam-card archer wow slideInDown" data-wow-delay="<%= rand(0.5..1.0)%>s">
-          <div class="fridateam-card__image fridateam-card__image--archer">
-            <%= image_tag '' %>
+        <div class="fridateam-card hwei archer wow slideInDown" data-wow-delay="<%= rand(0.5..1.0)%>s">
+          <div class="fridateam-card__image fridateam-card__image--archer img-hwei">
           </div>
           <div class="fridateam-card__level fridateam-card__level--archer">Back-end Ninja</div>
           <div class="fridateam-card__unit-name">Hwei</div>
@@ -66,9 +65,8 @@
           </div>
         </div>
 
-        <div class="fridateam-card archer wow slideInDown" data-wow-delay="<%= rand(0.5..1.0)%>s">
-          <div class="fridateam-card__image fridateam-card__image--archer">
-            <%= image_tag '' %>
+        <div class="fridateam-card claudia archer wow slideInDown" data-wow-delay="<%= rand(0.5..1.0)%>s">
+          <div class="fridateam-card__image fridateam-card__image--archer img-claudia">
           </div>
           <div class="fridateam-card__level fridateam-card__level--archer">Dutch Captain</div>
           <div class="fridateam-card__unit-name">Claudia</div>
@@ -94,7 +92,7 @@
           </div>
         </div>
 
-        <div class="fridateam-card archer wow slideInDown" data-wow-delay="<%= rand(0.5..1.0)%>s">
+        <div class="fridateam-card bekah archer wow slideInDown" data-wow-delay="<%= rand(0.5..1.0)%>s">
           <div class="fridateam-card__image fridateam-card__image--archer img-bekah">
             <%# image_tag 'http://res.cloudinary.com/rebekah/image/upload/v1497456893/fridaprofilepic_klwang.png' %>
           </div>
@@ -143,7 +141,7 @@
         <div class="col-xs-6 col-xs-offset-3 thankyou">
           <h2><%= link_to "Alex", "http://www.github.com/alex-felix", target: :_blank %>,
           <%= link_to "Arthur", "http://www.github.com/arthur-littm", target: :_blank %>,
-          <%= link_to "Boris", "http://www.github.com/bpapillard", target: :_blank %>,
+          <%= link_to "Boris", "http://www.github.com/papillard", target: :_blank %>,
           <%= link_to "Ed", "http://www.github.com/eschultz", target: :_blank %>,
           <%= link_to "Guv", "http://www.github.com/guv0", target: :_blank %>,
           <%= link_to "Romain", "http://www.github.com/lacampe", target: :_blank %>,
@@ -173,16 +171,6 @@
 <% end %>
 
 <%= render 'courses/shared/scrollreveal' %>
-
-
-<%# content_for(:after_js) do %>
-<!--   <script>
-    $(document).ready(function() {
-      $('#fullpage').fullpage()
-        anchors:['about', 'final']
-    });
-  </script> -->
-<%# end %>
 
 
 <!-- <div id="fullpage">
