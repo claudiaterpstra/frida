@@ -27,6 +27,18 @@
   &:hover {
     box-shadow: -1px 15px 30px -12px $frida-red;
   }
+
+  &.bekah:hover .img-bekah {
+    background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497457681/BYBI9R-CAAAnlp7_vmr6dd.jpg');
+  }
+
+  &.hwei:hover .img-hwei {
+    background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497457681/BYBI9R-CAAAnlp7_vmr6dd.jpg');
+  }
+
+  &.claudia:hover .img-claudia {
+    background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497457681/BYBI9R-CAAAnlp7_vmr6dd.jpg');
+  }
 }
 
 .fridateam-card__image {
@@ -59,10 +71,21 @@
   margin: auto;
 }
 
-.img-bekah:hover {
+.img-claudia {
   width: 220px;
+  margin-bottom: 35px;
   border-radius: 50%;
-  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497457681/BYBI9R-CAAAnlp7_vmr6dd.jpg');
+  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497456893/fridaprofilepic_klwang.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+}
+
+.img-hwei {
+  width: 220px;
+  margin-bottom: 35px;
+  border-radius: 50%;
+  background-image: url('http://res.cloudinary.com/rebekah/image/upload/v1497456893/fridaprofilepic_klwang.png');
   background-repeat: no-repeat;
   background-size: cover;
   margin: auto;
