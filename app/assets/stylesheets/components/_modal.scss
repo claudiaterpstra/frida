@@ -87,6 +87,7 @@
 .artwork{
   width: 100%;
   background-size: cover;
+  position: relative;
   &-pin{
     position: absolute;
     display: flex;

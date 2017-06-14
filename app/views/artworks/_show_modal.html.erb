@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
         <div class="modal-heading">
-          <div id="canvas-artwork-<%= artwork.id %>" style="height: 300px; width: 500px">
+          <div class="artwork" id="canvas-artwork-<%= artwork.id %>" style="height: 300px; width: 500px">
             <%= cl_image_tag image_url, width: 500, height: 300, crop: :fill %>
             <% if pins %>
               <% pins.each do |pin| %>
@@ -94,7 +94,7 @@
     var x0 = boundingRect.left
     var y0 = boundingRect.top
     var x = event.pageX
-    var y = event.pageY - $(this).parent().offset().top;
+    var y = event.pageY
     var width = $(this).width();
     var height = $(this).height();
     var left = Math.round(( (x - x0) / 500 ) * 100);
