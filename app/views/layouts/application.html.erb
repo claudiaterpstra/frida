@@ -9,12 +9,12 @@
 
 
     <!-- Facebook Open Graph data -->
-    <meta property="og:title" content="<%= content_for?(:meta_title) ? yield(:meta_title) : "Frida Awesome stuff" %>" />
+    <meta property="og:title" content="<%= meta_title %>" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= request.original_url %>" />
-    <meta property="og:image" content="<%= content_for?(:meta_image) ? yield(:meta_image) :  "" %>" />
-    <meta property="og:description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : "Frida Awesome stuff" %>" />
-    <meta property="og:site_name" content="Frida" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
