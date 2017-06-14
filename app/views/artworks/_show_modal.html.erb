@@ -8,9 +8,6 @@
 <div id="artwork-<%= artwork.id %>" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
-                <rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
-              </svg>
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Artwork by: <%= artwork.user.full_name %></h4>
