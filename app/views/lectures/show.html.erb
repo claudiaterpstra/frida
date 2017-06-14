@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do  %>
+  frida - <%= @lecture.title.downcase %>
+<% end %>
+
 <div class="lecture-container">
   <div class="lecture-banner">
     <iframe width="560" height="315" src="<%= @lecture.url %>" frameborder="0" allowfullscreen></iframe>

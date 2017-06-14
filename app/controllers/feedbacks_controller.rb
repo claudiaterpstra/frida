@@ -32,9 +32,9 @@ class FeedbacksController < ApplicationController
 
   def create_notification(feedback)
     if feedback.student.id == current_user.id
-      Notification.create(user_id: feedback.teacher.id, notified_by_id: current_user.id, feedback_id: feedback.id)
+      Notification.create(user_id: feedback.teacher.id, notified_by_id: current_user.id, feedback_id: feedback.id,  notice_type: 'comment')
     else
-      Notification.create(user_id: feedback.student.id, notified_by_id: current_user.id, feedback_id: feedback.id)
+      Notification.create(user_id: feedback.student.id, notified_by_id: current_user.id, feedback_id: feedback.id,  notice_type: 'comment')
     end
   end
 end

@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="icon" href="http://res.cloudinary.com/hw3i/image/upload/v1496240928/frida-icon_rrpsba.png">
-    <title>frida</title>
+    <title><%= yield(:title_tag).blank? ? "frida - the online art school" : yield(:title_tag) %></title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
 

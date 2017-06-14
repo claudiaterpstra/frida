@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do  %>
+  frida - give feedback
+<% end %>
+
 <%= render 'shared/subnav' %>
   <div class="container user-studio">
     <div class="row">
@@ -8,7 +12,7 @@
               <span class="artworks-filter-all <%= 'active' if params[:course].nil? && params[:lecture].nil? && params[:student].nil? %>"><li><%= link_to "View All Artwork (#{@user.student_artworks.count})", give_feedback_path %></li></span>
               <h4>View by student:</h4>
               <% @students.uniq.each do | student | %>
-                <span class="artworks-filter-names <%= 'active' if params[:student].to_i == student.id %>"><li><%= link_to "#{student.first_name} #{student.last_name} (#{@user.student_artworks.where(user: student).count})", give_feedback_path(student: student.id) %></li></span>
+                <span class="artworks-filter-names <%= 'active' if params[:student].to_i == student.id %>"><li><%= link_to "#{student.full_name} (#{@user.student_artworks.where(user: student).count})", give_feedback_path(student: student.id) %></li></span>
               <% end %>
 
               <h4>View by course:</h4>

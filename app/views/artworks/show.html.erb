@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do  %>
+  frida - <%= @artwork.message.capitalize %> by <%= @artwork.user.full_name %>
+<% end %>
+
 <% if @artwork %>
   <%= render 'show_modal', artwork: @artwork, feedback: @feedback, pins: @pins %>
 <% else %>

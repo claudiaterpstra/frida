@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170613102237) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,15 +56,15 @@ ActiveRecord::Schema.define(version: 20170613102237) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "price"
     t.integer  "rating"
     t.string   "category"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.boolean  "published"
     t.text     "materials"
     t.integer  "duration"
+    t.integer  "price_pennies", default: 0, null: false
     t.index ["user_id"], name: "index_courses_on_user_id", using: :btree
   end
 
@@ -94,9 +95,19 @@ ActiveRecord::Schema.define(version: 20170613102237) do
     t.boolean  "read",           default: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.string   "notice_type"
     t.index ["feedback_id"], name: "index_notifications_on_feedback_id", using: :btree
     t.index ["notified_by_id"], name: "index_notifications_on_notified_by_id", using: :btree
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "state"
+    t.integer  "amount_pennies", default: 0, null: false
+    t.json     "payment"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "course_id"
   end
 
   create_table "participations", force: :cascade do |t|

@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do  %>
+  frida - <%= current_user.full_name %>'s profile
+<% end %>
+
 <% if @user == current_user %>
 <%= render 'shared/subnav' %>
 <% end %>
@@ -64,7 +68,6 @@
 
       <div class="user-show-studio">
         <h3>Badges I've Earned</h3>
-        <p>BADGES HERE</p>
         <div class="achievement-badges">
           <div class="achievement-participation <%= current_user.one_participation? ? '' : 'hidden' %>"></div>
           <div class="achievement-three-participations <%= current_user.three_participations? ? '' : 'hidden' %>"></div>

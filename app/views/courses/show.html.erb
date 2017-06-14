@@ -1,4 +1,8 @@
-  <div class="container">
+<% content_for(:title_tag) do  %>
+  frida - <%= @course.name.downcase %> course by <%= @course.user.full_name %>
+<% end %>
+
+<div class="container">
   <div class="banner banner-course-image" style="background-image: url('<%= cl_image_path @course.photo? ? @course.photo.path : 'logo.png', crop: :fill %>');">
     <% if user_signed_in? %>
     <% current_user.participations.each do |participation| %>
@@ -15,20 +19,20 @@
     <div class="col-lg-3 col-md-4 hide-sm" id="sticky">
       <div class="course-side-bar">
         <div class="course-side-info">
-          <h2>£<%= @course.price %></h2>
+          <h2><p>Amount: <%= humanized_money_with_symbol(@course.price) %></p></h2>
           <p><%= @course.duration %> hours of video lessons </p>
           <div class="course-side-btn">
             <% if user_signed_in? %>
-            <% if @course.user == current_user %>
-            <%= link_to "Update", edit_course_path(@course), class: "btn btn-frida btn-teacher" %>
-            <%= link_to "Delete", course_path(@course), method: :delete, class: "btn btn-frida btn-teacher" %>
-            <% elsif current_user.participates_to?(@course)  %>
-            You are booked on this course
+              <% if @course.user == current_user %>
+                <%= link_to "Update", edit_course_path(@course), class: "btn btn-frida btn-teacher" %>
+                <%= link_to "Delete", course_path(@course), method: :delete, class: "btn btn-frida btn-teacher" %>
+              <% elsif current_user.participates_to?(@course)  %>
+                You have purchased this course
+              <% else %>
+                <%= render 'courses/shared/bookcoursebutton' %>
+              <% end %>
             <% else %>
-            <%= render 'courses/shared/bookcoursebutton' %>
-            <% end %>
-            <% else %>
-            <%= render 'courses/shared/bookcoursebutton' %>
+              <%= render 'courses/shared/bookcoursebutton' %>
             <% end %>
           </div>
           <div class="course-rating">
@@ -82,7 +86,7 @@
               <%= unique_image_tag(@course.user) %>
             </div>
             <div class="artist-bio">
-              <h2><%= @course.user.first_name %> <%= @course.user.last_name %></h2>
+              <h2><%= @course.user.full_name %></h2>
               <p><%= @course.user.biodata %></p>
 
               <div class="artist-socials">
@@ -120,7 +124,7 @@
 
             <% @course.course_reviews.each do |r| %>
             <p>
-              <%= r.user.first_name %> says:
+              <%= r.user.full_name %> says:
               <% r.rating.times do %>
               <i class="fa fa-heart" aria-hidden="true"></i>
               <% end %>

@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do  %>
+  frida - browse courses
+<% end %>
+
 <div class="container">
   <div class="text-center course-heading">
     <h1>Browse Courses</h1>
@@ -16,8 +20,8 @@
         </div>
         <div class="card-course-name">
           <h2><%= course.name %></h2>
-          <p>Artist: <%= course.user.first_name %> <%= course.user.last_name %></p>
-          £<%= course.price %>
+          <p>Artist: <%= course.user.full_name %></p>
+          <p>Amount: <%= humanized_money_with_symbol(course.price) %></p>
           <div class="course-rating">
           <p>
             Frida Says:
