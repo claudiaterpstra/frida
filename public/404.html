@@ -4,12 +4,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <style>
 
   .html, body {
     margin: 0;
     height: 100vh;
+    background-image: url(http://res.cloudinary.com/rebekah/image/upload/v1497352593/ER_Tech_1_bnynvt.jpg);
   }
 
   .error-page-wrapper {
@@ -38,15 +39,15 @@
  }
 
   .home {
-    background-color: #AB2B2B;
-    color: #FAF7EE;
+/*    background-color: #AB2B2B;*/
+    color: #AB2B2B;
     padding: 10px;
     border-radius: 5px;
     font-size: 15px;
     margin-top: 15px;
     text-decoration: none;
-    box-shadow: -1px 11px 10px -11px black;
-    z-index: 5;
+/*    box-shadow: -1px 11px 10px -11px black;
+*/    z-index: 5;
 
     &:hover {
       text-decoration: none;
@@ -59,7 +60,25 @@
   text-decoration: none;
   }
 
+  .floating{
+  animation-name: floating;
 
+  animation-duration: 1.5s;
+
+  animation-iteration-count: infinite;
+}
+
+  @keyframes floating {
+    0% {
+      transform: translateY(0%);
+    }
+    50% {
+      transform: translateY(12%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
 
     </style>
   </head>
@@ -72,12 +91,14 @@
         <a href="http://frida.studio/"><img style="width: 150px;" src="http://res.cloudinary.com/rebekah/image/upload/v1497438477/logo_copy_pot3ks.png" alt=""></a>
       </div>
       <div class="header-title">
-        <h2 style="font-size: 250px; margin-bottom: 0px; margin-top: 0px">404</h2>
-        <h3 style="font-size: 45px; width: 100%; margin-top: 0px; margin-bottom: 30px;">Oops! Something went wrong.</h3>
-        <a href="http://frida.studio/" class="home">Back to Homepage</a>
-      </div>
+        <h2 style="font-size: 250px; margin-bottom: 0px; margin-top: 0px; color: black;">404</h2>
+        <h3 style="font-size: 45px; width: 100%; margin-top: 0px; margin-bottom: 30px; color: black; ">Oops! Something went wrong.</h3>
+        <div class="animated floating"><a href="http://frida.studio/" class="home" id="backtohome">Back to Homepage</a>
+        </div>
     </div>
+<!--     <script>
+      $('#backToHome').addClass('animated floating');
+    </script> -->
   </body>
 </html>
-
 
