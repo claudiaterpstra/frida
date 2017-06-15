@@ -21,7 +21,6 @@
         <i class="fa fa-instagram" aria-hidden="true"></i>
         <i class="fa fa-dribbble" aria-hidden="true"></i>
         <i class="fa fa-github-alt" aria-hidden="true"></i>
-        <p><%= @user.biodata %></p>
         <br>
         <p>Member Since: <%= @user.created_at.strftime("%e %B %Y") %></p>
         <% if @user == current_user  %>
@@ -44,6 +43,7 @@
              <span>uploaded <%= pluralize @user.artworks.count, "artwork" %>.</span>
             </div>
         </h3>
+          <p><%= @user.biodata %></p>
       </div>
 
     <div class="hr-medium">
