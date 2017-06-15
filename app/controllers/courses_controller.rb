@@ -4,7 +4,8 @@ before_action :set_course, only: [:show, :edit, :update, :destroy]
   def index
     @courses = policy_scope(Course).order(created_at: :desc)
     @courses = if params[:search]
-      Course.where("category LIKE ?", "%#{params[:search]}%")
+      Course.where("category ILIKE ? or name ILIKE ?", "%#{params[:search]}%",
+        "%#{params[:search]}%")
     else
       Course.all
     end
