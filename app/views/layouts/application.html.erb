@@ -26,7 +26,9 @@
     <div id="global-wrapper">
       <%= yield %>
     </div>
-    <%= render 'shared/footer' %>
+    <% unless params[:action] == 'home' %>
+      <%= render 'shared/footer' %>
+    <% end %>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
     <%= yield(:after_js) %>

@@ -5,7 +5,7 @@ module ApplicationHelper
     elsif user.photo && user.photo.path
       cl_image_tag(user.photo.path, options)
     else
-      image_tag("https://placehold.it/32x32", options)
+      image_tag("http://res.cloudinary.com/rebekah/image/upload/v1497521007/frida-placeholder_lmvicp.jpg", options)
     end
   end
 end
