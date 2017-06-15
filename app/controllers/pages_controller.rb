@@ -1,11 +1,13 @@
 class PagesController < ApplicationController
-
   before_action :set_current_user, only: [:dashboard, :account, :manage_courses, :studio, :give_feedback]
 
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :about ]
   skip_after_action :verify_authorized, only: [ :home, :studentdashboard, :dashboard ]
 
   def home
+  end
+
+  def about
   end
 
   def dashboard
