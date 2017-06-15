@@ -31,7 +31,10 @@
   &:hover {
     cursor: pointer;
     background-color: $frida-red;
-    // color: #FFFFFF;
+    color: $frida-white;
+    i {
+      color: $frida-white;
+    }
   }
 }
 
