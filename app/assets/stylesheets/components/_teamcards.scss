@@ -27,6 +27,7 @@
 
   &:hover {
     box-shadow: -1px 15px 30px -12px $frida-red;
+    transform: translateY(-4px);
   }
 
   &.bekah:hover .img-bekah {
