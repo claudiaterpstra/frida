@@ -45,7 +45,7 @@ courses_attributes = [
   },
    {
     name: "Pop Art Painting",
-    description: "Pop art is an art movement that emerged in the mid-1950s in Britain and the late 1950s in the United States.[1] The movement presented a challenge to traditions of fine art by including imagery from popular and mass culture, such as advertising, comic books and mundane cultural objects.",
+    description: "Pop art is an art movement that emerged in the mid-1950s in Britain and the late 1950s in the United States. The movement presented a challenge to traditions of fine art by including imagery from popular and mass culture, such as advertising, comic books and mundane cultural objects.",
     price_pennies: 7000,
     rating: 4,
     category: "Modern",
