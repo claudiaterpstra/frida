@@ -6,7 +6,7 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def create?
-    user.courses.count > 0
+    user.teacher == true
   end
 
   def update?
