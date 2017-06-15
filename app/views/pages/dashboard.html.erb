@@ -1,5 +1,7 @@
-<% content_for(:title_tag) do  %>
-  frida - <%= current_user.full_name %>'s dashboard
+<% if @user.first_name %>
+  <% content_for(:title_tag) do  %>
+    frida - <%= current_user.full_name %>'s dashboard
+  <% end %>
 <% end %>
 
 <%= render 'shared/subnav' %>
