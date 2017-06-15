@@ -3,7 +3,10 @@
   <%= f.input :last_name %>
   <%= f.input :email %>
   <%= f.input :biodata, label: 'Bio' %>
-  <%= f.input :photo, as: :attachinary %>
+  <div class="input-group">
+    <i class="fa fa-upload" aria-hidden="true"></i>
+  <%= f.input :photo, as: :attachinary, label: 'Upload a photo...', input_html: { class: 'course_photo_upload' }, label_html: { class: 'course_photo_upload_label' } %>
+  </div>
 
-  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%= f.submit "Submit", class: "btn btn-frida" %>
 <% end %>

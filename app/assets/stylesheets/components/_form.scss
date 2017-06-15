@@ -21,3 +21,47 @@ textarea {
   height: 200px;
 }
 
+.course_photo_upload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.course_photo_upload_label {
+  padding: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 1px;
+  color: white;
+  background-color: #0f418c;
+  text-indent: 31px;
+  width: 57%;
+  display: inline-block;
+  cursor: pointer;
+    &:focus{
+      outline: 1px dotted #000;
+      outline: -webkit-focus-ring-color auto 5px;
+    }
+}
+
+.course_photo_upload_label:focus, .course_photo_upload_label:hover {
+  background-color: rgba(15,65,140,0.8);
+}
+
+.input-group {
+    position: relative;
+    width: 50%;
+  i {
+      position: absolute;
+      left: 11px;
+      top: 8px;
+      color: white;
+  }
+}
+
+#artwork_photo_upload_label {
+  width: 60%;
+}
