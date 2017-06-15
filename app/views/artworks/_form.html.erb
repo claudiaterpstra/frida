@@ -1,5 +1,8 @@
 <%= simple_form_for [lecture, artwork], remote: true, class: 'form-inline' do |f| %>
-      <%= f.input :photo, as: :attachinary, label: 'Upload Your Artwork' %>
+    <div class="input-group">
+      <i class="fa fa-upload" aria-hidden="true"></i>
+      <%= f.input :photo, as: :attachinary, label: 'Upload Your Artwork...', input_html: { class: 'course_photo_upload' }, label_html: { class: 'course_photo_upload_label', id: 'artwork_photo_upload_label' } %>
+    </div>
       <%= f.input :message, label:'Artwork Title' %>
       <%= f.submit "Submit", class: "btn btn-frida" %>
     <% end %>
