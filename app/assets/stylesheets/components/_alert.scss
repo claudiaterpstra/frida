@@ -9,7 +9,8 @@
   color: white;
 }
 .alert-info {
-  background: $green;
+  background: transparent;
+  border-color: transparent;
 }
 .alert-warning {
   background: $frida-red;
@@ -17,5 +18,6 @@
 
 .flash-absolute {
   position: absolute;
-  top: 70px;
+  top: 50px;
+  left: 41%;
 }
