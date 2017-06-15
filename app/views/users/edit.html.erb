@@ -1,14 +1,33 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
       <div class="padded">
-        <% if @user.first_name %>
-          <h1>Edit <%= @user.full_name %>'s Profile</h1>
-        <% else %>
+        <%# if @user.first_name %>
+          <h1>Edit <%# @user.full_name %>'s Profile</h1>
+        <%# else %>
           <h1>Edit Your Profile</h1>
-        <% end %>
-        <%= render 'form' %>
+        <%# end %>
+        <%# render 'form' %>
       </div>
     </div>
   </div>
+</div> -->
+
+
+<div class="edit-profile-info">
+  <div class="container edit-profile-title">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+          <p>User Information</p>
+            <% if @user.first_name %>
+              <h2>Editing <%= @user.full_name %>'s Profile</h2>
+            <% else %>
+              <h2>Editing Your Profile</h2>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="edit-profile-container">
+      <%= render 'form' %>
+    </div>
 </div>
