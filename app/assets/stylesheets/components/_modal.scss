@@ -50,39 +50,40 @@
 }
 
 .feedback-content {
-  border: 1px solid $frida-grey;
+  // border: 1px solid $frida-grey;
+  background-color: $frida-light-grey;
   padding: 10px;
   border-radius: 8px;
   position: relative;
 }
 
-.triangle-right {
-  position: absolute;
-  right: -5.7px;
-  top: 0px;
-  bottom: 0px;
-  margin: auto 0px;
-  height: 10px;
-  width: 10px;
-  border-right: 1px solid $frida-grey;
-  border-top: 1px solid $frida-grey;
-  transform: rotate(45deg);
-  background: white;
-}
+// .triangle-right {
+//   position: absolute;
+//   right: -5.7px;
+//   top: 0px;
+//   bottom: 0px;
+//   margin: auto 0px;
+//   height: 10px;
+//   width: 10px;
+//   border-right: 1px solid $frida-grey;
+//   border-top: 1px solid $frida-grey;
+//   transform: rotate(45deg);
+//   background: white;
+// }
 
-.triangle-left {
-  position: absolute;
-  left: -5.7px;
-  top: 0px;
-  bottom: 0px;
-  margin: auto 0px;
-  height: 10px;
-  width: 10px;
-  border-left: 1px solid $frida-grey;
-  border-bottom: 1px solid $frida-grey;
-  transform: rotate(45deg);
-  background: white;
-}
+// .triangle-left {
+//   position: absolute;
+//   left: -5.7px;
+//   top: 0px;
+//   bottom: 0px;
+//   margin: auto 0px;
+//   height: 10px;
+//   width: 10px;
+//   border-left: 1px solid $frida-grey;
+//   border-bottom: 1px solid $frida-grey;
+//   transform: rotate(45deg);
+//   background: white;
+// }
 
 .artwork{
   width: 500px;
