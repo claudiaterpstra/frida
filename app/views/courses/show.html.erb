@@ -1,4 +1,4 @@
-<% if @user.first_name && @course.name %>
+<% if @course.user.first_name && @course.name %>
   <% content_for(:title_tag) do  %>
     frida - <%= @course.name.downcase %> course by <%= @course.user.full_name %>
   <% end %>
