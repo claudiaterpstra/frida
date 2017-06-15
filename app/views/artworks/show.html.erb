@@ -1,5 +1,11 @@
-<% content_for(:title_tag) do  %>
-  frida - <%= @artwork.message.capitalize %> by <%= @artwork.user.full_name %>
+<% if @artwork.user.first_name && @artwork.message %>
+  <% content_for(:title_tag) do  %>
+    frida - <%= @artwork.message.capitalize %> by <%= @artwork.user.full_name %>
+  <% end %>
+<% else %>
+  <% content_for(:title_tag) do  %>
+    frida - your artwork
+  <% end %>
 <% end %>
 
 <% if @artwork %>

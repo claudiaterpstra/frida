@@ -1,4 +1,4 @@
-<% if @user.first_name %>
+<% if current_user.first_name %>
   <% content_for(:title_tag) do  %>
     frida - <%= current_user.full_name %>'s profile
   <% end %>

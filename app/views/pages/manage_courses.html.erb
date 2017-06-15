@@ -1,5 +1,7 @@
-<% content_for(:title_tag) do  %>
-  frida - manage <%= current_user.full_name %>'s courses
+<% if @user.first_name %>
+  <% content_for(:title_tag) do  %>
+    frida - manage <%= current_user.full_name %>'s courses
+  <% end %>
 <% end %>
 
 <%= render 'shared/subnav' %>
