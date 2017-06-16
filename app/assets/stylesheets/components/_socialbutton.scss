@@ -121,3 +121,8 @@ $bs-height-xs:   (floor($font-size-small * 1.2) + $padding-small-vertical + 1) !
     -webkit-font-smoothing: antialiased;
     padding: 25px;
   }
+
+.btn-facebook {
+  padding: 15px;
+  text-align: center;
+}

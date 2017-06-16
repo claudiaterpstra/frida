@@ -28,6 +28,13 @@
 
 .additional-links a {
   text-align: left;
+  color: $frida-red;
+  text-decoration: none;
+
+  &:hover {
+    color: $frida-grey;
+    text-decoration: none;
+  }
 }
 
 .line-text p {
