@@ -44,8 +44,41 @@
 }
 
 .stripe-button-el {
+  background-color: #ab2b2b !important;
+  background-image: none !important;
   margin-top: 10px;
   margin-bottom: 15px;
+  background-image: none;
+  background-color: transparent;
+  border-color: $frida-red !important;
+  border-radius: 0px;
+  box-shadow: none;
+  width: 200px;
+}
+
+// .Button-animationWrapper-child--primary .Button{
+//   background-color: #ab2b2b !important;
+//   background-image: none !important;
+//   margin-top: 10px;
+//   margin-bottom: 15px;
+//   background-image: none;
+//   background-color: transparent;
+//   border-color: $frida-red !important;
+//   border-radius: 0px;
+//   box-shadow: none;
+//   width: 200px;
+// }
+
+.stripe-button-el span{
+  display: block;
+  background-image: none !important;
+  background: $frida-red !important;
+  background-color: #ab2b2b;
+  border-radius: 2px;
+  border-color: $frida-red !important;
+  text-shadow: none;
+  padding: 15px 0px;
+  transition: all .15s ease;
 }
 
 .order-links {
