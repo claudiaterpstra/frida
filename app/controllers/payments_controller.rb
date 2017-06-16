@@ -20,7 +20,7 @@ class PaymentsController < ApplicationController
   )
 
   @order.update(payment: charge.to_json, state: 'paid')
-  Participation.create!(user_id: current_user.id, course_id: @order.course_id)
+  Participation.create(user_id: current_user.id, course_id: @order.course_id)
   redirect_to order_path(@order)
 
   rescue Stripe::CardError => e

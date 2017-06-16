@@ -32,8 +32,10 @@
               <% if @course.user == current_user %>
                 <%= link_to "Update", edit_course_path(@course), class: "btn btn-frida btn-teacher" %>
                 <%= link_to "Delete", course_path(@course), method: :delete, class: "btn btn-frida btn-teacher" %>
-              <% elsif current_user.participates_to?(@course)  %>
+              <% elsif current_user.participates_to?(@course) && @course.price_pennies > 0  %>
                 You have purchased this course
+              <% elsif current_user.participates_to?(@course) && @course.price_pennies.zero?  %>
+                You have joined this course
               <% else %>
                 <%= render 'courses/shared/bookcoursebutton' %>
               <% end %>
