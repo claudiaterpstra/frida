@@ -39,11 +39,11 @@
               <% current_user.notifications.where(read: false).each do |notification| %>
                 <% if current_user.courses.include?(notification.feedback.artwork.lecture.course) %>
                   <li>
-                    <%= link_to "#{User.find(notification.notified_by_id).full_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", link_through_path(notification) %>
+                    <%= link_to "#{User.find(notification.notified_by_id).first_name} has requested feedback for #{notification.feedback.artwork.lecture.title}.", link_through_path(notification) %>
                   </li>
                 <% else %>
                   <li>
-                    <%= link_to "#{User.find(notification.notified_by_id).full_name} has #{notification.notice_type}ed on your artwork #{notification.feedback.artwork.message}", link_through_path(notification) %>
+                    <%= link_to "#{User.find(notification.notified_by_id).first_name} has #{notification.notice_type}ed on your artwork #{notification.feedback.artwork.message}", link_through_path(notification) %>
                   </li>
                 <% end %>
               <% end %>
