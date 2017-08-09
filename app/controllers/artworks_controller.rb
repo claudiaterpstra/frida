@@ -54,6 +54,13 @@ class ArtworksController < ApplicationController
     redirect_to user_path(@artwork.user)
   end
 
+  def unfeature
+    @artwork = Artwork.find(params[:artwork_id])
+    @artwork.featured = false
+    @artwork.save
+    redirect_to user_path(@artwork.user)
+  end
+
   private
 
   def set_lecture

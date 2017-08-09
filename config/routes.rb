@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :artworks, only: [:index, :show, :edit, :destroy] do
     resources :feedbacks, only: [:show, :create]
     patch '/feature', to: 'artworks#feature'
+    patch '/unfeature', to: 'artworks#unfeature'
     resources :pins, only:[:create]
   end
 

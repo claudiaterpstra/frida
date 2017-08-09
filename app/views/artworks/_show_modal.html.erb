@@ -28,13 +28,12 @@
         <br>
         <h4>Title: <%= artwork.message %></h4>
           <% if artwork.user == current_user %>
-          <% if artwork.featured %>
-
+            <% if artwork.featured %>
             <h4><i class="fa fa-star" id="featured-star"></i>Featured on your Profile Page</h4>
-
+              <h4 class="featured-text"><%= link_to 'Click to remove from Profile Page'.html_safe, artwork_unfeature_path(artwork), method: :patch %></h4>
             <% else %>
-          <h4 class="featured-text"><%= link_to '<i class="fa fa-star-o" id="featured-star-o"></i> Click to feature on your Profile Page'.html_safe, artwork_feature_path(artwork), method: :patch %></h4>
-          <% end %>
+              <h4 class="featured-text"><%= link_to '<i class="fa fa-star-o" id="featured-star-o"></i> Click to feature on your Profile Page'.html_safe, artwork_feature_path(artwork), method: :patch %></h4>
+            <% end %>
           <% end %>
           </div>
         <hr>
